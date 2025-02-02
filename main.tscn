@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://k6iu3f6gxjmv"]
+
+[ext_resource type="PackedScene" uid="uid://buy076pd5xjtc" path="res://world.tscn" id="1_ps34b"]
+[ext_resource type="PackedScene" uid="uid://bicxxsvdda42l" path="res://gui.tscn" id="2_v16o8"]
+
+[node name="Main" type="Node"]
+
+[node name="World" parent="." instance=ExtResource("1_ps34b")]
+
+[node name="GUI" parent="." instance=ExtResource("2_v16o8")]
