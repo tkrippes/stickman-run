@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfrcxqbuyt7sg"]
+[gd_scene load_steps=4 format=3 uid="uid://bfrcxqbuyt7sg"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_6ylh5"]
 [ext_resource type="Texture2D" uid="uid://u6a6gps6tthn" path="res://art/Stickman.png" id="1_fupkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1pud"]
@@ -9,6 +10,7 @@ size = Vector2(7.2, 16)
 texture_filter = 1
 position = Vector2(7.62939e-06, 6.10352e-05)
 scale = Vector2(10, 10)
+script = ExtResource("1_6ylh5")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
