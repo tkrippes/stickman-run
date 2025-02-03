@@ -29,8 +29,8 @@ autostart = true
 [node name="SpeedIncreaseTimer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="player_died" from="." to="Obstacletimer" method="stop"]
+[connection signal="player_died" from="." to="SpeedIncreaseTimer" method="stop"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
-[connection signal="hit" from="Player" to="Obstacletimer" method="stop"]
-[connection signal="hit" from="Player" to="SpeedIncreaseTimer" method="stop"]
 [connection signal="timeout" from="Obstacletimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="SpeedIncreaseTimer" to="." method="_on_speed_increase_timer_timeout"]
