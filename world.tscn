@@ -4,20 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://obstacle.tscn" id="2_0ox0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
-size = Vector2(1282, 16)
+size = Vector2(192, 8)
 
 [node name="World" type="Node2D"]
 texture_filter = 1
 
 [node name="Player" parent="." instance=ExtResource("1_jyfub")]
-position = Vector2(224, 640)
-scale = Vector2(10, 10)
+position = Vector2(24, 88)
 
 [node name="Obstacle" parent="." instance=ExtResource("2_0ox0h")]
-position = Vector2(1240, 680)
+position = Vector2(184, 88)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Ground"]
-position = Vector2(640, 728)
+position = Vector2(96, 100)
 shape = SubResource("RectangleShape2D_tks1e")
