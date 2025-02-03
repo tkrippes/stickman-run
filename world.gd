@@ -4,8 +4,12 @@ signal game_over
 
 @export var obstacle_sceen: PackedScene
 @export var obstacle_spawn_location: Vector2i
+
 @export var initial_obstacle_speed: float = 75.0
-@export var obstacle_speed_increase: float = 1
+@export var obstacle_speed_multiplier: float = 1.01
+
+@export var obstacle_timer_multiplier: float = 0.99
+
 
 var obstacle_speed: float
 
@@ -28,5 +32,7 @@ func _on_obstacle_timer_timeout() -> void:
 
 
 func _on_speed_increase_timer_timeout() -> void:
-	obstacle_speed += obstacle_speed_increase
+	($Obstacletimer as Timer).wait_time *= obstacle_timer_multiplier
+	
+	obstacle_speed *= obstacle_speed_multiplier
 	get_tree().call_group("obstacles", "set_speed", obstacle_speed)
