@@ -26,4 +26,6 @@ shape = SubResource("RectangleShape2D_tks1e")
 wait_time = 1.5
 autostart = true
 
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="hit" from="Player" to="Mobtimer" method="stop"]
 [connection signal="timeout" from="Mobtimer" to="." method="_on_mob_timer_timeout"]

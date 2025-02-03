@@ -8,3 +8,5 @@
 [node name="World" parent="." instance=ExtResource("1_ps34b")]
 
 [node name="GUI" parent="." instance=ExtResource("2_v16o8")]
+
+[connection signal="game_over" from="World" to="GUI" method="_on_game_over"]

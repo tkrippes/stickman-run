@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -250.0
+signal hit
+
+@export var jump_speed: float = -250.0
 
 
 func _physics_process(delta: float) -> void:
@@ -10,7 +12,8 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_speed
+		  
 
 	var _collided := move_and_slide()
 	for index: int in range(get_slide_collision_count()):
@@ -20,3 +23,4 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	queue_free()
+	hit.emit()
