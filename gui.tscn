@@ -37,3 +37,14 @@ theme_override_font_sizes/font_size = 16
 text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SpeedLabel" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 12.0
+grow_horizontal = 0
+text = "Speed: 0.0"
