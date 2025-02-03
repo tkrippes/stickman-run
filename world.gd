@@ -1,6 +1,7 @@
 extends Node2D
 
-signal game_over
+signal player_died
+signal player_scored
 
 @export var obstacle_sceen: PackedScene
 @export var obstacle_spawn_location: Vector2i
@@ -20,13 +21,17 @@ func _ready() -> void:
 
 func _on_player_hit() -> void:
 	get_tree().call_group("obstacles", "queue_free")
-	game_over.emit()
+	player_died.emit()
+	
+func _on_obstacle_left_screen() -> void:
+	player_scored.emit()
 
 
 func _on_obstacle_timer_timeout() -> void:
 	var obstacle: Obstacle = obstacle_sceen.instantiate()
 	obstacle.position = obstacle_spawn_location
 	obstacle.speed = obstacle_speed
+	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
 	
 	add_child(obstacle)
 

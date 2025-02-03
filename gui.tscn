@@ -5,7 +5,7 @@
 
 [sub_resource type="Theme" id="Theme_cysb7"]
 default_font = ExtResource("1_lgt2b")
-default_font_size = 16
+default_font_size = 12
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -17,6 +17,13 @@ grow_vertical = 2
 theme = SubResource("Theme_cysb7")
 script = ExtResource("1_u3s1v")
 
+[node name="ScoreLabel" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+offset_right = 58.0
+offset_bottom = 15.0
+text = "Score: 0"
+
 [node name="GameOverLabel" type="Label" parent="."]
 visible = false
 texture_filter = 1
@@ -26,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 16
 text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
