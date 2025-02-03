@@ -6,3 +6,7 @@ extends RigidBody2D
 
 func _physics_process(delta: float) -> void:
 	var _collision := move_and_collide(Vector2(-speed * delta, 0))
+
+
+func delete() -> void:
+	queue_free()

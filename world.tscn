@@ -1,22 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=5 format=3 uid="uid://buy076pd5xjtc"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://player.tscn" id="1_jyfub"]
 [ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://obstacle.tscn" id="2_0ox0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
-size = Vector2(192, 8)
+size = Vector2(216, 8)
 
 [node name="World" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_3wqkn")
+obstacle_sceen = ExtResource("2_0ox0h")
+obstacle_spawn_location = Vector2i(208, 88)
 
 [node name="Player" parent="." instance=ExtResource("1_jyfub")]
 position = Vector2(24, 88)
 
-[node name="Obstacle" parent="." instance=ExtResource("2_0ox0h")]
-position = Vector2(184, 88)
-
 [node name="Ground" type="StaticBody2D" parent="."]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Ground"]
-position = Vector2(96, 100)
+position = Vector2(108, 100)
 shape = SubResource("RectangleShape2D_tks1e")
+
+[node name="Mobtimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Mobtimer" to="." method="_on_mob_timer_timeout"]
