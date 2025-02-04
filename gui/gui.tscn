@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bicxxsvdda42l"]
 
 [ext_resource type="FontFile" uid="uid://y5n0qsqeagv5" path="res://fonts/HomeVideo-BLG6G.ttf" id="1_lgt2b"]
-[ext_resource type="Script" path="res://gui.gd" id="1_u3s1v"]
+[ext_resource type="Script" path="res://gui/gui.gd" id="1_u3s1v"]
 
 [sub_resource type="Theme" id="Theme_cysb7"]
 default_font = ExtResource("1_lgt2b")

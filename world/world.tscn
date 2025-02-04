@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://buy076pd5xjtc"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_3wqkn"]
-[ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://player.tscn" id="1_jyfub"]
-[ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://obstacle.tscn" id="2_0ox0h"]
+[ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
+[ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
+[ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://world/obstacles/obstacle.tscn" id="2_0ox0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
 size = Vector2(216, 8)
