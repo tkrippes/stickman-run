@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	var _collided := move_and_slide()
 	for index: int in range(get_slide_collision_count()):
 		var collider := get_slide_collision(index).get_collider()
-		if collider != null && collider is Obstacle:
+		if collider != null && (collider as Node).is_in_group("obstacles"):
 			die()
 
 func die() -> void:

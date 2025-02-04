@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d157j7ehh16fn"]
+
+[ext_resource type="Script" path="res://world/obstacles/box.gd" id="1_gbv1k"]
+[ext_resource type="Texture2D" uid="uid://bh5pq6qjheb7a" path="res://art/Box.png" id="1_smbvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyqey"]
+size = Vector2(4, 14)
+
+[node name="Box" type="RigidBody2D" groups=["obstacles"]]
+gravity_scale = 0.0
+script = ExtResource("1_gbv1k")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_smbvj")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." groups=["obstacles"]]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_xyqey")
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]

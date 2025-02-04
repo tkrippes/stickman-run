@@ -4,7 +4,7 @@ signal player_died
 signal player_scored
 signal obstacle_speed_updated(speed: float)
 
-@export var obstacle_sceen: PackedScene
+@export var obstacle_sceens: Array[PackedScene]
 @export var obstacle_spawn_location: Vector2i
 
 @export var initial_obstacle_speed: float = 75.0
@@ -34,6 +34,7 @@ func _on_obstacle_left_screen() -> void:
 
 
 func _on_obstacle_timer_timeout() -> void:
+	var obstacle_sceen: PackedScene = obstacle_sceens.pick_random()
 	var obstacle: Obstacle = obstacle_sceen.instantiate()
 	obstacle.position = obstacle_spawn_location
 	obstacle.speed = obstacle_speed

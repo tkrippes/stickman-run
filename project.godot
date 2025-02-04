@@ -32,6 +32,10 @@ window/size/window_width_override=1440
 window/size/window_height_override=720
 window/stretch/mode="viewport"
 
+[global_group]
+
+obstacles=""
+
 [input]
 
 jump={

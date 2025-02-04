@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=7 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
-[ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://world/obstacles/obstacle.tscn" id="2_0ox0h"]
+[ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://world/obstacles/spike.tscn" id="2_0ox0h"]
+[ext_resource type="PackedScene" uid="uid://d157j7ehh16fn" path="res://world/obstacles/box.tscn" id="3_ej6jp"]
+[ext_resource type="PackedScene" uid="uid://bw3w5fe3we3fr" path="res://world/obstacles/ball.tscn" id="4_606ak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
 size = Vector2(216, 8)
@@ -10,7 +12,7 @@ size = Vector2(216, 8)
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_3wqkn")
-obstacle_sceen = ExtResource("2_0ox0h")
+obstacle_sceens = Array[PackedScene]([ExtResource("2_0ox0h"), ExtResource("3_ej6jp"), ExtResource("4_606ak")])
 obstacle_spawn_location = Vector2i(208, 88)
 
 [node name="Player" parent="." instance=ExtResource("1_jyfub")]

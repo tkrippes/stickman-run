@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw3w5fe3we3fr"]
+
+[ext_resource type="Script" path="res://world/obstacles/ball.gd" id="1_aihj8"]
+[ext_resource type="Texture2D" uid="uid://bw740v7mw2b1l" path="res://art/Ball.png" id="2_pqdny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcl71"]
+size = Vector2(10, 10)
+
+[node name="Ball" type="RigidBody2D" groups=["obstacles"]]
+gravity_scale = 0.0
+script = ExtResource("1_aihj8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_pqdny")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_vcl71")
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]
