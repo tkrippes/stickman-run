@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://fkv4wox2t24a"]
+
+[ext_resource type="Script" path="res://world/background.gd" id="1_3pa62"]
+[ext_resource type="Texture2D" uid="uid://4lm1wllvxjl1" path="res://art/Sky.png" id="2_muqf3"]
+[ext_resource type="Texture2D" uid="uid://baqsroqvr31ak" path="res://art/Mountains.png" id="3_svx8i"]
+[ext_resource type="Texture2D" uid="uid://bilg6g2jsja7q" path="res://art/Forest.png" id="4_nfb8f"]
+[ext_resource type="Texture2D" uid="uid://j8p8ejc01ou1" path="res://art/Grass.png" id="5_7ovnc"]
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_3pa62")
+
+[node name="Sky" type="Parallax2D" parent="."]
+repeat_size = Vector2(24, 0)
+repeat_times = 9
+
+[node name="Sprite" type="Sprite2D" parent="Sky"]
+texture_filter = 1
+position = Vector2(84, 12)
+texture = ExtResource("2_muqf3")
+
+[node name="Mountains" type="Parallax2D" parent="."]
+repeat_size = Vector2(24, 0)
+repeat_times = 9
+
+[node name="Sprite" type="Sprite2D" parent="Mountains"]
+texture_filter = 1
+position = Vector2(84, 36)
+texture = ExtResource("3_svx8i")
+
+[node name="Forest" type="Parallax2D" parent="."]
+repeat_size = Vector2(24, 0)
+repeat_times = 9
+
+[node name="Sprite" type="Sprite2D" parent="Forest"]
+texture_filter = 1
+position = Vector2(84, 60)
+texture = ExtResource("4_nfb8f")
+
+[node name="Grass" type="Parallax2D" parent="."]
+scroll_offset = Vector2(85, 53)
+repeat_size = Vector2(24, 0)
+repeat_times = 9
+
+[node name="Sprite" type="Sprite2D" parent="Grass"]
+texture_filter = 1
+position = Vector2(95, 31)
+texture = ExtResource("5_7ovnc")
