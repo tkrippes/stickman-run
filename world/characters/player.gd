@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_speed
+		_jump()
 	
 	velocity.x = _run_speed
 		  
@@ -24,6 +24,16 @@ func _physics_process(delta: float) -> void:
 		var collider := get_slide_collision(index).get_collider()
 		if collider != null && (collider as Node).is_in_group("obstacles"):
 			die()
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if (event as InputEventScreenTouch).pressed and is_on_floor():
+			_jump()
+
+
+func _jump() -> void:
+	velocity.y = jump_speed
 
 
 func set_run_speed(run_speed: float) -> void:
