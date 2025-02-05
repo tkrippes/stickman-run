@@ -4,6 +4,8 @@ signal hit
 
 @export var jump_speed: float = -250.0
 
+var _run_speed: float
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -13,6 +15,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
+	
+	velocity.x = _run_speed
 		  
 
 	var _collided := move_and_slide()
@@ -20,6 +24,11 @@ func _physics_process(delta: float) -> void:
 		var collider := get_slide_collision(index).get_collider()
 		if collider != null && (collider as Node).is_in_group("obstacles"):
 			die()
+
+
+func set_run_speed(run_speed: float) -> void:
+	_run_speed = run_speed
+
 
 func die() -> void:
 	queue_free()

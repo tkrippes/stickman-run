@@ -9,11 +9,14 @@ script = ExtResource("1_oxerq")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(8, -8)
 texture = ExtResource("2_v4c10")
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2(8, -8)
 polygon = PackedVector2Array(-8, 8, 0, 0, 8, 8)
 
 [node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(8, -10)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]

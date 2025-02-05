@@ -12,6 +12,6 @@ script = ExtResource("1_2wqjk")
 [node name="GUI" parent="." instance=ExtResource("2_v16o8")]
 
 [connection signal="score_updated" from="." to="GUI" method="_on_score_updated"]
-[connection signal="obstacle_speed_updated" from="World" to="GUI" method="_on_obstacle_speed_updated"]
 [connection signal="player_died" from="World" to="GUI" method="_on_player_died"]
 [connection signal="player_scored" from="World" to="." method="_on_player_scored"]
+[connection signal="player_speed_updated" from="World" to="GUI" method="_on_player_speed_updated"]

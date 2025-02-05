@@ -12,12 +12,14 @@ script = ExtResource("1_gbv1k")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(2, -8)
 texture = ExtResource("1_smbvj")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." groups=["obstacles"]]
-position = Vector2(0, 1)
+position = Vector2(2, -7)
 shape = SubResource("RectangleShape2D_xyqey")
 
 [node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2, -10)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]
