@@ -11,7 +11,7 @@ var run_speed: float
 
 
 func _ready() -> void:
-	run_speed = initial_run_speed
+	run_speed = 0.0
 
 
 func _physics_process(delta: float) -> void:
@@ -39,6 +39,10 @@ func _input(event: InputEvent) -> void:
 			_jump()
 
 
+func start_running() -> void:
+	run_speed = initial_run_speed
+
+
 func increase_run_speed() -> void:
 	run_speed *= run_speed_multiplier
 
@@ -48,5 +52,6 @@ func _jump() -> void:
 
 
 func _die() -> void:
-	queue_free()
+	hide()
+	run_speed = 0.0
 	hit.emit()

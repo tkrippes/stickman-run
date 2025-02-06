@@ -11,14 +11,17 @@ Stickman Run is a single player game. You are playing a stickman who is running 
 ### Keyboard
 
 - Jump: `Space`
+- Start game: `Enter`
 
 ### Mobile
 
 - Jump: `Tap touchscreen`
+- Start game: `Tap touchscreen`
 
 ### Controller
 
 - Jump: `Bottom action` (Sony: `Cross`, Xbox: `A`, Nintendo `B`)
+- Start game: `Start` (Sony: `Start`, Xbox: `Menu`, Nintendo `+`)
 
 ## Credits
 

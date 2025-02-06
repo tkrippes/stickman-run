@@ -11,14 +11,35 @@ signal player_speed_updated(speed: float)
 @export var ball_fall_height: int = 16
 
 var _player: Player
+var _obstacle_timer: Timer
+var _speed_increase_timer: Timer
 var _screen_size: Vector2i
+var _initial_obstacle_timer_wait_time: float
 
 
 func _ready() -> void:
 	_player = $Player
+	_obstacle_timer = $Obstacletimer
+	_speed_increase_timer = $SpeedIncreaseTimer
+	_initial_obstacle_timer_wait_time = _obstacle_timer.wait_time
+	
 	_emit_player_speed_updated()
 	
 	_screen_size = get_viewport_rect().size
+
+
+func _on_game_started() -> void:
+	_player.show()
+	_emit_player_speed_updated()
+
+
+func _on_level_started() -> void:
+	_player.start_running()
+	_emit_player_speed_updated()
+	
+	_obstacle_timer.wait_time = _initial_obstacle_timer_wait_time
+	_obstacle_timer.start()
+	_speed_increase_timer.start()
 
 
 func _on_player_hit() -> void:
@@ -49,7 +70,7 @@ func _emit_player_speed_updated() -> void:
 
 
 func _on_speed_increase_timer_timeout() -> void:
-	($Obstacletimer as Timer).wait_time *= obstacle_timer_multiplier
+	_obstacle_timer.wait_time *= obstacle_timer_multiplier
 	
 	_player.increase_run_speed()
 	_emit_player_speed_updated()
