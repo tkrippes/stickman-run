@@ -1,14 +1,20 @@
-# My Running Game
+# Stickman Run
 
-A running game inspired by the `Dinosaur Game` by Google, playable in the Chrome browser while being offline.
+A running game inspired by the [Dinosaur Game](https://en.wikipedia.org/wiki/Dinosaur_Game) by Google, playable in the Chrome browser while being offline, but featuring a stickman.
 
 ## Description
 
-TODO
+Stickman Run is a single player game. You are playing a stickman who is running increasingly faster and has to avoid obstacles in order to continue. The goal of the game is to score the most points. For each obstacle you avoid, you receive one point.
 
 ## Controls
 
-TODO
+### Keyboard
+
+- Jump: `Space`
+
+### Mobile
+
+- Jump: `Tap touchscreen`
 
 ## Credits
 
