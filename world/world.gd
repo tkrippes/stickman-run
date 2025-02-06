@@ -11,6 +11,8 @@ signal player_speed_updated(speed: float)
 @export var obstacle_spawn_location: Vector2i
 @export var obstacle_timer_multiplier: float = 0.99
 
+@export var ball_fall_height: int = 16
+
 
 var _player_speed: float
 var _screen_size: Vector2i
@@ -38,7 +40,12 @@ func _on_obstacle_left_screen() -> void:
 func _on_obstacle_timer_timeout() -> void:
 	var obstacle_sceen: PackedScene = obstacle_sceens.pick_random()
 	var obstacle: Obstacle = obstacle_sceen.instantiate()
-	obstacle.position = Vector2(($Player as CharacterBody2D).position.x + _screen_size.x, _screen_size.y)
+	
+	var obstacle_position := Vector2(($Player as CharacterBody2D).position.x + _screen_size.x, _screen_size.y)
+	if obstacle is Ball:
+		obstacle_position.y -= ball_fall_height
+	obstacle.position = obstacle_position
+	
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
 	
 	add_child(obstacle)
