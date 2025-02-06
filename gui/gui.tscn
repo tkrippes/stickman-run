@@ -25,6 +25,7 @@ layout_mode = 1
 offset_right = 61.0
 offset_bottom = 23.0
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Score: 0"
 
 [node name="GameOverLabel" type="Label" parent="Control"]
@@ -42,6 +43,7 @@ offset_right = 48.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "GAME OVER!"
 horizontal_alignment = 1
@@ -56,4 +58,5 @@ anchor_right = 1.0
 offset_left = -79.0
 offset_bottom = 23.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Speed: 0.0"
