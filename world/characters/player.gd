@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"):
 		_jump()
 	
 	velocity.x = run_speed
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
-		if (event as InputEventScreenTouch).pressed and is_on_floor():
+		if (event as InputEventScreenTouch).is_pressed():
 			_jump()
 
 
@@ -48,7 +48,8 @@ func increase_run_speed() -> void:
 
 
 func _jump() -> void:
-	velocity.y = jump_speed
+	if is_on_floor() and run_speed > 0.0:
+		velocity.y = jump_speed
 
 
 func _die() -> void:

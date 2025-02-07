@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
-		if (event as InputEventScreenTouch).pressed:
+		if (event as InputEventScreenTouch).is_pressed():
 			_change_game_state()
 
 
