@@ -13,7 +13,7 @@ var animation: AnimatedSprite2D
 
 func _ready() -> void:
 	run_speed = 0.0
-	animation = $Animation
+	animation = $AnimationSprite
 
 
 func _physics_process(delta: float) -> void:

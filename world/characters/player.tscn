@@ -60,7 +60,7 @@ size = Vector2(7, 16)
 texture_filter = 1
 script = ExtResource("1_6ylh5")
 
-[node name="Animation" type="AnimatedSprite2D" parent="."]
+[node name="AnimationSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_euvrf")
 animation = &"running"
 
