@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal hit
 
 @export var initial_run_speed: float = 75.0
-@export var run_speed_multiplier: float = 1.01
+@export var speed_multiplier: float = 1.01
 @export var jump_speed: float = -250.0
 
 var run_speed: float
@@ -49,8 +49,9 @@ func start_running() -> void:
 	run_speed = initial_run_speed
 
 
-func increase_run_speed() -> void:
-	run_speed *= run_speed_multiplier
+func increase_speed() -> void:
+	run_speed *= speed_multiplier
+	animation.speed_scale *= speed_multiplier
 
 
 func _jump() -> void:

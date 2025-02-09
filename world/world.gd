@@ -72,5 +72,5 @@ func _emit_player_speed_updated() -> void:
 func _on_speed_increase_timer_timeout() -> void:
 	_obstacle_timer.wait_time *= obstacle_timer_multiplier
 	
-	_player.increase_run_speed()
+	_player.increase_speed()
 	_emit_player_speed_updated()
