@@ -8,10 +8,12 @@ signal hit
 @export var jump_speed: float = -250.0
 
 var run_speed: float
+var animation: AnimatedSprite2D
 
 
 func _ready() -> void:
 	run_speed = 0.0
+	animation = $Animation
 
 
 func _physics_process(delta: float) -> void:
@@ -24,7 +26,11 @@ func _physics_process(delta: float) -> void:
 		_jump()
 	
 	velocity.x = run_speed
-		  
+	if velocity.x > 0.0:
+		animation.animation = "running"
+		animation.play()
+	else:
+		animation.stop()
 
 	var _collided := move_and_slide()
 	for index: int in range(get_slide_collision_count()):

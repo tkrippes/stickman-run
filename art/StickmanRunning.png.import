@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u6a6gps6tthn"
-path="res://.godot/imported/Stickman.png-e967c19a1afb38a91fb9bda1c4f91cca.ctex"
+uid="uid://l44hibldjoe3"
+path="res://.godot/imported/StickmanRunning.png-b5c675d8ab2c433952c354d736fb1525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Stickman.png"
-dest_files=["res://.godot/imported/Stickman.png-e967c19a1afb38a91fb9bda1c4f91cca.ctex"]
+source_file="res://art/StickmanRunning.png"
+dest_files=["res://.godot/imported/StickmanRunning.png-b5c675d8ab2c433952c354d736fb1525.ctex"]
 
 [params]
 
