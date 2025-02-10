@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://fkv4wox2t24a"]
 
-[ext_resource type="Texture2D" uid="uid://4lm1wllvxjl1" path="res://art/Sky.png" id="2_muqf3"]
-[ext_resource type="Texture2D" uid="uid://baqsroqvr31ak" path="res://art/Mountains.png" id="3_svx8i"]
-[ext_resource type="Texture2D" uid="uid://bilg6g2jsja7q" path="res://art/Forest.png" id="4_nfb8f"]
-[ext_resource type="Texture2D" uid="uid://j8p8ejc01ou1" path="res://art/Grass.png" id="5_7ovnc"]
+[ext_resource type="Texture2D" uid="uid://4lm1wllvxjl1" path="res://art/background/Sky.png" id="2_muqf3"]
+[ext_resource type="Texture2D" uid="uid://baqsroqvr31ak" path="res://art/background/Mountains.png" id="3_svx8i"]
+[ext_resource type="Texture2D" uid="uid://bilg6g2jsja7q" path="res://art/background/Forest.png" id="4_nfb8f"]
+[ext_resource type="Texture2D" uid="uid://j8p8ejc01ou1" path="res://art/background/Grass.png" id="5_7ovnc"]
 
 [node name="Background" type="Node2D"]
 

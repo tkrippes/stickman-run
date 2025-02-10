@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://bfrcxqbuyt7sg"]
 
 [ext_resource type="Script" path="res://world/characters/player.gd" id="1_6ylh5"]
-[ext_resource type="Texture2D" uid="uid://cwh7uc2wl4lhb" path="res://art/StickmanJumping.png" id="2_aw2ii"]
-[ext_resource type="Texture2D" uid="uid://l44hibldjoe3" path="res://art/StickmanRunning.png" id="2_mr252"]
+[ext_resource type="Texture2D" uid="uid://cwh7uc2wl4lhb" path="res://art/player/StickmanJumping.png" id="2_aw2ii"]
+[ext_resource type="Texture2D" uid="uid://l44hibldjoe3" path="res://art/player/StickmanRunning.png" id="2_mr252"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r00ha"]
 atlas = ExtResource("2_aw2ii")

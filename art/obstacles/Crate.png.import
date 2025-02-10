@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j8p8ejc01ou1"
-path="res://.godot/imported/Grass.png-9e48815a6971297566efb5f567716fc7.ctex"
+uid="uid://bh5pq6qjheb7a"
+path="res://.godot/imported/Crate.png-c2043483ddbca5292bb763cd999d4f1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Grass.png"
-dest_files=["res://.godot/imported/Grass.png-9e48815a6971297566efb5f567716fc7.ctex"]
+source_file="res://art/obstacles/Crate.png"
+dest_files=["res://.godot/imported/Crate.png-c2043483ddbca5292bb763cd999d4f1d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwh7uc2wl4lhb"
-path="res://.godot/imported/StickmanJumping.png-b5c73147c83836a751f800fb6e4e5936.ctex"
+uid="uid://cmti5xqa4i8nr"
+path="res://.godot/imported/Spike.png-e70f95390003020f2e878631fb0e75ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/StickmanJumping.png"
-dest_files=["res://.godot/imported/StickmanJumping.png-b5c73147c83836a751f800fb6e4e5936.ctex"]
+source_file="res://art/obstacles/Spike.png"
+dest_files=["res://.godot/imported/Spike.png-e70f95390003020f2e878631fb0e75ae.ctex"]
 
 [params]
 

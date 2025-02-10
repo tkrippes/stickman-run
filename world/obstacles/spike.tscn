@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://naa705slroic"]
 
 [ext_resource type="Script" path="res://world/obstacles/spike.gd" id="1_oxerq"]
-[ext_resource type="Texture2D" uid="uid://cmti5xqa4i8nr" path="res://art/Spike.png" id="2_v4c10"]
+[ext_resource type="Texture2D" uid="uid://cmti5xqa4i8nr" path="res://art/obstacles/Spike.png" id="2_v4c10"]
 
 [node name="Spike" type="RigidBody2D" groups=["obstacles"]]
 gravity_scale = 0.0

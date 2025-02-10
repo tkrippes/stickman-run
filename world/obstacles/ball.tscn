@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw3w5fe3we3fr"]
 
 [ext_resource type="Script" path="res://world/obstacles/ball.gd" id="1_aihj8"]
-[ext_resource type="Texture2D" uid="uid://cu7oruyuvtp5b" path="res://art/Ball.png" id="2_pqdny"]
+[ext_resource type="Texture2D" uid="uid://cu7oruyuvtp5b" path="res://art/obstacles/Ball.png" id="2_pqdny"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ittg4"]
 friction = 0.0
