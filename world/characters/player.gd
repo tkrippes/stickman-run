@@ -22,12 +22,16 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump"): 
 		_jump()
 	
 	velocity.x = run_speed
+	
 	if velocity.x > 0.0:
-		animation.animation = "running"
+		if is_on_floor():
+			animation.animation = "run"
+		else:
+			animation.animation = "jump"
 		animation.play()
 	else:
 		animation.stop()
