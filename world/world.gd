@@ -4,7 +4,9 @@ signal player_died
 signal player_scored
 signal player_speed_updated(speed: float)
 
-@export var obstacle_sceens: Array[PackedScene]
+@export var small_obstacle_scenes: Array[PackedScene]
+@export var large_obstacles_scenes: Array[PackedScene]
+@export var moving_obstacles_scenes: Array[PackedScene]
 @export var obstacle_timer_multiplier: float = 0.99
 
 @export var bounce_velocity: Vector2 = Vector2(0, -125)
@@ -14,6 +16,7 @@ var _obstacle_timer: Timer
 var _speed_increase_timer: Timer
 var _screen_size: Vector2i
 var _initial_obstacle_timer_wait_time: float
+var _all_obstacle_scenes: Array[PackedScene]
 
 
 func _ready() -> void:
@@ -21,6 +24,13 @@ func _ready() -> void:
 	_obstacle_timer = $Obstacletimer
 	_speed_increase_timer = $SpeedIncreaseTimer
 	_initial_obstacle_timer_wait_time = _obstacle_timer.wait_time
+	
+	# TODO: remove once not needed
+	_all_obstacle_scenes = small_obstacle_scenes.duplicate(true)
+	for obstacle_scene: PackedScene in large_obstacles_scenes:
+		_all_obstacle_scenes.push_back(obstacle_scene)
+	for obstacle_scene: PackedScene in moving_obstacles_scenes:
+		_all_obstacle_scenes.push_back(obstacle_scene)
 	
 	_emit_player_speed_updated()
 	
@@ -51,7 +61,7 @@ func _on_obstacle_left_screen() -> void:
 
 
 func _on_obstacle_timer_timeout() -> void:
-	var obstacle_sceen: PackedScene = obstacle_sceens.pick_random()
+	var obstacle_sceen: PackedScene = _all_obstacle_scenes.pick_random()
 	var obstacle: Obstacle = obstacle_sceen.instantiate()
 	
 	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y)
