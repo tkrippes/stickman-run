@@ -5,7 +5,6 @@ signal player_scored
 signal player_speed_updated(speed: float)
 
 @export var obstacle_sceens: Array[PackedScene]
-@export var obstacle_spawn_location: Vector2i
 @export var obstacle_timer_multiplier: float = 0.99
 
 @export var bounce_velocity: Vector2 = Vector2(0, -125)
