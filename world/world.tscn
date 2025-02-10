@@ -41,7 +41,6 @@ wait_time = 1.5
 
 [connection signal="player_died" from="." to="Obstacletimer" method="stop"]
 [connection signal="player_died" from="." to="SpeedIncreaseTimer" method="stop"]
-[connection signal="player_speed_updated" from="." to="Player" method="set_run_speed"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="Obstacletimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="SpeedIncreaseTimer" to="." method="_on_speed_increase_timer_timeout"]
