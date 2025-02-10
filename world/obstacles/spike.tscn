@@ -1,23 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://naa705slroic"]
+[gd_scene load_steps=4 format=3 uid="uid://cwh31lviem3hj"]
 
-[ext_resource type="Script" path="res://world/obstacles/spike.gd" id="1_oxerq"]
+[ext_resource type="PackedScene" uid="uid://gy4hhyobl250" path="res://world/obstacles/obstacle.tscn" id="1_ccwk4"]
 [ext_resource type="Texture2D" uid="uid://cmti5xqa4i8nr" path="res://art/obstacles/Spike.png" id="2_v4c10"]
 
-[node name="Spike" type="RigidBody2D" groups=["obstacles"]]
-gravity_scale = 0.0
-script = ExtResource("1_oxerq")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eh0u"]
+size = Vector2(16, 8)
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture_filter = 1
+[node name="Spike" instance=ExtResource("1_ccwk4")]
+
+[node name="Sprite" parent="." index="0"]
 position = Vector2(8, -8)
 texture = ExtResource("2_v4c10")
 
-[node name="Hitbox" type="CollisionPolygon2D" parent="."]
-position = Vector2(8, -8)
-polygon = PackedVector2Array(-8, 8, 0, 0, 8, 8)
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(8, -4)
+shape = SubResource("RectangleShape2D_5eh0u")
 
-[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(8, -4)
 scale = Vector2(0.8, 0.4)
-
-[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]

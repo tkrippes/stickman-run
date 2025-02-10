@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://gy4hhyobl250"]
+
+[ext_resource type="Script" path="res://world/obstacles/obstacle.gd" id="1_ocatj"]
+
+[node name="Obstacle" type="RigidBody2D" groups=["obstacles"]]
+gravity_scale = 0.0
+script = ExtResource("1_ocatj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(10, -10)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]

@@ -8,7 +8,7 @@ signal player_speed_updated(speed: float)
 @export var obstacle_spawn_location: Vector2i
 @export var obstacle_timer_multiplier: float = 0.99
 
-@export var ball_fall_height: int = 16
+@export var bounce_velocity: Vector2 = Vector2(0, -125)
 
 var _player: Player
 var _obstacle_timer: Timer
@@ -56,8 +56,8 @@ func _on_obstacle_timer_timeout() -> void:
 	var obstacle: Obstacle = obstacle_sceen.instantiate()
 	
 	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y)
-	if obstacle is Ball:
-		obstacle_position.y -= ball_fall_height
+	if obstacle.is_bouncing:
+		obstacle.linear_velocity = bounce_velocity
 	obstacle.position = obstacle_position
 	
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)

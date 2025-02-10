@@ -1,26 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://d157j7ehh16fn"]
+[gd_scene load_steps=4 format=3 uid="uid://2qa5bx0oqhp0"]
 
-[ext_resource type="Script" path="res://world/obstacles/crate.gd" id="1_l5wft"]
+[ext_resource type="PackedScene" uid="uid://gy4hhyobl250" path="res://world/obstacles/obstacle.tscn" id="1_dwsds"]
 [ext_resource type="Texture2D" uid="uid://bh5pq6qjheb7a" path="res://art/obstacles/Crate.png" id="2_flc8e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyqey"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1qxp"]
 size = Vector2(8, 14)
 
-[node name="Crate" type="RigidBody2D" groups=["obstacles"]]
-gravity_scale = 0.0
-script = ExtResource("1_l5wft")
+[node name="Crate" instance=ExtResource("1_dwsds")]
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture_filter = 1
+[node name="Sprite" parent="." index="0"]
 position = Vector2(4, -8)
 texture = ExtResource("2_flc8e")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="Hitbox" parent="." index="1"]
 position = Vector2(4, -7)
-shape = SubResource("RectangleShape2D_xyqey")
+shape = SubResource("RectangleShape2D_o1qxp")
 
-[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(4, -7)
 scale = Vector2(0.4, 0.7)
-
-[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]
