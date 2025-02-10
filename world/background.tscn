@@ -8,7 +8,7 @@
 [node name="Background" type="Node2D"]
 
 [node name="Sky" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.1, 0.1)
+scroll_scale = Vector2(0.05, 0.05)
 repeat_size = Vector2(24, 0)
 repeat_times = 9
 
@@ -18,7 +18,7 @@ position = Vector2(84, 12)
 texture = ExtResource("2_muqf3")
 
 [node name="Mountains" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.15, 0.15)
 repeat_size = Vector2(24, 0)
 repeat_times = 9
 
@@ -28,7 +28,7 @@ position = Vector2(84, 36)
 texture = ExtResource("3_svx8i")
 
 [node name="Forest" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.7, 0.7)
+scroll_scale = Vector2(0.35, 0.35)
 repeat_size = Vector2(24, 0)
 repeat_times = 9
 
@@ -38,6 +38,7 @@ position = Vector2(84, 60)
 texture = ExtResource("4_nfb8f")
 
 [node name="Grass" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(85, 53)
 repeat_size = Vector2(24, 0)
 repeat_times = 9
