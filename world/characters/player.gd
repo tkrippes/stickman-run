@@ -67,4 +67,5 @@ func _die() -> void:
 	hide()
 	run_speed = 0.0
 	animation.animation = "run"
+	animation.speed_scale = 1.0
 	hit.emit()
