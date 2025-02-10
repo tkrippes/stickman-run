@@ -66,4 +66,5 @@ func _jump() -> void:
 func _die() -> void:
 	hide()
 	run_speed = 0.0
+	animation.animation = "run"
 	hit.emit()
