@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
 [ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://world/obstacles/spike.tscn" id="2_0ox0h"]
-[ext_resource type="PackedScene" uid="uid://d157j7ehh16fn" path="res://world/obstacles/box.tscn" id="3_ej6jp"]
+[ext_resource type="PackedScene" uid="uid://d157j7ehh16fn" path="res://world/obstacles/crate.tscn" id="3_ej6jp"]
 [ext_resource type="PackedScene" uid="uid://bw3w5fe3we3fr" path="res://world/obstacles/ball.tscn" id="4_606ak"]
 [ext_resource type="PackedScene" uid="uid://fkv4wox2t24a" path="res://world/background.tscn" id="5_spnxb"]
 

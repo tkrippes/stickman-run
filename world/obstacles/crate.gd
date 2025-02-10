@@ -1,2 +1,2 @@
-class_name Box
+class_name Crate
 extends Obstacle
