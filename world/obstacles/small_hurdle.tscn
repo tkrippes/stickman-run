@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://gf0vglbmdrbb"]
+
+[ext_resource type="PackedScene" uid="uid://gy4hhyobl250" path="res://world/obstacles/obstacle.tscn" id="1_oseaj"]
+[ext_resource type="Texture2D" uid="uid://c55r2et0o1se2" path="res://art/obstacles/SmallHurdle.png" id="2_f6g23"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocet3"]
+size = Vector2(12, 6)
+
+[node name="SmallHurdle" instance=ExtResource("1_oseaj")]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(6, -8)
+texture = ExtResource("2_f6g23")
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(6, -3)
+shape = SubResource("RectangleShape2D_ocet3")
+
+[node name="VisibleOnScreenNotifier" parent="." index="2"]
+position = Vector2(6, -3)
+scale = Vector2(0.6, 0.3)

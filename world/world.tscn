@@ -1,11 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=13 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
 [ext_resource type="PackedScene" uid="uid://cwh31lviem3hj" path="res://world/obstacles/spike.tscn" id="2_0ox0h"]
 [ext_resource type="PackedScene" uid="uid://2qa5bx0oqhp0" path="res://world/obstacles/crate.tscn" id="3_ej6jp"]
 [ext_resource type="PackedScene" uid="uid://csetnjjtiis10" path="res://world/obstacles/ball.tscn" id="4_606ak"]
+[ext_resource type="PackedScene" uid="uid://cjy8qx2og8dw7" path="res://world/obstacles/hurdle.tscn" id="5_i4xxu"]
 [ext_resource type="PackedScene" uid="uid://fkv4wox2t24a" path="res://world/background.tscn" id="5_spnxb"]
+[ext_resource type="PackedScene" uid="uid://gf0vglbmdrbb" path="res://world/obstacles/small_hurdle.tscn" id="6_snfe5"]
+[ext_resource type="PackedScene" uid="uid://b8sjo3ddg32pc" path="res://world/obstacles/small_crate.tscn" id="7_54j2f"]
+[ext_resource type="PackedScene" uid="uid://dldsw73ivs0l1" path="res://world/obstacles/log.tscn" id="8_pqgek"]
+[ext_resource type="PackedScene" uid="uid://canub6w7fnd44" path="res://world/obstacles/camp_fire.tscn" id="9_3r4r7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
 size = Vector2(264, 8)
@@ -13,7 +18,7 @@ size = Vector2(264, 8)
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_3wqkn")
-obstacle_sceens = Array[PackedScene]([ExtResource("2_0ox0h"), ExtResource("3_ej6jp"), ExtResource("4_606ak")])
+obstacle_sceens = Array[PackedScene]([ExtResource("2_0ox0h"), ExtResource("3_ej6jp"), ExtResource("4_606ak"), ExtResource("5_i4xxu"), ExtResource("6_snfe5"), ExtResource("7_54j2f"), ExtResource("8_pqgek"), ExtResource("9_3r4r7")])
 
 [node name="Background" parent="." instance=ExtResource("5_spnxb")]
 
