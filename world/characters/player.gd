@@ -5,7 +5,9 @@ signal hit
 
 @export var initial_run_speed: float = 75.0
 @export var speed_multiplier: float = 1.01
-@export var jump_speed: float = -250.0
+
+@export var jump_speed: float = -150.0
+@export var gravity_multiplier: float = 0.4
 
 var run_speed: float
 var animation: AnimatedSprite2D
@@ -19,7 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += _get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"): 
@@ -56,6 +58,12 @@ func start_running() -> void:
 func increase_speed() -> void:
 	run_speed *= speed_multiplier
 	animation.speed_scale *= speed_multiplier
+
+func _get_gravity() -> Vector2:
+	if velocity.y < 0.0 and Input.is_action_pressed("jump"):
+		return get_gravity() * gravity_multiplier
+	
+	return get_gravity()
 
 
 func _jump() -> void:
