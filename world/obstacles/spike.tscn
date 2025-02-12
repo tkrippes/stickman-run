@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwh31lviem3hj"]
+[gd_scene load_steps=3 format=3 uid="uid://naa705slroic"]
 
-[ext_resource type="PackedScene" uid="uid://gy4hhyobl250" path="res://world/obstacles/obstacle.tscn" id="1_ccwk4"]
+[ext_resource type="PackedScene" path="res://world/obstacles/obstacle.tscn" id="1_ccwk4"]
 [ext_resource type="Texture2D" uid="uid://cmti5xqa4i8nr" path="res://art/obstacles/Spike.png" id="2_v4c10"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eh0u"]
-size = Vector2(16, 8)
 
 [node name="Spike" instance=ExtResource("1_ccwk4")]
 
@@ -12,10 +9,12 @@ size = Vector2(16, 8)
 position = Vector2(8, -8)
 texture = ExtResource("2_v4c10")
 
-[node name="Hitbox" parent="." index="1"]
-position = Vector2(8, -4)
-shape = SubResource("RectangleShape2D_5eh0u")
+[node name="PolygonHitbox" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(0, 0, 8, -8, 16, 0)
 
-[node name="VisibleOnScreenNotifier" parent="." index="2"]
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(8, -4)
+
+[node name="VisibleOnScreenNotifier" parent="." index="3"]
 position = Vector2(8, -4)
 scale = Vector2(0.8, 0.4)
