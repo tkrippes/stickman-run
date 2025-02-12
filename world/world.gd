@@ -9,7 +9,7 @@ signal player_speed_updated(speed: float)
 @export var moving_obstacles_scenes: Array[PackedScene]
 @export var obstacle_timer_multiplier: float = 0.98
 
-@export var bounce_velocity: Vector2 = Vector2(0, -125)
+@export var bounce_velocity: Vector2 = Vector2(-15, -125)
 
 var _player: Player
 var _obstacle_timer: Timer
