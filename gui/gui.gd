@@ -4,6 +4,7 @@ var _start_label: Label
 var _score_label: Label
 var _speed_label: Label
 var _game_over_label: Label
+var _level_announcement_label: Label
 
 
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 	_score_label = $Control/ScoreLabel
 	_speed_label = $Control/SpeedLabel
 	_game_over_label = $Control/GameOverLabel
+	_level_announcement_label = $Control/LevelAnnouncementLabel
 
 
 func _on_game_started() -> void:
@@ -18,13 +20,18 @@ func _on_game_started() -> void:
 	_score_label.hide()
 	_speed_label.hide()
 	_game_over_label.hide()
+	_level_announcement_label.hide()
 
 
-func _on_level_started() -> void:
+func _on_level_started(level: int) -> void:
 	_start_label.hide()
 	_score_label.show()
 	_speed_label.show()
 	_game_over_label.hide()
+	
+	_level_announcement_label.text = "Level %d" % level
+	_level_announcement_label.show()
+	($LevelAnnouncementHideTimer as Timer).start()
 
 
 func _on_game_ended() -> void:
@@ -32,6 +39,7 @@ func _on_game_ended() -> void:
 	_score_label.show()
 	_speed_label.show()
 	_game_over_label.show()
+	_level_announcement_label.hide()
 
 
 func _on_score_updated(score: int) -> void:

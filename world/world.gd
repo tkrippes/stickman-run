@@ -42,7 +42,7 @@ func _on_game_started() -> void:
 	_emit_player_speed_updated()
 
 
-func _on_level_started() -> void:
+func _on_level_started(level: int) -> void:
 	_player.start_running()
 	_emit_player_speed_updated()
 	
