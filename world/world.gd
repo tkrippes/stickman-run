@@ -16,7 +16,7 @@ var _obstacle_timer: Timer
 var _speed_increase_timer: Timer
 var _screen_size: Vector2i
 var _initial_obstacle_timer_wait_time: float
-var _all_obstacle_scenes: Array[PackedScene]
+var _obstacle_scenes: Array[PackedScene]
 
 
 func _ready() -> void:
@@ -24,13 +24,6 @@ func _ready() -> void:
 	_obstacle_timer = $Obstacletimer
 	_speed_increase_timer = $SpeedIncreaseTimer
 	_initial_obstacle_timer_wait_time = _obstacle_timer.wait_time
-	
-	# TODO: remove once not needed
-	_all_obstacle_scenes = small_obstacle_scenes.duplicate(true)
-	for obstacle_scene: PackedScene in large_obstacles_scenes:
-		_all_obstacle_scenes.push_back(obstacle_scene)
-	for obstacle_scene: PackedScene in moving_obstacles_scenes:
-		_all_obstacle_scenes.push_back(obstacle_scene)
 	
 	_emit_player_speed_updated()
 	
@@ -45,6 +38,13 @@ func _on_game_started() -> void:
 func _on_level_started(level: int) -> void:
 	_player.start_running()
 	_emit_player_speed_updated()
+	
+	if level == 1:
+		_set_level_1_obstacle_scenes()
+	elif level == 2:
+		_set_level_2_obstacle_scenes()
+	elif level == 3:
+		_set_level_3_obstacle_scenes()
 	
 	_obstacle_timer.wait_time = _initial_obstacle_timer_wait_time
 	_obstacle_timer.start()
@@ -61,7 +61,7 @@ func _on_obstacle_left_screen() -> void:
 
 
 func _on_obstacle_timer_timeout() -> void:
-	var obstacle_sceen: PackedScene = _all_obstacle_scenes.pick_random()
+	var obstacle_sceen: PackedScene = _obstacle_scenes.pick_random()
 	var obstacle: Obstacle = obstacle_sceen.instantiate()
 	
 	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y)
@@ -83,3 +83,24 @@ func _on_speed_increase_timer_timeout() -> void:
 	
 	_player.increase_speed()
 	_emit_player_speed_updated()
+
+
+func _set_level_1_obstacle_scenes() -> void:
+	# only small obstacles
+	_obstacle_scenes = small_obstacle_scenes.duplicate(true)
+
+
+func _set_level_2_obstacle_scenes() -> void:
+	# small and large obstacles
+	_obstacle_scenes = small_obstacle_scenes.duplicate(true)
+	for obstacle_scene: PackedScene in large_obstacles_scenes:
+		_obstacle_scenes.push_back(obstacle_scene)
+
+
+func _set_level_3_obstacle_scenes() -> void:
+	# small, large and moving obstacles
+	_obstacle_scenes = small_obstacle_scenes.duplicate(true)
+	for obstacle_scene: PackedScene in large_obstacles_scenes:
+		_obstacle_scenes.push_back(obstacle_scene)
+	for obstacle_scene: PackedScene in moving_obstacles_scenes:
+		_obstacle_scenes.push_back(obstacle_scene)
