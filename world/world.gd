@@ -3,13 +3,12 @@ extends Node2D
 signal player_died
 signal player_scored
 signal player_speed_updated(speed: float)
-
 @export var small_obstacle_scenes: Array[PackedScene]
 @export var large_obstacles_scenes: Array[PackedScene]
 @export var moving_obstacles_scenes: Array[PackedScene]
 @export var obstacle_timer_multiplier: float = 0.98
-
-@export var bounce_velocity: Vector2 = Vector2(-15, -125)
+@export var bouncing_velocity: Vector2 = Vector2(-15, -125)
+@export var moving_velocity: Vector2 = Vector2(-15, 0)
 
 var _player: Player
 var _obstacle_timer: Timer
@@ -24,9 +23,9 @@ func _ready() -> void:
 	_obstacle_timer = $Obstacletimer
 	_speed_increase_timer = $SpeedIncreaseTimer
 	_initial_obstacle_timer_wait_time = _obstacle_timer.wait_time
-	
+
 	_emit_player_speed_updated()
-	
+
 	_screen_size = get_viewport_rect().size
 
 
@@ -38,7 +37,7 @@ func _on_game_started() -> void:
 func _on_level_started(level: int) -> void:
 	_player.start_running()
 	_emit_player_speed_updated()
-	
+
 	get_tree().call_group("obstacles", "queue_free")
 	if level == 1:
 		_set_level_1_obstacle_scenes()
@@ -46,7 +45,7 @@ func _on_level_started(level: int) -> void:
 		_set_level_2_obstacle_scenes()
 	elif level == 3:
 		_set_level_3_obstacle_scenes()
-	
+
 	_obstacle_timer.wait_time = _initial_obstacle_timer_wait_time
 	_obstacle_timer.start()
 	_speed_increase_timer.start()
@@ -63,15 +62,17 @@ func _on_obstacle_left_screen() -> void:
 
 func _on_obstacle_timer_timeout() -> void:
 	var obstacle_sceen: PackedScene = _obstacle_scenes.pick_random()
-	var obstacle: Obstacle = obstacle_sceen.instantiate()
-	
+	var obstacle: Obstacle          = obstacle_sceen.instantiate()
+
 	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y)
 	if obstacle.is_bouncing:
-		obstacle.linear_velocity = bounce_velocity
+		obstacle.linear_velocity = bouncing_velocity
+	elif obstacle.is_moving:
+		obstacle.linear_velocity = moving_velocity
 	obstacle.position = obstacle_position
-	
+
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
-	
+
 	add_child(obstacle)
 
 
@@ -81,7 +82,7 @@ func _emit_player_speed_updated() -> void:
 
 func _on_speed_increase_timer_timeout() -> void:
 	_obstacle_timer.wait_time *= obstacle_timer_multiplier
-	
+
 	_player.increase_speed()
 	_emit_player_speed_updated()
 
