@@ -59,15 +59,15 @@ func _reset_score() -> void:
 func _start_level(level: Level) -> void:
 	match level:
 		Level.LEVEL_1:
-			_game_state = GameState.GAME_STARTED
+			_game_state = GameState.GAME_RUNNING
 			_level = Level.LEVEL_1
 			level_started.emit(1)
 		Level.LEVEL_2:
-			_game_state = GameState.GAME_STARTED
+			_game_state = GameState.GAME_RUNNING
 			_level = Level.LEVEL_2
 			level_started.emit(2)
 		Level.LEVEL_3:
-			_game_state = GameState.GAME_STARTED
+			_game_state = GameState.GAME_RUNNING
 			_level = Level.LEVEL_3
 			level_started.emit(3)
 
