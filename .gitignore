@@ -7,3 +7,7 @@ addons/
 
 # Exports
 export/
+
+# IDE
+.vscode/
+.idea/
