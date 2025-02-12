@@ -17,8 +17,8 @@ signal game_started
 signal level_started(level: int)
 signal game_ended
 
-@export var level_2_unlock_score: int = 5
-@export var level_3_unlock_score: int = 10
+@export var level_2_unlock_score: int = 30
+@export var level_3_unlock_score: int = 60
 
 var _game_state: GameState = GameState.GAME_STARTED
 var _level: Level = Level.LEVEL_1

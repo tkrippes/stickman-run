@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal hit
 
 @export var initial_run_speed: float = 75.0
-@export var speed_multiplier: float = 1.01
+@export var speed_multiplier: float = 1.02
 
 @export var jump_speed: float = -150.0
 @export var gravity_multiplier: float = 0.4
