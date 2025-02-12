@@ -39,6 +39,7 @@ func _on_level_started(level: int) -> void:
 	_player.start_running()
 	_emit_player_speed_updated()
 	
+	get_tree().call_group("obstacles", "queue_free")
 	if level == 1:
 		_set_level_1_obstacle_scenes()
 	elif level == 2:
