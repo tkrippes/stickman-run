@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 
 func start_running() -> void:
 	run_speed = initial_run_speed
+	animation.speed_scale = 1.0
 
 
 func increase_speed() -> void:
@@ -69,5 +70,4 @@ func _die() -> void:
 	hide()
 	run_speed = 0.0
 	animation.animation = "run"
-	animation.speed_scale = 1.0
 	hit.emit()
