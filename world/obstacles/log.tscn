@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dldsw73ivs0l1"]
+[gd_scene load_steps=4 format=3 uid="uid://dn1hpnhhby2pn"]
 
-[ext_resource type="PackedScene" uid="uid://gy4hhyobl250" path="res://world/obstacles/obstacle.tscn" id="1_d8dkl"]
+[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_d8dkl"]
 [ext_resource type="Texture2D" uid="uid://cf8h0orb22blr" path="res://art/obstacles/Log.png" id="2_jpij4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pngki"]

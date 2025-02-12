@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw3w5fe3we3fr"]
 
-[ext_resource type="PackedScene" path="res://world/obstacles/obstacle.tscn" id="1_mie5p"]
+[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_mie5p"]
 [ext_resource type="Texture2D" uid="uid://cu7oruyuvtp5b" path="res://art/obstacles/Ball.png" id="2_pqdny"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sguct"]

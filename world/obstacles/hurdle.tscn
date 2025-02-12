@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjy8qx2og8dw7"]
+[gd_scene load_steps=4 format=3 uid="uid://krypjivuwmvi"]
 
-[ext_resource type="PackedScene" uid="uid://gy4hhyobl250" path="res://world/obstacles/obstacle.tscn" id="1_vc2ec"]
+[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_vc2ec"]
 [ext_resource type="Texture2D" uid="uid://ir336npiexwv" path="res://art/obstacles/Hurdle.png" id="2_5ddda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykmur"]

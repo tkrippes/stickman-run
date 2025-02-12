@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://canub6w7fnd44"]
+[gd_scene load_steps=4 format=3 uid="uid://bdopb5lj3hyqd"]
 
-[ext_resource type="PackedScene" uid="uid://gy4hhyobl250" path="res://world/obstacles/obstacle.tscn" id="1_3hjvg"]
+[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_3hjvg"]
 [ext_resource type="Texture2D" uid="uid://c7626f0h7r5l1" path="res://art/obstacles/CampFire.png" id="2_1hub8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lq7vf"]
