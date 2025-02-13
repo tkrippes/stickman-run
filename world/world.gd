@@ -47,6 +47,8 @@ func _on_level_started(level: int) -> void:
 		_set_level_2_obstacle_scenes()
 	elif level == 3:
 		_set_level_3_obstacle_scenes()
+	else:
+		push_warning("Unknown level '%d' started" % level)
 
 	_obstacle_timer.wait_time = _initial_obstacle_timer_wait_time
 	_obstacle_timer.start()
