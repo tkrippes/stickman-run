@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds36qkmc3l3l5"]
 
-[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_aa6ip"]
-[ext_resource type="Texture2D" uid="uid://d0bpup7w0uob2" path="res://art/obstacles/flying/Alicorn.png" id="2_rx3pw"]
+[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_lrqce"]
+[ext_resource type="Texture2D" uid="uid://d0bpup7w0uob2" path="res://art/obstacles/flying/Alicorn.png" id="2_txou2"]
 
-[node name="Alicorn" instance=ExtResource("1_aa6ip")]
+[node name="Alicorn" instance=ExtResource("1_lrqce")]
 is_moving = true
 is_flying = true
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(8, -8)
-texture = ExtResource("2_rx3pw")
+texture = ExtResource("2_txou2")
 
 [node name="Hitbox" parent="." index="1"]
 polygon = PackedVector2Array(4, 0, 4, -9, 1, -9, 0, -10, 0, -12, 1, -13, 2, -16, 3, -16, 5, -15, 6, -15, 8, -13, 9, -8, 11, -10, 13, -10, 14, -7, 15, -6, 15, -3, 14, -3, 13, 0, 10, 0, 10, -3, 7, -3, 7, 0)

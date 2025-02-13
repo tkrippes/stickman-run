@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw3w5fe3we3fr"]
 
-[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_mie5p"]
-[ext_resource type="Texture2D" uid="uid://cu7oruyuvtp5b" path="res://art/obstacles/moving/Ball.png" id="2_pqdny"]
+[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_ikdu0"]
+[ext_resource type="Texture2D" uid="uid://cu7oruyuvtp5b" path="res://art/obstacles/moving/Ball.png" id="2_ercpp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sguct"]
 friction = 0.0
@@ -10,7 +10,7 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_73jan"]
 radius = 3.5
 
-[node name="Ball" instance=ExtResource("1_mie5p")]
+[node name="Ball" instance=ExtResource("1_ikdu0")]
 physics_material_override = SubResource("PhysicsMaterial_sguct")
 gravity_scale = 0.5
 angular_velocity = 1.5708
@@ -19,7 +19,7 @@ is_moving = true
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(4, -8)
-texture = ExtResource("2_pqdny")
+texture = ExtResource("2_ercpp")
 
 [node name="Hitbox" parent="." index="1"]
 visible = false
