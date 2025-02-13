@@ -19,9 +19,9 @@ size = Vector2(264, 8)
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_3wqkn")
-small_obstacle_scenes = Array[PackedScene]([ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
-large_obstacles_scenes = Array[PackedScene]([ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h")])
-moving_obstacles_scenes = Array[PackedScene]([ExtResource("4_606ak"), ExtResource("10_xprbc")])
+level_1_obstacle_scenes = Array[PackedScene]([ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
+level_2_obstacle_scenes = Array[PackedScene]([ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
+level_3_obstacle_scenes = Array[PackedScene]([ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
 
 [node name="Background" parent="." instance=ExtResource("5_spnxb")]
 
