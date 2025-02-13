@@ -15,6 +15,7 @@ physics_material_override = SubResource("PhysicsMaterial_sguct")
 gravity_scale = 0.5
 angular_velocity = 1.5708
 is_bouncing = true
+is_moving = true
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(4, -8)
