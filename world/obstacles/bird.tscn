@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://v1jxbrjt2mjo"]
+
+[ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_nqnfo"]
+[ext_resource type="Texture2D" uid="uid://cobo7d0gelqhs" path="res://art/obstacles/Bird.png" id="2_15vb4"]
+
+[node name="Bird" instance=ExtResource("1_nqnfo")]
+is_flying = true
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(8, -4)
+texture = ExtResource("2_15vb4")
+
+[node name="Hitbox" parent="." index="1"]
+polygon = PackedVector2Array(0, -2, 0, -3, 2, -4, 4, -4, 4, -6, 5, -7, 8, -8, 15, -8, 15, -7, 14, -6, 11, -6, 11, -4, 12, -4, 15, -3, 15, -2, 12, -1, 11, 0, 7, 0, 2, -1)
+
+[node name="VisibleOnScreenNotifier" parent="." index="2"]
+position = Vector2(7.5, -4)
+scale = Vector2(0.75, 0.4)

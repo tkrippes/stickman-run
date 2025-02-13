@@ -7,10 +7,12 @@ signal player_speed_updated(speed: float)
 @export var level_1_obstacle_scenes: Array[PackedScene]
 @export var level_2_obstacle_scenes: Array[PackedScene]
 @export var level_3_obstacle_scenes: Array[PackedScene]
+@export var level_4_obstacle_scenes: Array[PackedScene]
 
 @export var obstacle_timer_multiplier: float = 0.98
-@export var obstacle_bounce_speed: float = -125
-@export var obstacle_move_speed: float = -15
+@export var obstacle_bounce_speed: float = 125
+@export var obstacle_move_speed: float = 15
+@export var obstacle_fly_height: float = 24
 
 var _player: Player
 var _obstacle_timer: Timer
@@ -47,6 +49,8 @@ func _on_level_started(level: int) -> void:
 		_obstacle_scenes = level_2_obstacle_scenes
 	elif level == 3:
 		_obstacle_scenes = level_3_obstacle_scenes
+	elif level == 4:
+		_obstacle_scenes = level_4_obstacle_scenes
 	else:
 		push_warning("Unknown level '%d' started" % level)
 
@@ -70,10 +74,13 @@ func _on_obstacle_timer_timeout() -> void:
 
 	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y)
 	if obstacle.is_bouncing:
-		obstacle.linear_velocity += Vector2(0, obstacle_bounce_speed)
+		obstacle.linear_velocity -= Vector2(0, obstacle_bounce_speed)
 	if obstacle.is_moving:
-		obstacle.linear_velocity += Vector2(obstacle_move_speed, 0)
+		obstacle.linear_velocity -= Vector2(obstacle_move_speed, 0)
+		
 	obstacle.position = obstacle_position
+	if obstacle.is_flying:
+		obstacle.position -= Vector2(0, obstacle_fly_height)
 
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
 

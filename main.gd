@@ -9,7 +9,8 @@ enum GameState {
 enum Level {
 	LEVEL_1,
 	LEVEL_2,
-	LEVEL_3
+	LEVEL_3,
+	LEVEL_4
 }
 
 signal score_updated(score: int)
@@ -19,6 +20,7 @@ signal game_ended
 
 @export var level_2_unlock_score: int = 30
 @export var level_3_unlock_score: int = 60
+@export var level_4_unlock_score: int = 90
 
 var _game_state: GameState = GameState.GAME_STARTED
 var _level: Level = Level.LEVEL_1
@@ -51,6 +53,8 @@ func _on_player_scored() -> void:
 		_start_level(Level.LEVEL_2)
 	elif _score == level_3_unlock_score:
 		_start_level(Level.LEVEL_3)
+	elif _score == level_4_unlock_score:
+		_start_level(Level.LEVEL_4)
 
 
 func _start_game() -> void:
@@ -78,6 +82,10 @@ func _start_level(level: Level) -> void:
 			_game_state = GameState.GAME_RUNNING
 			_level = Level.LEVEL_3
 			level_started.emit(3)
+		Level.LEVEL_4:
+			_game_state = GameState.GAME_RUNNING
+			_level = Level.LEVEL_4
+			level_started.emit(4)
 
 
 func _end_game() -> void:
