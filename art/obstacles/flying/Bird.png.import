@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu7oruyuvtp5b"
-path="res://.godot/imported/Ball.png-9fdf15dc2bcdbc607961073a5dc6f23f.ctex"
+uid="uid://cobo7d0gelqhs"
+path="res://.godot/imported/Bird.png-538f86b8047d54e1a5aa2fdb0d47889c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/Ball.png"
-dest_files=["res://.godot/imported/Ball.png-9fdf15dc2bcdbc607961073a5dc6f23f.ctex"]
+source_file="res://art/obstacles/flying/Bird.png"
+dest_files=["res://.godot/imported/Bird.png-538f86b8047d54e1a5aa2fdb0d47889c.ctex"]
 
 [params]
 

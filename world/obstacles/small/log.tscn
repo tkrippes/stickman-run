@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dn1hpnhhby2pn"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_d8dkl"]
-[ext_resource type="Texture2D" uid="uid://cf8h0orb22blr" path="res://art/obstacles/Log.png" id="2_jpij4"]
+[ext_resource type="Texture2D" uid="uid://cf8h0orb22blr" path="res://art/obstacles/small/Log.png" id="2_jpij4"]
 
 [node name="Log" instance=ExtResource("1_d8dkl")]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds36qkmc3l3l5"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_aa6ip"]
-[ext_resource type="Texture2D" uid="uid://d0bpup7w0uob2" path="res://art/obstacles/Alicorn.png" id="2_rx3pw"]
+[ext_resource type="Texture2D" uid="uid://d0bpup7w0uob2" path="res://art/obstacles/flying/Alicorn.png" id="2_rx3pw"]
 
 [node name="Alicorn" instance=ExtResource("1_aa6ip")]
 is_moving = true

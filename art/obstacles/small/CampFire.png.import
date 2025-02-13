@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cja4l3laxs8yt"
-path="res://.godot/imported/Pony.png-1f796d75b00751305e03be2265cf2533.ctex"
+uid="uid://c7626f0h7r5l1"
+path="res://.godot/imported/CampFire.png-81886af398756a9c4a20af8367301170.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/Pony.png"
-dest_files=["res://.godot/imported/Pony.png-1f796d75b00751305e03be2265cf2533.ctex"]
+source_file="res://art/obstacles/small/CampFire.png"
+dest_files=["res://.godot/imported/CampFire.png-81886af398756a9c4a20af8367301170.ctex"]
 
 [params]
 

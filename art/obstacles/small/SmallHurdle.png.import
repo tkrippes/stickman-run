@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cobo7d0gelqhs"
-path="res://.godot/imported/Bird.png-14b386100a95e84195737a20b09c50ed.ctex"
+uid="uid://c55r2et0o1se2"
+path="res://.godot/imported/SmallHurdle.png-088dfc3064cdc72c8a2a67b5c3b98ac0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/Bird.png"
-dest_files=["res://.godot/imported/Bird.png-14b386100a95e84195737a20b09c50ed.ctex"]
+source_file="res://art/obstacles/small/SmallHurdle.png"
+dest_files=["res://.godot/imported/SmallHurdle.png-088dfc3064cdc72c8a2a67b5c3b98ac0.ctex"]
 
 [params]
 

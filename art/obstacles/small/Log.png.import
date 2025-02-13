@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh5pq6qjheb7a"
-path="res://.godot/imported/Crate.png-c2043483ddbca5292bb763cd999d4f1d.ctex"
+uid="uid://cf8h0orb22blr"
+path="res://.godot/imported/Log.png-6ec4c6a24ad74d07a8062ed125d0aba7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/Crate.png"
-dest_files=["res://.godot/imported/Crate.png-c2043483ddbca5292bb763cd999d4f1d.ctex"]
+source_file="res://art/obstacles/small/Log.png"
+dest_files=["res://.godot/imported/Log.png-6ec4c6a24ad74d07a8062ed125d0aba7.ctex"]
 
 [params]
 

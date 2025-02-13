@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7626f0h7r5l1"
-path="res://.godot/imported/CampFire.png-0390f7ee5952e06ddd215f956f1ba4bf.ctex"
+uid="uid://bpbblmma21p1"
+path="res://.godot/imported/SmallCrate.png-9af64246154166b359b2a021a13642e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/CampFire.png"
-dest_files=["res://.godot/imported/CampFire.png-0390f7ee5952e06ddd215f956f1ba4bf.ctex"]
+source_file="res://art/obstacles/small/SmallCrate.png"
+dest_files=["res://.godot/imported/SmallCrate.png-9af64246154166b359b2a021a13642e4.ctex"]
 
 [params]
 

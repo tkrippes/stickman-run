@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpbblmma21p1"
-path="res://.godot/imported/SmallCrate.png-afed7b7da6798347179f2bf79df9c994.ctex"
+uid="uid://ir336npiexwv"
+path="res://.godot/imported/Hurdle.png-b6169fc917225a7c85af17e0fc83c86d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/SmallCrate.png"
-dest_files=["res://.godot/imported/SmallCrate.png-afed7b7da6798347179f2bf79df9c994.ctex"]
+source_file="res://art/obstacles/large/Hurdle.png"
+dest_files=["res://.godot/imported/Hurdle.png-b6169fc917225a7c85af17e0fc83c86d.ctex"]
 
 [params]
 

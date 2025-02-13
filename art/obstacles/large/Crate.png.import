@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0bpup7w0uob2"
-path="res://.godot/imported/Alicorn.png-f7185d5f745d3fb8d9b339c923d0d70e.ctex"
+uid="uid://bh5pq6qjheb7a"
+path="res://.godot/imported/Crate.png-d1681a3139b490fb749a0b8492399a93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/Alicorn.png"
-dest_files=["res://.godot/imported/Alicorn.png-f7185d5f745d3fb8d9b339c923d0d70e.ctex"]
+source_file="res://art/obstacles/large/Crate.png"
+dest_files=["res://.godot/imported/Crate.png-d1681a3139b490fb749a0b8492399a93.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c652qjlkbvg1l"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_oseaj"]
-[ext_resource type="Texture2D" uid="uid://c55r2et0o1se2" path="res://art/obstacles/SmallHurdle.png" id="2_f6g23"]
+[ext_resource type="Texture2D" uid="uid://c55r2et0o1se2" path="res://art/obstacles/small/SmallHurdle.png" id="2_f6g23"]
 
 [node name="SmallHurdle" instance=ExtResource("1_oseaj")]
 

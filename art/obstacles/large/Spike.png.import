@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf8h0orb22blr"
-path="res://.godot/imported/Log.png-f0a6f7c08c2896e0dd5d9b22af6970e7.ctex"
+uid="uid://cmti5xqa4i8nr"
+path="res://.godot/imported/Spike.png-ecf5d3f4a1b45514b353003a9e687614.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/Log.png"
-dest_files=["res://.godot/imported/Log.png-f0a6f7c08c2896e0dd5d9b22af6970e7.ctex"]
+source_file="res://art/obstacles/large/Spike.png"
+dest_files=["res://.godot/imported/Spike.png-ecf5d3f4a1b45514b353003a9e687614.ctex"]
 
 [params]
 

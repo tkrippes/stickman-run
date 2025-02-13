@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c55r2et0o1se2"
-path="res://.godot/imported/SmallHurdle.png-11395582e2c1bc82b873eeb26dd28622.ctex"
+uid="uid://cu7oruyuvtp5b"
+path="res://.godot/imported/Ball.png-59698b5813736ab1b410496fb1d0083c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/SmallHurdle.png"
-dest_files=["res://.godot/imported/SmallHurdle.png-11395582e2c1bc82b873eeb26dd28622.ctex"]
+source_file="res://art/obstacles/moving/Ball.png"
+dest_files=["res://.godot/imported/Ball.png-59698b5813736ab1b410496fb1d0083c.ctex"]
 
 [params]
 

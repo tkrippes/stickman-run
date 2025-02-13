@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ir336npiexwv"
-path="res://.godot/imported/Hurdle.png-02dc1aadb6458c0f56292cdb642d07cd.ctex"
+uid="uid://d0bpup7w0uob2"
+path="res://.godot/imported/Alicorn.png-64a9e99bfebb331d72972bf51db29efc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/obstacles/Hurdle.png"
-dest_files=["res://.godot/imported/Hurdle.png-02dc1aadb6458c0f56292cdb642d07cd.ctex"]
+source_file="res://art/obstacles/flying/Alicorn.png"
+dest_files=["res://.godot/imported/Alicorn.png-64a9e99bfebb331d72972bf51db29efc.ctex"]
 
 [params]
 
