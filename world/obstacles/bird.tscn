@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cobo7d0gelqhs" path="res://art/obstacles/Bird.png" id="2_15vb4"]
 
 [node name="Bird" instance=ExtResource("1_nqnfo")]
+is_moving = true
 is_flying = true
 
 [node name="Sprite" parent="." index="0"]

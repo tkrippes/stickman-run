@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=16 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://7wf41357rrqb" path="res://world/obstacles/small_crate.tscn" id="7_54j2f"]
 [ext_resource type="PackedScene" uid="uid://dn1hpnhhby2pn" path="res://world/obstacles/log.tscn" id="8_pqgek"]
 [ext_resource type="PackedScene" uid="uid://bdopb5lj3hyqd" path="res://world/obstacles/camp_fire.tscn" id="9_3r4r7"]
-[ext_resource type="PackedScene" uid="uid://ctwf2rhbb8af3" path="res://world/obstacles/pony.tscn" id="10_xprbc"]
+[ext_resource type="PackedScene" uid="uid://blckmgmv7u6gm" path="res://world/obstacles/pony.tscn" id="10_xprbc"]
 [ext_resource type="PackedScene" uid="uid://v1jxbrjt2mjo" path="res://world/obstacles/bird.tscn" id="11_ugsqr"]
+[ext_resource type="PackedScene" uid="uid://ds36qkmc3l3l5" path="res://world/obstacles/alicorn.tscn" id="12_rxrwn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
 size = Vector2(264, 8)
@@ -23,7 +24,7 @@ script = ExtResource("1_3wqkn")
 level_1_obstacle_scenes = Array[PackedScene]([ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
 level_2_obstacle_scenes = Array[PackedScene]([ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
 level_3_obstacle_scenes = Array[PackedScene]([ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
-level_4_obstacle_scenes = Array[PackedScene]([ExtResource("11_ugsqr"), ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
+level_4_obstacle_scenes = Array[PackedScene]([ExtResource("11_ugsqr"), ExtResource("12_rxrwn"), ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
 
 [node name="Background" parent="." instance=ExtResource("5_spnxb")]
 

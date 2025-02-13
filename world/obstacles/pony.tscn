@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctwf2rhbb8af3"]
+[gd_scene load_steps=3 format=3 uid="uid://blckmgmv7u6gm"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_xhsk5"]
 [ext_resource type="Texture2D" uid="uid://cja4l3laxs8yt" path="res://art/obstacles/Pony.png" id="2_5koyd"]
