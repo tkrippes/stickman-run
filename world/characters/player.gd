@@ -4,6 +4,7 @@ extends CharacterBody2D
 signal hit
 
 @export var initial_run_speed: float = 75.0
+@export var maximum_run_speed: float = 200.0
 @export var speed_multiplier: float = 1.02
 
 @export var jump_speed: float = -150.0
@@ -51,8 +52,11 @@ func start_running() -> void:
 
 
 func increase_speed() -> void:
-	run_speed *= speed_multiplier
-	animation.speed_scale *= speed_multiplier
+	if (run_speed * speed_multiplier < maximum_run_speed):
+		run_speed *= speed_multiplier
+		animation.speed_scale *= speed_multiplier
+	else:
+		run_speed = maximum_run_speed
 
 func _get_gravity() -> Vector2:
 	if velocity.y < 0.0 and Input.is_action_pressed("jump"):
