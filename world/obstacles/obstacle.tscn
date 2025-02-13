@@ -9,7 +9,7 @@ script = ExtResource("1_ocatj")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
 
 [node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(10, -10)

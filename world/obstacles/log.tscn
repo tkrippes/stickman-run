@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn1hpnhhby2pn"]
+[gd_scene load_steps=3 format=3 uid="uid://dn1hpnhhby2pn"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_d8dkl"]
 [ext_resource type="Texture2D" uid="uid://cf8h0orb22blr" path="res://art/obstacles/Log.png" id="2_jpij4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pngki"]
-size = Vector2(14, 7)
 
 [node name="Log" instance=ExtResource("1_d8dkl")]
 
@@ -14,7 +11,7 @@ texture = ExtResource("2_jpij4")
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2(7, -3.5)
-shape = SubResource("RectangleShape2D_pngki")
+polygon = PackedVector2Array(-6, 3.5, -7, 2.5, -7, -0.5, -6, -1.5, -4, -1.5, -3, -3.5, -2, -3.5, -2, -1.5, 2, -1.5, 3, -3.5, 4, -3.5, 4, -1.5, 6, -1.5, 7, -0.5, 7, 2.5, 6, 3.5)
 
 [node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(7, -3.5)

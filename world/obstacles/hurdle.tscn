@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://krypjivuwmvi"]
+[gd_scene load_steps=3 format=3 uid="uid://krypjivuwmvi"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_vc2ec"]
 [ext_resource type="Texture2D" uid="uid://ir336npiexwv" path="res://art/obstacles/Hurdle.png" id="2_5ddda"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykmur"]
-size = Vector2(16, 9)
 
 [node name="Hurdle" instance=ExtResource("1_vc2ec")]
 
@@ -14,7 +11,7 @@ texture = ExtResource("2_5ddda")
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2(8, -4.5)
-shape = SubResource("RectangleShape2D_ykmur")
+polygon = PackedVector2Array(-7, 4.5, -7, -2.5, -8, -2.5, -8, -4.5, 8, -4.5, 8, -2.5, 7, -2.5, 7, 4.5, 6, 4.5, 6, -2.5, -6, -2.5, -6, 4.5)
 
 [node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(8, -4.5)

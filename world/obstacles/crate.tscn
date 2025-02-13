@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnew6esrw8cfb"]
+[gd_scene load_steps=3 format=3 uid="uid://dnew6esrw8cfb"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_dwsds"]
 [ext_resource type="Texture2D" uid="uid://bh5pq6qjheb7a" path="res://art/obstacles/Crate.png" id="2_flc8e"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1qxp"]
-size = Vector2(8, 14)
 
 [node name="Crate" instance=ExtResource("1_dwsds")]
 
@@ -14,7 +11,7 @@ texture = ExtResource("2_flc8e")
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2(4, -7)
-shape = SubResource("RectangleShape2D_o1qxp")
+polygon = PackedVector2Array(-4, 7, -4, -7, 4, -7, 4, 7)
 
 [node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(4, -7)

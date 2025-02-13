@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://blckmgmv7u6gm"]
+[gd_scene load_steps=3 format=3 uid="uid://ctwf2rhbb8af3"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_xhsk5"]
 [ext_resource type="Texture2D" uid="uid://cja4l3laxs8yt" path="res://art/obstacles/Pony.png" id="2_5koyd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_26g6h"]
-size = Vector2(16, 14)
 
 [node name="Pony" instance=ExtResource("1_xhsk5")]
 is_moving = true
@@ -15,7 +12,7 @@ texture = ExtResource("2_5koyd")
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2(8, -7)
-shape = SubResource("RectangleShape2D_26g6h")
+polygon = PackedVector2Array(-5, 7, -5, -3, -6, -4, -8, -4, -8, -6, -5, -7, -2, -7, -1, -6, -1, -1, 7, -1, 8, 0, 8, 5, 6, 5, 6, 7, 3, 7, 3, 3, -2, 3, -2, 7)
 
 [node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(8, -7)

@@ -9,12 +9,10 @@
 position = Vector2(8, -8)
 texture = ExtResource("2_v4c10")
 
-[node name="PolygonHitbox" type="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(0, 0, 8, -8, 16, 0)
-
-[node name="Hitbox" parent="." index="2"]
+[node name="Hitbox" parent="." index="1"]
 position = Vector2(8, -4)
+polygon = PackedVector2Array(-8, 4, 0, -4, 8, 4)
 
-[node name="VisibleOnScreenNotifier" parent="." index="3"]
+[node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(8, -4)
 scale = Vector2(0.8, 0.4)

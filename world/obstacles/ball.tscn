@@ -7,8 +7,8 @@
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8sign"]
-radius = 3.53553
+[sub_resource type="CircleShape2D" id="CircleShape2D_73jan"]
+radius = 3.5
 
 [node name="Ball" instance=ExtResource("1_mie5p")]
 physics_material_override = SubResource("PhysicsMaterial_sguct")
@@ -22,9 +22,13 @@ position = Vector2(4, -8)
 texture = ExtResource("2_pqdny")
 
 [node name="Hitbox" parent="." index="1"]
-position = Vector2(3.5, -3.5)
-shape = SubResource("CircleShape2D_8sign")
+visible = false
+disabled = true
 
-[node name="VisibleOnScreenNotifier" parent="." index="2"]
+[node name="CircleHitbox" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(3.5, -3.5)
+shape = SubResource("CircleShape2D_73jan")
+
+[node name="VisibleOnScreenNotifier" parent="." index="3"]
 position = Vector2(3.5, -3.5)
 scale = Vector2(0.35, 0.35)
