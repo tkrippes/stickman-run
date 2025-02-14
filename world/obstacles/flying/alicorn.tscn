@@ -1,20 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds36qkmc3l3l5"]
+[gd_scene load_steps=8 format=3 uid="uid://ds36qkmc3l3l5"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_lrqce"]
-[ext_resource type="Texture2D" uid="uid://d0bpup7w0uob2" path="res://art/obstacles/flying/Alicorn.png" id="2_txou2"]
+[ext_resource type="Texture2D" uid="uid://dffovogwu2jh5" path="res://art/obstacles/flying/AlicornFlyGalopping.png" id="2_ga5t7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgmy6"]
+atlas = ExtResource("2_ga5t7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfu2f"]
+atlas = ExtResource("2_ga5t7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnnuh"]
+atlas = ExtResource("2_ga5t7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iodl"]
+atlas = ExtResource("2_ga5t7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75hft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgmy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfu2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnnuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iodl")
+}],
+"loop": true,
+"name": &"flygalop",
+"speed": 8.0
+}]
 
 [node name="Alicorn" instance=ExtResource("1_lrqce")]
 is_moving = true
 is_flying = true
 
 [node name="Sprite" parent="." index="0"]
+visible = false
 position = Vector2(8, -8)
-texture = ExtResource("2_txou2")
 
-[node name="Hitbox" parent="." index="1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_75hft")
+animation = &"flygalop"
+autoplay = "flygalop"
+
+[node name="Hitbox" parent="." index="2"]
 polygon = PackedVector2Array(4, 0, 4, -9, 1, -9, 0, -10, 0, -12, 1, -13, 2, -16, 3, -16, 5, -15, 6, -15, 8, -13, 9, -8, 11, -10, 13, -10, 14, -7, 15, -6, 15, -3, 14, -3, 13, 0, 10, 0, 10, -3, 7, -3, 7, 0)
 
-[node name="VisibleOnScreenNotifier" parent="." index="2"]
+[node name="VisibleOnScreenNotifier" parent="." index="3"]
 visible = false
 position = Vector2(7.5, -8)
 scale = Vector2(0.75, 0.8)
