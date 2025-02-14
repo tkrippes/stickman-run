@@ -1,19 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://blckmgmv7u6gm"]
+[gd_scene load_steps=8 format=3 uid="uid://blckmgmv7u6gm"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_xfh2o"]
-[ext_resource type="Texture2D" uid="uid://cja4l3laxs8yt" path="res://art/obstacles/moving/Pony.png" id="2_ewwax"]
+[ext_resource type="Texture2D" uid="uid://ne5pmdp3do8d" path="res://art/obstacles/moving/PonyGalopping.png" id="2_vcwsw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w63rw"]
+atlas = ExtResource("2_vcwsw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6kys"]
+atlas = ExtResource("2_vcwsw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7ou0"]
+atlas = ExtResource("2_vcwsw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2i3h"]
+atlas = ExtResource("2_vcwsw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iiw3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w63rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6kys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7ou0")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_g2i3h")
+}],
+"loop": true,
+"name": &"galop",
+"speed": 8.0
+}]
 
 [node name="Pony" instance=ExtResource("1_xfh2o")]
 is_moving = true
 
-[node name="Sprite" parent="." index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="0"]
+texture_filter = 1
 position = Vector2(8, -8)
-texture = ExtResource("2_ewwax")
+sprite_frames = SubResource("SpriteFrames_iiw3d")
+animation = &"galop"
+autoplay = "galop"
 
-[node name="Hitbox" parent="." index="1"]
+[node name="Sprite" parent="." index="1"]
+visible = false
+position = Vector2(8, -8)
+
+[node name="Hitbox" parent="." index="2"]
 position = Vector2(8, -7)
-polygon = PackedVector2Array(-5, 7, -5, -3, -6, -4, -8, -4, -8, -6, -5, -7, -2, -7, -1, -6, -1, -1, 7, -1, 8, 0, 8, 5, 6, 5, 6, 7, 3, 7, 3, 3, -2, 3, -2, 7)
+polygon = PackedVector2Array(-5, 7, -5, -3, -6, -4, -8, -4, -8, -6, -5, -8, -2, -8, -1, -7, -1, -1, 7, -1, 8, 0, 8, 5, 6, 5, 6, 7, 3, 7, 3, 3, -2, 3, -2, 7)
 
-[node name="VisibleOnScreenNotifier" parent="." index="2"]
+[node name="VisibleOnScreenNotifier" parent="." index="3"]
 position = Vector2(8, -7)
 scale = Vector2(0.8, 0.7)
