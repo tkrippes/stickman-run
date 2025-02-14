@@ -1,19 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://v1jxbrjt2mjo"]
+[gd_scene load_steps=6 format=3 uid="uid://v1jxbrjt2mjo"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_04sww"]
-[ext_resource type="Texture2D" uid="uid://cobo7d0gelqhs" path="res://art/obstacles/flying/Bird.png" id="2_gmft8"]
+[ext_resource type="Texture2D" uid="uid://cn84v6nnuvdgk" path="res://art/obstacles/flying/BirdFlying.png" id="2_x0s4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3362c"]
+atlas = ExtResource("2_x0s4x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h25e"]
+atlas = ExtResource("2_x0s4x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk1vk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3362c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h25e")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 7.0
+}]
 
 [node name="Bird" instance=ExtResource("1_04sww")]
 is_moving = true
 is_flying = true
 
 [node name="Sprite" parent="." index="0"]
+visible = false
 position = Vector2(8, -4)
-texture = ExtResource("2_gmft8")
 
-[node name="Hitbox" parent="." index="1"]
-polygon = PackedVector2Array(0, -2, 0, -3, 2, -4, 4, -4, 4, -6, 5, -7, 8, -8, 15, -8, 15, -7, 14, -6, 11, -6, 11, -4, 12, -4, 15, -3, 15, -2, 12, -1, 11, 0, 7, 0, 2, -1)
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_dk1vk")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.324525
 
-[node name="VisibleOnScreenNotifier" parent="." index="2"]
-position = Vector2(7.5, -4)
-scale = Vector2(0.75, 0.4)
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(0, -3)
+polygon = PackedVector2Array(0, -2, 0, -3, 2, -4, 5, -4, 4, -5, 4, -6, 5, -7, 8, -8, 15, -8, 15, -7, 14, -6, 11, -6, 11, -4, 12, -4, 15, -3, 15, -2, 12, -1, 11, -1, 11, 1, 14, 1, 15, 2, 15, 3, 8, 3, 5, 2, 4, 1, 4, 0, 5, -1, 2, -1)
+
+[node name="VisibleOnScreenNotifier" parent="." index="3"]
+position = Vector2(7.5, -5.5)
+scale = Vector2(0.75, 0.55)
