@@ -1,18 +1,89 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdopb5lj3hyqd"]
+[gd_scene load_steps=12 format=3 uid="uid://bdopb5lj3hyqd"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_3hjvg"]
-[ext_resource type="Texture2D" uid="uid://c7626f0h7r5l1" path="res://art/obstacles/small/CampFire.png" id="2_1hub8"]
+[ext_resource type="Texture2D" uid="uid://dw6v8bj6r4jhw" path="res://art/obstacles/small/CampFireFlickering.png" id="2_cnpkc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7t64"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tuh4"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul3gh"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cabk"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4wwk"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61a78"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmevg"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kpep"]
+atlas = ExtResource("2_cnpkc")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blayi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7t64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tuh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul3gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cabk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4wwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61a78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmevg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kpep")
+}],
+"loop": true,
+"name": &"flicket",
+"speed": 16.0
+}]
 
 [node name="CampFire" instance=ExtResource("1_3hjvg")]
 
 [node name="Sprite" parent="." index="0"]
+visible = false
 position = Vector2(5, -8)
-texture = ExtResource("2_1hub8")
 
-[node name="Hitbox" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." index="1"]
+texture_filter = 1
+position = Vector2(5, -8)
+sprite_frames = SubResource("SpriteFrames_blayi")
+animation = &"flicket"
+autoplay = "flicket"
+
+[node name="Hitbox" parent="." index="2"]
 position = Vector2(5, -3.5)
 polygon = PackedVector2Array(-5, 3.5, -5, 1.5, -1, -3.5, 1, -3.5, 5, 1.5, 5, 3.5)
 
-[node name="VisibleOnScreenNotifier" parent="." index="2"]
+[node name="VisibleOnScreenNotifier" parent="." index="3"]
 position = Vector2(5, -3.5)
 scale = Vector2(0.5, 0.35)
