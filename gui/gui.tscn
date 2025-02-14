@@ -78,7 +78,7 @@ text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelAnnouncementLabel" type="Label" parent="Control"]
+[node name="AnnouncementLabel" type="Label" parent="Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -95,7 +95,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Level 1"
 
-[node name="LevelAnnouncementHideTimer" type="Timer" parent="."]
+[node name="AnnouncementHideTimer" type="Timer" parent="."]
 wait_time = 1.25
 
-[connection signal="timeout" from="LevelAnnouncementHideTimer" to="Control/LevelAnnouncementLabel" method="hide"]
+[connection signal="timeout" from="AnnouncementHideTimer" to="Control/AnnouncementLabel" method="hide"]

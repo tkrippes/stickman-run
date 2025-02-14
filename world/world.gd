@@ -3,6 +3,7 @@ extends Node2D
 signal player_died
 signal player_scored
 signal player_speed_updated(speed: float)
+signal player_maximum_speed_attained
 
 @export var level_1_obstacle_scenes: Array[PackedScene]
 @export var level_2_obstacle_scenes: Array[PackedScene]
@@ -62,6 +63,10 @@ func _on_level_started(level: int) -> void:
 func _on_player_hit() -> void:
 	get_tree().call_group("obstacles", "queue_free")
 	player_died.emit()
+
+
+func _on_player_maximum_run_speed_attained() -> void:
+	player_maximum_speed_attained.emit()
 
 
 func _on_obstacle_left_screen() -> void:
