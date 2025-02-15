@@ -7,6 +7,7 @@ signal maximum_run_speed_attained
 @export var initial_run_speed: float = 75.0
 @export var maximum_run_speed: float = 200.0
 @export var speed_multiplier: float = 1.02
+@export var acceleration: float = 5.0
 
 @export var jump_speed: float = -150.0
 @export var gravity_multiplier: float = 0.4
@@ -28,9 +29,9 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		_jump()
-	
-	velocity.x = run_speed
-	
+
+	velocity.x = lerp(velocity.x, run_speed, delta * acceleration)
+
 	if velocity.x > 0.0:
 		if is_on_floor():
 			animation.animation = "run"
@@ -61,10 +62,11 @@ func increase_speed() -> void:
 		run_speed = maximum_run_speed
 		maximum_run_speed_attained.emit()
 
+
 func _get_gravity() -> Vector2:
 	if velocity.y < 0.0 and Input.is_action_pressed("jump"):
 		return get_gravity() * gravity_multiplier
-	
+
 	return get_gravity()
 
 
