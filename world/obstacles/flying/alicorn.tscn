@@ -58,6 +58,5 @@ autoplay = "flygalop"
 polygon = PackedVector2Array(4, 0, 4, -9, 1, -9, 0, -10, 0, -12, 1, -13, 2, -16, 3, -16, 5, -15, 6, -15, 8, -13, 9, -8, 11, -10, 13, -10, 14, -7, 15, -6, 15, -3, 14, -3, 13, 0, 10, 0, 10, -3, 7, -3, 7, 0)
 
 [node name="VisibleOnScreenNotifier" parent="." index="3"]
-visible = false
 position = Vector2(7.5, -8)
 scale = Vector2(0.75, 0.8)

@@ -11,7 +11,7 @@ texture = ExtResource("2_jpij4")
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2(7, -3.5)
-polygon = PackedVector2Array(-6, 3.5, -7, 2.5, -7, -0.5, -6, -1.5, -4, -1.5, -3, -3.5, -2, -3.5, -2, -1.5, 2, -1.5, 3, -3.5, 4, -3.5, 4, -1.5, 6, -1.5, 7, -0.5, 7, 2.5, 6, 3.5)
+polygon = PackedVector2Array(-7, 3.5, -7, -0.5, -6, -1.5, -4, -1.5, -3, -3.5, -2, -3.5, -2, -1.5, 2, -1.5, 3, -3.5, 4, -3.5, 4, -1.5, 6, -1.5, 7, -0.5, 7, 3.5)
 
 [node name="VisibleOnScreenNotifier" parent="." index="2"]
 position = Vector2(7, -3.5)
