@@ -63,7 +63,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6kpep")
 }],
 "loop": true,
-"name": &"flicket",
+"name": &"flicker",
 "speed": 16.0
 }]
 
@@ -77,8 +77,8 @@ position = Vector2(5, -8)
 texture_filter = 1
 position = Vector2(5, -8)
 sprite_frames = SubResource("SpriteFrames_blayi")
-animation = &"flicket"
-autoplay = "flicket"
+animation = &"flicker"
+autoplay = "flicker"
 
 [node name="Hitbox" parent="." index="2"]
 position = Vector2(5, -3.5)
