@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://world/obstacles/obstacle.gd" id="1_ocatj"]
 
 [node name="Obstacle" type="RigidBody2D" groups=["obstacles"]]
-gravity_scale = 0.0
 script = ExtResource("1_ocatj")
 
 [node name="Sprite" type="Sprite2D" parent="."]

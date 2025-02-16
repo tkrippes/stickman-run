@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=17 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
@@ -14,9 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://blckmgmv7u6gm" path="res://world/obstacles/moving/pony.tscn" id="10_xprbc"]
 [ext_resource type="PackedScene" uid="uid://v1jxbrjt2mjo" path="res://world/obstacles/flying/bird.tscn" id="11_ugsqr"]
 [ext_resource type="PackedScene" uid="uid://ds36qkmc3l3l5" path="res://world/obstacles/flying/alicorn.tscn" id="12_rxrwn"]
+[ext_resource type="Script" path="res://world/platform.gd" id="15_njs32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
-size = Vector2(264, 8)
+size = Vector2(248, 6)
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -29,20 +30,22 @@ level_4_obstacle_scenes = Array[PackedScene]([ExtResource("11_ugsqr"), ExtResour
 [node name="Background" parent="." instance=ExtResource("5_spnxb")]
 
 [node name="Player" parent="." instance=ExtResource("1_jyfub")]
-position = Vector2(24, 88)
+position = Vector2(24, 82)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(72, -40)
 limit_top = 0
 
-[node name="MovingGround" type="Parallax2D" parent="."]
-repeat_size = Vector2(36, 0)
+[node name="Platform" type="StaticBody2D" parent="."]
+script = ExtResource("15_njs32")
 
-[node name="Ground" type="StaticBody2D" parent="MovingGround"]
-
-[node name="Hitbox" type="CollisionShape2D" parent="MovingGround/Ground"]
-position = Vector2(108, 100)
+[node name="Hitbox" type="CollisionShape2D" parent="Platform"]
+position = Vector2(124, 93)
 shape = SubResource("RectangleShape2D_tks1e")
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Platform"]
+position = Vector2(195, 93)
+scale = Vector2(0.3, 0.3)
 
 [node name="Obstacletimer" type="Timer" parent="."]
 wait_time = 1.5
@@ -53,5 +56,7 @@ wait_time = 1.5
 [connection signal="player_died" from="." to="SpeedIncreaseTimer" method="stop"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="maximum_run_speed_attained" from="Player" to="." method="_on_player_maximum_run_speed_attained"]
+[connection signal="screen_entered" from="Platform/VisibleOnScreenNotifier" to="Platform" method="_on_visible_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="Platform/VisibleOnScreenNotifier" to="Platform" method="_on_visible_on_screen_notifier_screen_exited"]
 [connection signal="timeout" from="Obstacletimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="SpeedIncreaseTimer" to="." method="_on_speed_increase_timer_timeout"]

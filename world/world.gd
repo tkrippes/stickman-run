@@ -10,6 +10,7 @@ signal player_maximum_speed_attained
 @export var level_3_obstacle_scenes: Array[PackedScene]
 @export var level_4_obstacle_scenes: Array[PackedScene]
 
+@export var ground_height: int = 6
 @export var obstacle_timer_multiplier: float = 0.98
 @export var obstacle_bounce_speed: float = 125
 @export var obstacle_move_speed: float = 15
@@ -77,7 +78,7 @@ func _on_obstacle_timer_timeout() -> void:
 	var obstacle_sceen: PackedScene = _obstacle_scenes.pick_random()
 	var obstacle: Obstacle          = obstacle_sceen.instantiate()
 
-	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y)
+	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height)
 	if obstacle.is_bouncing:
 		obstacle.linear_velocity -= Vector2(0, obstacle_bounce_speed)
 	if obstacle.is_moving:
