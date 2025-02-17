@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://blckmgmv7u6gm"]
+[gd_scene load_steps=9 format=3 uid="uid://blckmgmv7u6gm"]
 
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_xfh2o"]
 [ext_resource type="Texture2D" uid="uid://ne5pmdp3do8d" path="res://art/obstacles/moving/PonyGalopping.png" id="2_vcwsw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p1stv"]
+friction = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w63rw"]
 atlas = ExtResource("2_vcwsw")
@@ -40,6 +43,7 @@ animations = [{
 }]
 
 [node name="Pony" instance=ExtResource("1_xfh2o")]
+physics_material_override = SubResource("PhysicsMaterial_p1stv")
 is_moving = true
 
 [node name="Sprite" parent="." index="0"]
