@@ -94,7 +94,7 @@ func _on_obstacle_timer_timeout() -> void:
 
 
 func _emit_player_speed_updated() -> void:
-	player_speed_updated.emit(_player.run_speed)
+	player_speed_updated.emit(_player.velocity.x)
 
 
 func _on_speed_increase_timer_timeout() -> void:
