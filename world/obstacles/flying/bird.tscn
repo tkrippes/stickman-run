@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [node name="Bird" instance=ExtResource("1_04sww")]
+gravity_scale = 0.0
 is_moving = true
 is_flying = true
 
