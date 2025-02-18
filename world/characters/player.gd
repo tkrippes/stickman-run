@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity.x = lerp(velocity.x, run_speed, delta * acceleration)
 
-	if velocity.x > 0.0:
+	if run_speed > 0.0:
 		if is_on_floor():
 			animation.animation = "run"
 		else:
@@ -79,4 +79,5 @@ func _die() -> void:
 	hide()
 	run_speed = 0.0
 	animation.animation = "run"
+	animation.stop()
 	hit.emit()
