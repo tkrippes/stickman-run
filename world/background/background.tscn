@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://fkv4wox2t24a"]
+[gd_scene load_steps=6 format=3 uid="uid://fkv4wox2t24a"]
 
 [ext_resource type="Texture2D" uid="uid://4lm1wllvxjl1" path="res://art/background/Sky.png" id="1_1wfxl"]
 [ext_resource type="Texture2D" uid="uid://baqsroqvr31ak" path="res://art/background/Mountains.png" id="2_i6do0"]
 [ext_resource type="Texture2D" uid="uid://bilg6g2jsja7q" path="res://art/background/Forest.png" id="3_5hgth"]
 [ext_resource type="Texture2D" uid="uid://j8p8ejc01ou1" path="res://art/background/Grass.png" id="4_vsjk8"]
+[ext_resource type="Texture2D" uid="uid://dlnajmrdtc0m6" path="res://art/background/Sun.png" id="5_47taw"]
 
 [node name="Background" type="Node2D"]
 
@@ -46,3 +47,11 @@ repeat_times = 9
 texture_filter = 1
 position = Vector2(84, 84)
 texture = ExtResource("4_vsjk8")
+
+[node name="Sun" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Sprite" type="Sprite2D" parent="Sun"]
+texture_filter = 1
+position = Vector2(184, 8)
+texture = ExtResource("5_47taw")
