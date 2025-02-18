@@ -42,6 +42,11 @@ The longer you press jump, the higher the stickman jumps.
 
 ## Credits
 
+### Sounds
+
+- Jump sound: [8-Bit Jump Sound Effects](https://creatorassets.com/a/8-bit-jump-sound-effects)
+  by [Creator Assets](https://creatorassets.com/)
+
 ### Fonts
 
 - User interface font: [Home Video Font](https://www.fontspace.com/home-video-font-f116641)

@@ -14,17 +14,21 @@ signal maximum_run_speed_attained
 
 var run_speed: float
 var animation: AnimatedSprite2D
+var jump_sound: AudioStreamPlayer2D
 
 
 func _ready() -> void:
 	run_speed = 0.0
 	animation = $AnimationSprite
+	jump_sound = $JumpSound
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += _get_gravity() * delta
+	else:
+		jump_sound.stop()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
@@ -73,11 +77,15 @@ func _get_gravity() -> Vector2:
 func _jump() -> void:
 	if is_on_floor() and run_speed > 0.0:
 		velocity.y = jump_speed
+		jump_sound.play()
 
 
 func _die() -> void:
 	hide()
+	
 	run_speed = 0.0
 	animation.animation = "run"
 	animation.stop()
+	jump_sound.stop()
+	
 	hit.emit()
