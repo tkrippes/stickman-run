@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnew6esrw8cfb" path="res://world/obstacles/large/crate.tscn" id="3_ej6jp"]
 [ext_resource type="PackedScene" uid="uid://bw3w5fe3we3fr" path="res://world/obstacles/moving/ball.tscn" id="4_606ak"]
 [ext_resource type="PackedScene" uid="uid://krypjivuwmvi" path="res://world/obstacles/large/hurdle.tscn" id="5_i4xxu"]
-[ext_resource type="PackedScene" uid="uid://fkv4wox2t24a" path="res://world/background.tscn" id="5_spnxb"]
+[ext_resource type="PackedScene" uid="uid://fkv4wox2t24a" path="res://world/background/background.tscn" id="5_spnxb"]
 [ext_resource type="PackedScene" uid="uid://c652qjlkbvg1l" path="res://world/obstacles/small/small_hurdle.tscn" id="6_snfe5"]
 [ext_resource type="PackedScene" uid="uid://7wf41357rrqb" path="res://world/obstacles/small/small_crate.tscn" id="7_54j2f"]
 [ext_resource type="PackedScene" uid="uid://dn1hpnhhby2pn" path="res://world/obstacles/small/log.tscn" id="8_pqgek"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://blckmgmv7u6gm" path="res://world/obstacles/moving/pony.tscn" id="10_xprbc"]
 [ext_resource type="PackedScene" uid="uid://v1jxbrjt2mjo" path="res://world/obstacles/flying/bird.tscn" id="11_ugsqr"]
 [ext_resource type="PackedScene" uid="uid://ds36qkmc3l3l5" path="res://world/obstacles/flying/alicorn.tscn" id="12_rxrwn"]
-[ext_resource type="PackedScene" uid="uid://uy4evqlp5n65" path="res://world/foreground.tscn" id="15_6omqg"]
+[ext_resource type="PackedScene" uid="uid://uy4evqlp5n65" path="res://world/foreground/foreground.tscn" id="15_6omqg"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1

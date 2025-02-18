@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://fkv4wox2t24a"]
 
-[ext_resource type="Texture2D" uid="uid://4lm1wllvxjl1" path="res://art/background/Sky.png" id="2_muqf3"]
-[ext_resource type="Texture2D" uid="uid://baqsroqvr31ak" path="res://art/background/Mountains.png" id="3_svx8i"]
-[ext_resource type="Texture2D" uid="uid://bilg6g2jsja7q" path="res://art/background/Forest.png" id="4_nfb8f"]
-[ext_resource type="Texture2D" uid="uid://j8p8ejc01ou1" path="res://art/background/Grass.png" id="5_7ovnc"]
+[ext_resource type="Texture2D" uid="uid://4lm1wllvxjl1" path="res://art/background/Sky.png" id="1_1wfxl"]
+[ext_resource type="Texture2D" uid="uid://baqsroqvr31ak" path="res://art/background/Mountains.png" id="2_i6do0"]
+[ext_resource type="Texture2D" uid="uid://bilg6g2jsja7q" path="res://art/background/Forest.png" id="3_5hgth"]
+[ext_resource type="Texture2D" uid="uid://j8p8ejc01ou1" path="res://art/background/Grass.png" id="4_vsjk8"]
 
 [node name="Background" type="Node2D"]
 
@@ -15,7 +15,7 @@ repeat_times = 9
 [node name="Sprite" type="Sprite2D" parent="Sky"]
 texture_filter = 1
 position = Vector2(84, 12)
-texture = ExtResource("2_muqf3")
+texture = ExtResource("1_1wfxl")
 
 [node name="Mountains" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.15, 0.15)
@@ -25,7 +25,7 @@ repeat_times = 9
 [node name="Sprite" type="Sprite2D" parent="Mountains"]
 texture_filter = 1
 position = Vector2(84, 36)
-texture = ExtResource("3_svx8i")
+texture = ExtResource("2_i6do0")
 
 [node name="Forest" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.35, 0.35)
@@ -35,7 +35,7 @@ repeat_times = 9
 [node name="Sprite" type="Sprite2D" parent="Forest"]
 texture_filter = 1
 position = Vector2(84, 60)
-texture = ExtResource("4_nfb8f")
+texture = ExtResource("3_5hgth")
 
 [node name="Grass" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)
@@ -45,4 +45,4 @@ repeat_times = 9
 [node name="Sprite" type="Sprite2D" parent="Grass"]
 texture_filter = 1
 position = Vector2(84, 84)
-texture = ExtResource("5_7ovnc")
+texture = ExtResource("4_vsjk8")

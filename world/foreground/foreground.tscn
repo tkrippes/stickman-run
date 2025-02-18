@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://uy4evqlp5n65"]
 
-[ext_resource type="Script" path="res://world/platform.gd" id="1_d7hvw"]
-[ext_resource type="Texture2D" uid="uid://dh813m5fw0xvm" path="res://art/background/Ground.png" id="2_rrkmh"]
+[ext_resource type="Script" path="res://world/foreground/platform.gd" id="2_eed7d"]
+[ext_resource type="Texture2D" uid="uid://dh813m5fw0xvm" path="res://art/foreground/Ground.png" id="2_rrkmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
 size = Vector2(216, 6)
@@ -18,7 +18,7 @@ position = Vector2(84, 84)
 texture = ExtResource("2_rrkmh")
 
 [node name="Platform" type="StaticBody2D" parent="."]
-script = ExtResource("1_d7hvw")
+script = ExtResource("2_eed7d")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Platform"]
 position = Vector2(108, 93)
