@@ -77,6 +77,7 @@ func _get_gravity() -> Vector2:
 func _jump() -> void:
 	if is_on_floor() and run_speed > 0.0:
 		velocity.y = jump_speed
+		jump_sound.pitch_scale = randf_range(0.9, 1.1)
 		jump_sound.play()
 
 
