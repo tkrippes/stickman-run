@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://k6iu3f6gxjmv"]
+[gd_scene load_steps=5 format=3 uid="uid://k6iu3f6gxjmv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2wqjk"]
 [ext_resource type="PackedScene" uid="uid://buy076pd5xjtc" path="res://world/world.tscn" id="1_ps34b"]
 [ext_resource type="PackedScene" uid="uid://bicxxsvdda42l" path="res://gui/gui.tscn" id="2_v16o8"]
+[ext_resource type="AudioStream" uid="uid://csa7hre2mcyu5" path="res://sounds/game_over_sound.mp3" id="4_4nl2d"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2wqjk")
@@ -10,6 +11,9 @@ script = ExtResource("1_2wqjk")
 [node name="World" parent="." instance=ExtResource("1_ps34b")]
 
 [node name="GUI" parent="." instance=ExtResource("2_v16o8")]
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4nl2d")
 
 [connection signal="game_ended" from="." to="GUI" method="_on_game_ended"]
 [connection signal="game_started" from="." to="World" method="_on_game_started"]
