@@ -44,9 +44,10 @@ The longer you press jump, the higher the stickman jumps.
 
 ### Sounds
 
-- Game over sound: [Video Game Death Sound](https://pixabay.com/sound-effects/videogame-death-sound-43894/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/)
+- Start level sound: [Level Up / Enhancement 8-bit Retro Sound Effect](https://pixabay.com/sound-effects/level-up-enhancement-8-bit-retro-sound-effect-153002/) by [Lesiakower](https://pixabay.com/users/lesiakower-25701529/)
 - Jump sound: [8-Bit Jump Sound Effects](https://creatorassets.com/a/8-bit-jump-sound-effects)
   by [Creator Assets](https://creatorassets.com/)
+- Game over sound: [Video Game Death Sound](https://pixabay.com/sound-effects/videogame-death-sound-43894/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/)
 
 ### Fonts
 
