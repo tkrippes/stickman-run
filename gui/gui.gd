@@ -4,7 +4,8 @@ var _start_label: Label
 var _score_label: Label
 var _speed_label: Label
 var _game_over_label: Label
-var _announcement_label: Label
+var _level_announcement_label: Label
+var _survive_announcement_label: Label
 
 
 func _ready() -> void:
@@ -12,7 +13,8 @@ func _ready() -> void:
 	_score_label = $Control/ScoreLabel
 	_speed_label = $Control/SpeedLabel
 	_game_over_label = $Control/GameOverLabel
-	_announcement_label = $Control/AnnouncementLabel
+	_level_announcement_label = $Control/LevelAnnouncementLabel
+	_survive_announcement_label = $Control/SurviveAnnouncementLabel
 
 
 func _on_game_started() -> void:
@@ -20,7 +22,8 @@ func _on_game_started() -> void:
 	_score_label.hide()
 	_speed_label.hide()
 	_game_over_label.hide()
-	_announcement_label.hide()
+	_level_announcement_label.hide()
+	_survive_announcement_label.hide()
 
 
 func _on_level_started(level: int) -> void:
@@ -29,7 +32,7 @@ func _on_level_started(level: int) -> void:
 	_speed_label.show()
 	_game_over_label.hide()
 	
-	_show_announcement_label("Level %d" % level)
+	_show_level_announcement_label(level)
 
 
 func _on_game_ended() -> void:
@@ -37,7 +40,8 @@ func _on_game_ended() -> void:
 	_score_label.show()
 	_speed_label.show()
 	_game_over_label.show()
-	_announcement_label.hide()
+	_level_announcement_label.hide()
+	_survive_announcement_label.hide()
 
 
 func _on_score_updated(score: int) -> void:
@@ -50,10 +54,15 @@ func _on_player_speed_updated(speed: float) -> void:
 
 
 func _on_player_maximum_speed_attained() -> void:
-	_show_announcement_label("SURVIVE!")
+	_show_survive_announcement_label()
 
 
-func _show_announcement_label(text: String) -> void:
-	_announcement_label.text = text
-	_announcement_label.show()
-	($AnnouncementHideTimer as Timer).start()
+func _show_level_announcement_label(level: int) -> void:
+	_level_announcement_label.text = "Level %d" % level
+	_level_announcement_label.show()
+	($LevelAnnouncementHideTimer as Timer).start()
+
+
+func _show_survive_announcement_label() -> void:
+	_survive_announcement_label.show()
+	($SurviveAnnouncementHideTimer as Timer).start()

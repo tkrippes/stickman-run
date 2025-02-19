@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cwh7uc2wl4lhb" path="res://art/player/StickmanJumping.png" id="2_aw2ii"]
 [ext_resource type="Texture2D" uid="uid://l44hibldjoe3" path="res://art/player/StickmanRunning.png" id="2_mr252"]
 [ext_resource type="AudioStream" uid="uid://bt3ijaxsrsbev" path="res://sounds/jump_sound.mp3" id="4_soik2"]
-[ext_resource type="AudioStream" uid="uid://bq3ekxw0jhrmg" path="res://sounds/maximum_run_speed_attained_sound.mp3" id="5_tl50u"]
+[ext_resource type="AudioStream" uid="uid://2t8r8v8conk7" path="res://sounds/maximum_run_speed_attained_sound.mp3" id="5_hb8lq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r00ha"]
 atlas = ExtResource("2_aw2ii")
@@ -94,4 +94,4 @@ shape = SubResource("RectangleShape2D_f1pud")
 stream = ExtResource("4_soik2")
 
 [node name="MaximumRunSpeedAttainedSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_tl50u")
+stream = ExtResource("5_hb8lq")
