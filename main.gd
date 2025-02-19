@@ -5,16 +5,19 @@ enum GameState {
 	GAME_RUNNING,
 	GAME_ENDED
 }
+
 enum Level {
 	LEVEL_1,
 	LEVEL_2,
 	LEVEL_3,
 	LEVEL_4
 }
+
 signal score_updated(score: int)
 signal game_started
 signal level_started(level: int)
 signal game_ended
+
 @export var level_2_unlock_score: int = 25
 @export var level_3_unlock_score: int = 55
 @export var level_4_unlock_score: int = 90
@@ -23,14 +26,16 @@ var _game_state: GameState = GameState.GAME_STARTED
 var _level: Level          = Level.LEVEL_1
 var _score: int            = 0
 
-var _level_started_sound: AudioStreamPlayer
 var _background_music: AudioStreamPlayer
+var _level_started_sound: AudioStreamPlayer
+var _survive_sound: AudioStreamPlayer
 var _game_over_sound: AudioStreamPlayer
 
 
 func _ready() -> void:
-	_level_started_sound = $LevelStartedSound
 	_background_music = $BackgroundMusic
+	_level_started_sound = $LevelStartedSound
+	_survive_sound = $SurviveSound
 	_game_over_sound = $GameOverSound
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -62,10 +67,15 @@ func _on_player_scored() -> void:
 		_start_level(Level.LEVEL_4)
 
 
+func _on_player_maximum_speed_attained() -> void:
+	_survive_sound.play()
+
+
 func _start_game() -> void:
 	_game_state = GameState.GAME_STARTED
 	_game_over_sound.stop()
 	_background_music.play()
+	
 	game_started.emit()
 
 
@@ -100,5 +110,7 @@ func _start_level(level: Level) -> void:
 func _end_game() -> void:
 	_game_state = GameState.GAME_ENDED
 	_background_music.stop()
+	_survive_sound.stop()
 	_game_over_sound.play()
+	
 	game_ended.emit()
