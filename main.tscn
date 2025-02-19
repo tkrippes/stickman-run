@@ -16,9 +16,11 @@ script = ExtResource("1_2wqjk")
 
 [node name="LevelStartedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fgl5a")
+volume_db = -5.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3fnbo")
+volume_db = -5.0
 parameters/looping = true
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
