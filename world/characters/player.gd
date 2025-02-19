@@ -14,13 +14,17 @@ signal maximum_run_speed_attained
 
 var _run_speed: float
 var _animation: AnimatedSprite2D
+
 var _jump_sound: AudioStreamPlayer
+var _maximum_run_speed_attained_sound: AudioStreamPlayer
 
 
 func _ready() -> void:
 	_run_speed = 0.0
 	_animation = $AnimationSprite
+	
 	_jump_sound = $JumpSound
+	_maximum_run_speed_attained_sound = $MaximumRunSpeedAttainedSound
 
 
 func _physics_process(delta: float) -> void:
@@ -64,6 +68,7 @@ func increase_speed() -> void:
 	elif _run_speed < maximum_run_speed:
 		_animation.speed_scale *= maximum_run_speed / _run_speed
 		_run_speed = maximum_run_speed
+		_maximum_run_speed_attained_sound.play()
 		maximum_run_speed_attained.emit()
 
 
@@ -88,5 +93,6 @@ func _die() -> void:
 	_animation.animation = "run"
 	_animation.stop()
 	_jump_sound.stop()
+	_maximum_run_speed_attained_sound.stop()
 	
 	hit.emit()
