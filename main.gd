@@ -22,11 +22,15 @@ signal game_ended
 var _game_state: GameState = GameState.GAME_STARTED
 var _level: Level          = Level.LEVEL_1
 var _score: int            = 0
+
 var _game_over_sound: AudioStreamPlayer
+var _level_started_sound: AudioStreamPlayer
 
 
 func _ready() -> void:
 	_game_over_sound = $GameOverSound
+	_level_started_sound = $LevelStartedSound
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_start_game()
 
@@ -69,6 +73,7 @@ func _set_score(score: int) -> void:
 
 func _start_level(level: Level) -> void:
 	_game_state = GameState.GAME_RUNNING
+	_level_started_sound.play()
 
 	match level:
 		Level.LEVEL_1:
