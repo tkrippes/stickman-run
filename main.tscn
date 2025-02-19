@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://k6iu3f6gxjmv"]
+[gd_scene load_steps=7 format=3 uid="uid://k6iu3f6gxjmv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2wqjk"]
 [ext_resource type="PackedScene" uid="uid://buy076pd5xjtc" path="res://world/world.tscn" id="1_ps34b"]
 [ext_resource type="PackedScene" uid="uid://bicxxsvdda42l" path="res://gui/gui.tscn" id="2_v16o8"]
 [ext_resource type="AudioStream" uid="uid://csa7hre2mcyu5" path="res://sounds/game_over_sound.mp3" id="4_4nl2d"]
+[ext_resource type="AudioStream" uid="uid://234urs4qs6uj" path="res://sounds/background_music.mp3" id="5_3fnbo"]
 [ext_resource type="AudioStream" uid="uid://b8g2if7b0r50u" path="res://sounds/level_started_sound.mp3" id="5_fgl5a"]
 
 [node name="Main" type="Node"]
@@ -13,11 +14,15 @@ script = ExtResource("1_2wqjk")
 
 [node name="GUI" parent="." instance=ExtResource("2_v16o8")]
 
-[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_4nl2d")
-
 [node name="LevelStartedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fgl5a")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3fnbo")
+parameters/looping = true
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4nl2d")
 
 [connection signal="game_ended" from="." to="GUI" method="_on_game_ended"]
 [connection signal="game_started" from="." to="World" method="_on_game_started"]
