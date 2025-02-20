@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://uy4evqlp5n65"]
 
-[ext_resource type="Script" path="res://world/foreground/platform.gd" id="2_eed7d"]
+[ext_resource type="Script" path="res://world/foreground/foreground.gd" id="1_vkebr"]
 [ext_resource type="Texture2D" uid="uid://dh813m5fw0xvm" path="res://art/foreground/Ground.png" id="2_rrkmh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tks1e"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cil8g"]
 size = Vector2(216, 6)
 
 [node name="Foreground" type="Node2D"]
+script = ExtResource("1_vkebr")
 
 [node name="Ground" type="Parallax2D" parent="."]
 texture_filter = 1
@@ -18,15 +19,7 @@ position = Vector2(84, 84)
 texture = ExtResource("2_rrkmh")
 
 [node name="Platform" type="StaticBody2D" parent="."]
-script = ExtResource("2_eed7d")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Platform"]
 position = Vector2(108, 93)
-shape = SubResource("RectangleShape2D_tks1e")
-
-[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Platform"]
-position = Vector2(195, 93)
-scale = Vector2(0.3, 0.3)
-
-[connection signal="screen_entered" from="Platform/VisibleOnScreenNotifier" to="Platform" method="_on_visible_on_screen_notifier_screen_entered"]
-[connection signal="screen_exited" from="Platform/VisibleOnScreenNotifier" to="Platform" method="_on_visible_on_screen_notifier_screen_exited"]
+shape = SubResource("RectangleShape2D_cil8g")
