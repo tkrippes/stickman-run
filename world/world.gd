@@ -12,9 +12,6 @@ signal player_maximum_speed_attained
 
 @export var ground_height: int = 6
 @export var obstacle_timer_multiplier: float = 0.98
-@export var obstacle_bounce_speed: float = 125
-@export var obstacle_move_speed: float = 15
-@export var obstacle_fly_height: float = 24
 
 var _player: Player
 var _obstacle_timer: Timer
@@ -77,16 +74,7 @@ func _on_obstacle_left_screen() -> void:
 func _on_obstacle_timer_timeout() -> void:
 	var obstacle_sceen: PackedScene = _obstacle_scenes.pick_random()
 	var obstacle: Obstacle          = obstacle_sceen.instantiate()
-
-	var obstacle_position := Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height)
-	if obstacle.is_bouncing:
-		obstacle.linear_velocity -= Vector2(0, obstacle_bounce_speed)
-	if obstacle.is_moving:
-		obstacle.linear_velocity -= Vector2(obstacle_move_speed, 0)
-		
-	obstacle.position = obstacle_position
-	if obstacle.is_flying:
-		obstacle.position -= Vector2(0, obstacle_fly_height)
+	obstacle.position = Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height)
 
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
 
