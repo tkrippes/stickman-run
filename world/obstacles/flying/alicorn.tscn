@@ -41,8 +41,8 @@ animations = [{
 
 [node name="Alicorn" instance=ExtResource("1_lrqce")]
 gravity_scale = 0.0
-is_moving = true
-is_flying = true
+move_speed = 30.0
+fly_height = 24.0
 
 [node name="Sprite" parent="." index="0"]
 visible = false

@@ -27,8 +27,8 @@ animations = [{
 
 [node name="Bird" instance=ExtResource("1_04sww")]
 gravity_scale = 0.0
-is_moving = true
-is_flying = true
+move_speed = 15.0
+fly_height = 24.0
 
 [node name="Sprite" parent="." index="0"]
 visible = false
