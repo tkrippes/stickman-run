@@ -44,7 +44,7 @@ animations = [{
 
 [node name="Pony" instance=ExtResource("1_xfh2o")]
 physics_material_override = SubResource("PhysicsMaterial_p1stv")
-move_speed = 20.0
+move_speed = 15.0
 
 [node name="Sprite" parent="." index="0"]
 visible = false
