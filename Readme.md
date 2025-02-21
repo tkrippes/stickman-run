@@ -44,12 +44,19 @@ The longer you press jump, the higher the stickman jumps.
 
 ### Sounds
 
-- Background music: [026491_Pixel Song #8](https://pixabay.com/sound-effects/026491-pixel-song-8-72675/) by [Freesound Community](https://pixabay.com/users/freesound_community-46691455/)
-- Start level sound: [Level Up / Enhancement 8-bit Retro Sound Effect](https://pixabay.com/sound-effects/level-up-enhancement-8-bit-retro-sound-effect-153002/) by [Lesiakower](https://pixabay.com/users/lesiakower-25701529/)
+- Background music: [026491_Pixel Song #8](https://pixabay.com/sound-effects/026491-pixel-song-8-72675/)
+  by [Freesound Community](https://pixabay.com/users/freesound_community-46691455/)
+- Start level
+  sound: [Level Up / Enhancement 8-bit Retro Sound Effect](https://pixabay.com/sound-effects/level-up-enhancement-8-bit-retro-sound-effect-153002/)
+  by [Lesiakower](https://pixabay.com/users/lesiakower-25701529/)
 - Jump sound: [8-Bit Jump Sound Effects](https://creatorassets.com/a/8-bit-jump-sound-effects)
   by [Creator Assets](https://creatorassets.com/)
-- Survive sound: [8-bit Alarm](https://pixabay.com/sound-effects/8-bit-alarm-38563/) by [SubwaySandwitch420 (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
-- Game over sound: [Video Game Death Sound](https://pixabay.com/sound-effects/videogame-death-sound-43894/) by [Fupicat (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
+- Coin sound: [8-Bit Coin Sound Effect](https://creatorassets.com/a/8-bit-coin-sound-effects)
+  by [Creator Assets](https://creatorassets.com/)
+- Survive sound: [8-bit Alarm](https://pixabay.com/sound-effects/8-bit-alarm-38563/)
+  by [SubwaySandwitch420 (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
+- Game over sound: [Video Game Death Sound](https://pixabay.com/sound-effects/videogame-death-sound-43894/)
+  by [Fupicat (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
 
 ### Fonts
 

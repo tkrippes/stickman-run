@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=18 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ds36qkmc3l3l5" path="res://world/obstacles/flying/alicorn.tscn" id="12_rxrwn"]
 [ext_resource type="PackedScene" uid="uid://uy4evqlp5n65" path="res://world/foreground/foreground.tscn" id="15_6omqg"]
 [ext_resource type="PackedScene" uid="uid://dss5beatkojfq" path="res://world/items/coin.tscn" id="16_8u4pf"]
+[ext_resource type="AudioStream" uid="uid://bjci5cf4syjop" path="res://sounds/coin_collected_sound.wav" id="17_j051w"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -44,6 +45,10 @@ wait_time = 1.5
 
 [node name="CoinSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="CoinCollectedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_j051w")
+volume_db = -5.0
 
 [connection signal="player_died" from="." to="PlayerSpeedIncreaseTimer" method="stop"]
 [connection signal="player_died" from="." to="ObstacleSpawnTimer" method="stop"]

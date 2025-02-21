@@ -89,6 +89,7 @@ func _on_obstacle_left_screen() -> void:
 
 
 func _on_coin_collected() -> void:
+	($CoinCollectedSound as AudioStreamPlayer).play()
 	player_scored.emit(coin_points)
 
 
