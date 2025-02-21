@@ -13,7 +13,7 @@ signal player_maximum_speed_attained
 @export var coin_scene: PackedScene
 
 @export var ground_height: int = 6
-@export var coin_height: int = 24
+@export var maximum_coin_height: int = 24
 @export var obstacle_spawn_timer_wait_time_multiplier: float = 0.98
 
 @export var obstacle_points: int = 1
@@ -105,7 +105,7 @@ func _on_obstacle_spawn_timer_timeout() -> void:
 
 func _on_coin_spawn_timer_timeout() -> void:
 	var coin: Coin = coin_scene.instantiate()
-	coin.position = Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height - coin_height)
+	coin.position = Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height - randf_range(0, maximum_coin_height))
 	
 	var _error_code := coin.collected.connect(_on_coin_collected)
 	

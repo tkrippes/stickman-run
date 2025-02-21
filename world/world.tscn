@@ -44,7 +44,7 @@ limit_top = 0
 wait_time = 1.5
 
 [node name="CoinSpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [node name="CoinCollectedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_j051w")
