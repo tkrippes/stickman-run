@@ -47,10 +47,17 @@ script = ExtResource("1_i34om")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(5, -5)
 sprite_frames = SubResource("SpriteFrames_1w11k")
 autoplay = "default"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(5, -5)
 shape = SubResource("CircleShape2D_afn8g")
 
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(5, -5)
+scale = Vector2(0.5, 0.5)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]
