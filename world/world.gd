@@ -17,7 +17,7 @@ signal player_maximum_speed_attained
 @export var obstacle_spawn_timer_wait_time_multiplier: float = 0.98
 
 @export var obstacle_points: int = 1
-@export var coin_points: int = 5
+@export var coin_points: int = 3
 
 var _screen_size: Vector2i
 
