@@ -55,8 +55,8 @@ func _change_game_state() -> void:
 			_start_game()
 
 
-func _on_player_scored() -> void:
-	_score += 1
+func _on_player_scored(points: int) -> void:
+	_score += points
 	score_updated.emit(_score)
 
 	if _score == level_2_unlock_score:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=17 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://v1jxbrjt2mjo" path="res://world/obstacles/flying/bird.tscn" id="11_ugsqr"]
 [ext_resource type="PackedScene" uid="uid://ds36qkmc3l3l5" path="res://world/obstacles/flying/alicorn.tscn" id="12_rxrwn"]
 [ext_resource type="PackedScene" uid="uid://uy4evqlp5n65" path="res://world/foreground/foreground.tscn" id="15_6omqg"]
+[ext_resource type="PackedScene" uid="uid://dss5beatkojfq" path="res://world/items/coin.tscn" id="16_8u4pf"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -23,6 +24,7 @@ level_1_obstacle_scenes = Array[PackedScene]([ExtResource("9_3r4r7"), ExtResourc
 level_2_obstacle_scenes = Array[PackedScene]([ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
 level_3_obstacle_scenes = Array[PackedScene]([ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
 level_4_obstacle_scenes = Array[PackedScene]([ExtResource("11_ugsqr"), ExtResource("12_rxrwn"), ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
+coin_scene = ExtResource("16_8u4pf")
 
 [node name="Background" parent="." instance=ExtResource("5_spnxb")]
 
@@ -35,15 +37,20 @@ limit_top = 0
 
 [node name="Foreground" parent="." instance=ExtResource("15_6omqg")]
 
-[node name="Obstacletimer" type="Timer" parent="."]
+[node name="PlayerSpeedIncreaseTimer" type="Timer" parent="."]
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
 wait_time = 1.5
 
-[node name="SpeedIncreaseTimer" type="Timer" parent="."]
+[node name="CoinSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
 
-[connection signal="player_died" from="." to="Obstacletimer" method="stop"]
-[connection signal="player_died" from="." to="SpeedIncreaseTimer" method="stop"]
+[connection signal="player_died" from="." to="PlayerSpeedIncreaseTimer" method="stop"]
+[connection signal="player_died" from="." to="ObstacleSpawnTimer" method="stop"]
+[connection signal="player_died" from="." to="CoinSpawnTimer" method="stop"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="maximum_run_speed_attained" from="Player" to="." method="_on_player_maximum_run_speed_attained"]
 [connection signal="position_updated" from="Player" to="Foreground" method="_on_player_position_updated"]
-[connection signal="timeout" from="Obstacletimer" to="." method="_on_obstacle_timer_timeout"]
-[connection signal="timeout" from="SpeedIncreaseTimer" to="." method="_on_speed_increase_timer_timeout"]
+[connection signal="timeout" from="PlayerSpeedIncreaseTimer" to="." method="_on_player_speed_increase_timer_timeout"]
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
+[connection signal="timeout" from="CoinSpawnTimer" to="." method="_on_coin_spawn_timer_timeout"]
