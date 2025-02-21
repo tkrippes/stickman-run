@@ -54,6 +54,8 @@ func _on_level_started(level: int) -> void:
 	_emit_player_speed_updated()
 
 	get_tree().call_group("obstacles", "queue_free")
+	get_tree().call_group("coins", "queue_free")
+	
 	if level == 1:
 		_obstacle_scenes = level_1_obstacle_scenes
 	elif level == 2:
@@ -73,6 +75,7 @@ func _on_level_started(level: int) -> void:
 
 func _on_player_hit() -> void:
 	get_tree().call_group("obstacles", "queue_free")
+	get_tree().call_group("coins", "queue_free")
 	player_died.emit()
 
 
