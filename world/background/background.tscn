@@ -1,13 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://fkv4wox2t24a"]
+[gd_scene load_steps=14 format=3 uid="uid://fkv4wox2t24a"]
 
 [ext_resource type="Texture2D" uid="uid://4lm1wllvxjl1" path="res://art/background/Sky.png" id="1_1wfxl"]
 [ext_resource type="Texture2D" uid="uid://baqsroqvr31ak" path="res://art/background/Mountains.png" id="2_i6do0"]
 [ext_resource type="Texture2D" uid="uid://bilg6g2jsja7q" path="res://art/background/Forest.png" id="3_5hgth"]
 [ext_resource type="Texture2D" uid="uid://b0amg2cgfv4o7" path="res://art/background/MountainsTransparencyLayer.png" id="3_xwqbp"]
-[ext_resource type="Texture2D" uid="uid://j8p8ejc01ou1" path="res://art/background/Grass.png" id="4_vsjk8"]
 [ext_resource type="Texture2D" uid="uid://dlnajmrdtc0m6" path="res://art/background/Sun.png" id="5_47taw"]
 [ext_resource type="Texture2D" uid="uid://b1u8v148t6ol7" path="res://art/background/ForestTransparencyLayer.png" id="5_gndis"]
+[ext_resource type="Texture2D" uid="uid://bqrqhh86pjeel" path="res://art/background/GrassWaving.png" id="6_f1vos"]
 [ext_resource type="Texture2D" uid="uid://cuoo4wsbo46fy" path="res://art/background/GrassTransparencyLayer.png" id="7_tx0ad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddajo"]
+atlas = ExtResource("6_f1vos")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu8pn"]
+atlas = ExtResource("6_f1vos")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3xgq"]
+atlas = ExtResource("6_f1vos")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4t6s"]
+atlas = ExtResource("6_f1vos")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3fa7u"]
+animations = [{
+"frames": [{
+"duration": 1.75,
+"texture": SubResource("AtlasTexture_ddajo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu8pn")
+}, {
+"duration": 1.75,
+"texture": SubResource("AtlasTexture_o3xgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4t6s")
+}],
+"loop": true,
+"name": &"wave",
+"speed": 5.0
+}]
 
 [node name="Background" type="Node2D"]
 
@@ -54,10 +90,12 @@ scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(24, 0)
 repeat_times = 9
 
-[node name="Sprite" type="Sprite2D" parent="Grass"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Grass"]
 texture_filter = 1
 position = Vector2(84, 84)
-texture = ExtResource("4_vsjk8")
+sprite_frames = SubResource("SpriteFrames_3fa7u")
+animation = &"wave"
+autoplay = "wave"
 
 [node name="TransparencySprite" type="Sprite2D" parent="Grass"]
 position = Vector2(84, 84)
