@@ -69,6 +69,8 @@ func increase_speed() -> void:
 	elif _run_speed < maximum_run_speed:
 		_animation.speed_scale *= maximum_run_speed / _run_speed
 		_run_speed = maximum_run_speed
+	elif velocity.x >= maximum_run_speed - 0.1:
+		velocity.x = maximum_run_speed
 		maximum_run_speed_attained.emit()
 
 

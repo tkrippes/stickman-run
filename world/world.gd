@@ -64,6 +64,7 @@ func _on_player_hit() -> void:
 
 
 func _on_player_maximum_run_speed_attained() -> void:
+	_speed_increase_timer.stop()
 	player_maximum_speed_attained.emit()
 
 
