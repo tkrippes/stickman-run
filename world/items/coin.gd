@@ -1,12 +1,16 @@
 class_name Coin
 extends Area2D
 
-signal collected
+signal player_hit
+signal obstacle_hit
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		collected.emit()
+		player_hit.emit()
+		queue_free()
+	elif body is Obstacle:
+		obstacle_hit.emit()
 		queue_free()
 
 
