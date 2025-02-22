@@ -7,7 +7,7 @@ Chrome browser while being offline, but featuring a stickman.
 
 Stickman Run is a single player game. You are playing a stickman who is running increasingly faster and has to avoid
 obstacles in order to continue. The goal of the game is to score the most points. You receive one point for each
-obstacle you avoid.
+obstacle you avoid and three points for each coin you collect.
 
 The game contains a level system where each new level has an increasingly more difficult obstacle set. The next level
 is unlocked by scoring a certain amount of points. The last level continues until the player dies.
