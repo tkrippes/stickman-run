@@ -4,25 +4,22 @@ extends CharacterBody2D
 signal hit
 signal maximum_run_speed_attained
 signal position_updated(position: Vector2)
-
 @export var initial_run_speed: float = 75.0
 @export var maximum_run_speed: float = 200.0
 @export var speed_multiplier: float = 1.02
 @export var acceleration: float = 5.0
-
 @export var jump_speed: float = -150.0
 @export var gravity_multiplier: float = 0.4
 
 var _run_speed: float
 var _animation: AnimatedSprite2D
-
 var _jump_sound: AudioStreamPlayer
 
 
 func _ready() -> void:
 	_run_speed = 0.0
 	_animation = $AnimationSprite
-	
+
 	_jump_sound = $JumpSound
 
 
@@ -53,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		var collider := get_slide_collision(index).get_collider()
 		if collider != null && (collider as Node).is_in_group("obstacles"):
 			_die()
-	
+
 	position_updated.emit(position)
 
 
@@ -90,10 +87,10 @@ func _jump() -> void:
 
 func _die() -> void:
 	hide()
-	
+
 	_run_speed = 0.0
 	_animation.animation = "run"
 	_animation.stop()
 	_jump_sound.stop()
-	
+
 	hit.emit()
