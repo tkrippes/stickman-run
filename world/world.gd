@@ -12,6 +12,8 @@ signal player_maximum_speed_attained
 @export var ground_height: int = 6
 @export var maximum_coin_height: int = 24
 @export var obstacle_spawn_timer_wait_time_multiplier: float = 0.98
+@export var minimum_obstacle_spawn_timer_wait_time_multiplier: float = 0.8
+@export var maximum_obstacle_spawn_timer_wait_time_multiplier: float = 1.2
 @export var obstacle_points: int = 1
 @export var coin_points: int = 3
 
@@ -20,6 +22,7 @@ var _player: Player
 var _player_speed_increase_timer: Timer
 var _obstacle_spawn_timer: Timer
 var _initial_obstacle_spawn_timer_wait_time: float
+var _base_obstacle_spawn_timer_wait_time: float
 var _obstacle_scenes: Array[PackedScene]
 var _coin_spawn_timer: Timer
 
@@ -33,6 +36,7 @@ func _ready() -> void:
 
 	_obstacle_spawn_timer = $ObstacleSpawnTimer
 	_initial_obstacle_spawn_timer_wait_time = _obstacle_spawn_timer.wait_time
+	_base_obstacle_spawn_timer_wait_time = _obstacle_spawn_timer.wait_time
 
 	_coin_spawn_timer = $CoinSpawnTimer
 
@@ -61,7 +65,8 @@ func _on_level_started(level: int) -> void:
 		push_warning("Unknown level '%d' started" % level)
 
 	_player_speed_increase_timer.start()
-	_obstacle_spawn_timer.wait_time = _initial_obstacle_spawn_timer_wait_time
+	_base_obstacle_spawn_timer_wait_time = _initial_obstacle_spawn_timer_wait_time
+	_set_obstacle_spawn_timer_wait_time()
 	_obstacle_spawn_timer.start()
 	_coin_spawn_timer.start()
 
@@ -110,7 +115,8 @@ func _on_coin_spawn_timer_timeout() -> void:
 
 func _make_coin() -> Coin:
 	var coin: Coin = coin_scene.instantiate()
-	coin.position = Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height - randf_range(0, maximum_coin_height))
+	coin.position = Vector2(_player.position.x + _screen_size.x,
+							_screen_size.y - ground_height - randf_range(0, maximum_coin_height))
 
 	var _error_code := coin.player_hit.connect(_on_coin_collected)
 	_error_code = coin.obstacle_hit.connect(_on_coin_destroyed)
@@ -123,7 +129,14 @@ func _emit_player_speed_updated() -> void:
 
 
 func _on_player_speed_increase_timer_timeout() -> void:
-	_obstacle_spawn_timer.wait_time *= obstacle_spawn_timer_wait_time_multiplier
+	_base_obstacle_spawn_timer_wait_time *= obstacle_spawn_timer_wait_time_multiplier
+	_set_obstacle_spawn_timer_wait_time()
 
 	_player.increase_speed()
 	_emit_player_speed_updated()
+
+
+func _set_obstacle_spawn_timer_wait_time() -> void:
+	_obstacle_spawn_timer.wait_time = randf_range(
+		minimum_obstacle_spawn_timer_wait_time_multiplier * _base_obstacle_spawn_timer_wait_time,
+		maximum_obstacle_spawn_timer_wait_time_multiplier * _base_obstacle_spawn_timer_wait_time)
