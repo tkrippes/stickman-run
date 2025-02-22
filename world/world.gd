@@ -94,7 +94,9 @@ func _on_coin_collected() -> void:
 
 
 func _on_coin_destroyed() -> void:
-	_on_coin_spawn_timer_timeout()
+	var coin := _make_coin()
+	
+	call_deferred("add_child", coin)
 
 
 func _on_obstacle_spawn_timer_timeout() -> void:
@@ -108,13 +110,19 @@ func _on_obstacle_spawn_timer_timeout() -> void:
 
 
 func _on_coin_spawn_timer_timeout() -> void:
+	var coin: Coin = _make_coin()
+	
+	add_child(coin)
+
+
+func _make_coin() -> Coin:
 	var coin: Coin = coin_scene.instantiate()
 	coin.position = Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height - randf_range(0, maximum_coin_height))
 	
 	var _error_code := coin.player_hit.connect(_on_coin_collected)
 	_error_code = coin.obstacle_hit.connect(_on_coin_destroyed)
 	
-	add_child(coin)
+	return coin
 
 
 func _emit_player_speed_updated() -> void:
