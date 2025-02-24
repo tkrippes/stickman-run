@@ -62,13 +62,13 @@ func _on_level_started(level: int) -> void:
 	_base_obstacle_spawn_timer_wait_time = _initial_obstacle_spawn_timer_wait_time
 	_set_obstacle_spawn_timer_wait_time()
 	_obstacle_spawn_timer.start()
-	_coin_controller.start_timer()
+	_coin_controller.start_spawning()
 
 
 func _on_player_hit() -> void:
 	get_tree().call_group("obstacles", "queue_free")
 	_coin_controller.delete_coins()
-	_coin_controller.stop_timer()
+	_coin_controller.stop_spawning()
 	player_died.emit()
 
 

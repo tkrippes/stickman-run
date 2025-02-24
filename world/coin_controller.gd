@@ -31,11 +31,11 @@ func _on_player_position_updated(player_position: Vector2) -> void:
 	_player_position = player_position
 
 
-func start_timer() -> void:
+func start_spawning() -> void:
 	($SpawnTimer as Timer).start()
 
 
-func stop_timer() -> void:
+func stop_spawning() -> void:
 	($SpawnTimer as Timer).stop()
 
 
