@@ -9,7 +9,8 @@ signal player_maximum_speed_attained
 @export var level_3_obstacle_scenes: Array[PackedScene]
 @export var level_4_obstacle_scenes: Array[PackedScene]
 @export var coin_scene: PackedScene
-@export var ground_height: int = 6
+@export var base_obstacle_position: Vector2 = Vector2(192, 90)
+@export var base_coin_position: Vector2 = Vector2(192, 90)
 @export var maximum_coin_height: int = 24
 @export var obstacle_spawn_timer_wait_time_multiplier: float = 0.98
 @export var minimum_obstacle_spawn_timer_wait_time_multiplier: float = 0.8
@@ -17,7 +18,6 @@ signal player_maximum_speed_attained
 @export var obstacle_points: int = 1
 @export var coin_points: int = 3
 
-var _screen_size: Vector2i
 var _player: Player
 var _player_speed_increase_timer: Timer
 var _obstacle_spawn_timer: Timer
@@ -28,8 +28,6 @@ var _coin_spawn_timer: Timer
 
 
 func _ready() -> void:
-	_screen_size = get_viewport_rect().size
-
 	_player = $Player
 	_player_speed_increase_timer = $PlayerSpeedIncreaseTimer
 	_emit_player_speed_updated()
@@ -100,7 +98,8 @@ func _on_coin_destroyed() -> void:
 func _on_obstacle_spawn_timer_timeout() -> void:
 	var obstacle_sceen: PackedScene = _obstacle_scenes.pick_random()
 	var obstacle: Obstacle          = obstacle_sceen.instantiate()
-	obstacle.position = Vector2(_player.position.x + _screen_size.x, _screen_size.y - ground_height)
+	obstacle.position = Vector2(base_obstacle_position.x + _player.position.x,
+	base_obstacle_position.y)
 
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
 
@@ -115,8 +114,8 @@ func _on_coin_spawn_timer_timeout() -> void:
 
 func _make_coin() -> Coin:
 	var coin: Coin = coin_scene.instantiate()
-	coin.position = Vector2(_player.position.x + _screen_size.x,
-							_screen_size.y - ground_height - randf_range(0, maximum_coin_height))
+	coin.position = Vector2(base_coin_position.x + _player.position.x,
+	base_coin_position.y - randf_range(0, maximum_coin_height))
 
 	var _error_code := coin.player_hit.connect(_on_coin_collected)
 	_error_code = coin.obstacle_hit.connect(_on_coin_destroyed)
