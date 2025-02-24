@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdh73pubo4k7n"]
+
+[ext_resource type="Script" path="res://world/coin_controller.gd" id="1_xo4yk"]
+[ext_resource type="PackedScene" uid="uid://dss5beatkojfq" path="res://world/items/coin.tscn" id="2_2jm21"]
+[ext_resource type="AudioStream" uid="uid://bjci5cf4syjop" path="res://sounds/coin_collected_sound.wav" id="3_38tm0"]
+
+[node name="CoinController" type="Node2D"]
+script = ExtResource("1_xo4yk")
+coin_scene = ExtResource("2_2jm21")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="CoinCollectedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_38tm0")
+volume_db = -5.0
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

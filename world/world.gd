@@ -8,15 +8,11 @@ signal player_maximum_speed_attained
 @export var level_2_obstacle_scenes: Array[PackedScene]
 @export var level_3_obstacle_scenes: Array[PackedScene]
 @export var level_4_obstacle_scenes: Array[PackedScene]
-@export var coin_scene: PackedScene
 @export var base_obstacle_position: Vector2 = Vector2(192, 90)
-@export var base_coin_position: Vector2 = Vector2(192, 90)
-@export var maximum_coin_height: int = 24
 @export var obstacle_spawn_timer_wait_time_multiplier: float = 0.98
 @export var minimum_obstacle_spawn_timer_wait_time_multiplier: float = 0.8
 @export var maximum_obstacle_spawn_timer_wait_time_multiplier: float = 1.2
 @export var obstacle_points: int = 1
-@export var coin_points: int = 3
 
 var _player: Player
 var _player_speed_increase_timer: Timer
@@ -24,7 +20,7 @@ var _obstacle_spawn_timer: Timer
 var _initial_obstacle_spawn_timer_wait_time: float
 var _base_obstacle_spawn_timer_wait_time: float
 var _obstacle_scenes: Array[PackedScene]
-var _coin_spawn_timer: Timer
+var _coin_controller: CoinController
 
 
 func _ready() -> void:
@@ -36,7 +32,7 @@ func _ready() -> void:
 	_initial_obstacle_spawn_timer_wait_time = _obstacle_spawn_timer.wait_time
 	_base_obstacle_spawn_timer_wait_time = _obstacle_spawn_timer.wait_time
 
-	_coin_spawn_timer = $CoinSpawnTimer
+	_coin_controller = $CoinController
 
 
 func _on_game_started() -> void:
@@ -49,7 +45,7 @@ func _on_level_started(level: int) -> void:
 	_emit_player_speed_updated()
 
 	get_tree().call_group("obstacles", "queue_free")
-	get_tree().call_group("coins", "queue_free")
+	_coin_controller.delete_coins()
 
 	if level == 1:
 		_obstacle_scenes = level_1_obstacle_scenes
@@ -66,12 +62,13 @@ func _on_level_started(level: int) -> void:
 	_base_obstacle_spawn_timer_wait_time = _initial_obstacle_spawn_timer_wait_time
 	_set_obstacle_spawn_timer_wait_time()
 	_obstacle_spawn_timer.start()
-	_coin_spawn_timer.start()
+	_coin_controller.start_timer()
 
 
 func _on_player_hit() -> void:
 	get_tree().call_group("obstacles", "queue_free")
-	get_tree().call_group("coins", "queue_free")
+	_coin_controller.delete_coins()
+	_coin_controller.stop_timer()
 	player_died.emit()
 
 
@@ -84,15 +81,8 @@ func _on_obstacle_left_screen() -> void:
 	player_scored.emit(obstacle_points)
 
 
-func _on_coin_collected() -> void:
-	($CoinCollectedSound as AudioStreamPlayer).play()
-	player_scored.emit(coin_points)
-
-
-func _on_coin_destroyed() -> void:
-	var coin := _make_coin()
-
-	call_deferred("add_child", coin)
+func _on_coin_collected(points: int) -> void:
+	player_scored.emit(points)
 
 
 func _on_obstacle_spawn_timer_timeout() -> void:
@@ -104,23 +94,6 @@ func _on_obstacle_spawn_timer_timeout() -> void:
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
 
 	add_child(obstacle)
-
-
-func _on_coin_spawn_timer_timeout() -> void:
-	var coin: Coin = _make_coin()
-
-	add_child(coin)
-
-
-func _make_coin() -> Coin:
-	var coin: Coin = coin_scene.instantiate()
-	coin.position = Vector2(base_coin_position.x + _player.position.x,
-	base_coin_position.y - randf_range(0, maximum_coin_height))
-
-	var _error_code := coin.player_hit.connect(_on_coin_collected)
-	_error_code = coin.obstacle_hit.connect(_on_coin_destroyed)
-
-	return coin
 
 
 func _emit_player_speed_updated() -> void:
