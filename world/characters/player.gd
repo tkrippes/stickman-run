@@ -19,7 +19,7 @@ var _jump_sound: AudioStreamPlayer
 func _ready() -> void:
 	_animation = $AnimationSprite
 	_jump_sound = $JumpSound
-	
+
 	_reset()
 
 
@@ -67,8 +67,7 @@ func _get_gravity() -> Vector2:
 func _jump() -> void:
 	if is_on_floor() and _run_speed > 0.0:
 		velocity.y = jump_speed
-		_jump_sound.pitch_scale = randf_range(0.9, 1.1)
-		_jump_sound.play()
+		_play_jump_sound()
 
 
 func _die() -> void:
@@ -91,7 +90,7 @@ func _handle_animation() -> void:
 			_animation.animation = "run"
 		else:
 			_animation.animation = "jump"
-		
+
 		_animation.play()
 	else:
 		_animation.stop()
@@ -103,5 +102,10 @@ func _handle_collision() -> void:
 		var collider := get_slide_collision(index).get_collider()
 		if collider != null && (collider as Node).is_in_group("obstacles"):
 			_die()
-			
+
 			return
+
+
+func _play_jump_sound() -> void:
+	_jump_sound.pitch_scale = randf_range(0.9, 1.1)
+	_jump_sound.play()
