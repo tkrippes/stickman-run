@@ -63,12 +63,12 @@ func _on_coin_collected(points: int) -> void:
 	player_scored.emit(points)
 
 
-func _emit_player_speed_updated() -> void:
-	player_speed_updated.emit(_player.velocity.x)
-
-
 func _on_player_speed_increase_timer_timeout() -> void:
 	_obstacle_controller.increase_spawn_rate()
 
 	_player.increase_speed()
 	_emit_player_speed_updated()
+
+
+func _emit_player_speed_updated() -> void:
+	player_speed_updated.emit(_player.velocity.x)
