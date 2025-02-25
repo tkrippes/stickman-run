@@ -19,3 +19,8 @@ level_1_scenes = Array[PackedScene]([ExtResource("2_udw3k"), ExtResource("3_mxb3
 level_2_scenes = Array[PackedScene]([ExtResource("6_uj7i8"), ExtResource("7_0lfsn"), ExtResource("8_hrj6k"), ExtResource("2_udw3k"), ExtResource("3_mxb3h"), ExtResource("4_q8p32"), ExtResource("5_gxjyn")])
 level_3_scenes = Array[PackedScene]([ExtResource("9_215am"), ExtResource("10_l2ogg"), ExtResource("6_uj7i8"), ExtResource("7_0lfsn"), ExtResource("8_hrj6k"), ExtResource("2_udw3k"), ExtResource("3_mxb3h")])
 level_4_scenes = Array[PackedScene]([ExtResource("11_ps2u7"), ExtResource("12_nc0ma"), ExtResource("9_215am"), ExtResource("10_l2ogg"), ExtResource("6_uj7i8"), ExtResource("8_hrj6k"), ExtResource("2_udw3k"), ExtResource("3_mxb3h")])
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

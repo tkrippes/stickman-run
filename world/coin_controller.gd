@@ -23,8 +23,8 @@ func _on_coin_destroyed() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	var coin := _create_coin()
-
-	call_deferred("add_child", coin)
+	
+	add_child(coin)
 
 
 func _on_player_position_updated(player_position: Vector2) -> void:
