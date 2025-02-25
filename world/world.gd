@@ -4,10 +4,6 @@ signal player_died
 signal player_scored(points: int)
 signal player_speed_updated(speed: float)
 signal player_maximum_speed_attained
-@export var level_1_obstacle_scenes: Array[PackedScene]
-@export var level_2_obstacle_scenes: Array[PackedScene]
-@export var level_3_obstacle_scenes: Array[PackedScene]
-@export var level_4_obstacle_scenes: Array[PackedScene]
 @export var base_obstacle_position: Vector2 = Vector2(192, 90)
 @export var obstacle_spawn_timer_wait_time_multiplier: float = 0.98
 @export var minimum_obstacle_spawn_timer_wait_time_multiplier: float = 0.8
@@ -21,6 +17,7 @@ var _initial_obstacle_spawn_timer_wait_time: float
 var _base_obstacle_spawn_timer_wait_time: float
 var _obstacle_scenes: Array[PackedScene]
 var _coin_controller: CoinController
+var _obstacle_controller: ObstacleController
 
 
 func _ready() -> void:
@@ -33,6 +30,7 @@ func _ready() -> void:
 	_base_obstacle_spawn_timer_wait_time = _obstacle_spawn_timer.wait_time
 
 	_coin_controller = $CoinController
+	_obstacle_controller = $ObstacleController
 
 
 func _on_game_started() -> void:
@@ -46,17 +44,8 @@ func _on_level_started(level: int) -> void:
 
 	get_tree().call_group("obstacles", "queue_free")
 	_coin_controller.delete_coins()
-
-	if level == 1:
-		_obstacle_scenes = level_1_obstacle_scenes
-	elif level == 2:
-		_obstacle_scenes = level_2_obstacle_scenes
-	elif level == 3:
-		_obstacle_scenes = level_3_obstacle_scenes
-	elif level == 4:
-		_obstacle_scenes = level_4_obstacle_scenes
-	else:
-		push_warning("Unknown level '%d' started" % level)
+	
+	_obstacle_scenes = _obstacle_controller.get_obstacles_scenes(level)
 
 	_player_speed_increase_timer.start()
 	_base_obstacle_spawn_timer_wait_time = _initial_obstacle_spawn_timer_wait_time
@@ -86,8 +75,8 @@ func _on_coin_collected(points: int) -> void:
 
 
 func _on_obstacle_spawn_timer_timeout() -> void:
-	var obstacle_sceen: PackedScene = _obstacle_scenes.pick_random()
-	var obstacle: Obstacle          = obstacle_sceen.instantiate()
+	var obstacle_scene: PackedScene = _obstacle_scenes.pick_random()
+	var obstacle: Obstacle          = obstacle_scene.instantiate()
 	obstacle.position = Vector2(base_obstacle_position.x + _player.position.x,
 	base_obstacle_position.y)
 

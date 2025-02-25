@@ -1,0 +1,21 @@
+[gd_scene load_steps=13 format=3 uid="uid://bm358xowfv2fr"]
+
+[ext_resource type="Script" path="res://world/obstacle_controller.gd" id="1_pxedy"]
+[ext_resource type="PackedScene" uid="uid://bdopb5lj3hyqd" path="res://world/obstacles/small/camp_fire.tscn" id="2_udw3k"]
+[ext_resource type="PackedScene" uid="uid://dn1hpnhhby2pn" path="res://world/obstacles/small/log.tscn" id="3_mxb3h"]
+[ext_resource type="PackedScene" uid="uid://7wf41357rrqb" path="res://world/obstacles/small/small_crate.tscn" id="4_q8p32"]
+[ext_resource type="PackedScene" uid="uid://c652qjlkbvg1l" path="res://world/obstacles/small/small_hurdle.tscn" id="5_gxjyn"]
+[ext_resource type="PackedScene" uid="uid://dnew6esrw8cfb" path="res://world/obstacles/large/crate.tscn" id="6_uj7i8"]
+[ext_resource type="PackedScene" uid="uid://krypjivuwmvi" path="res://world/obstacles/large/hurdle.tscn" id="7_0lfsn"]
+[ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://world/obstacles/large/spike.tscn" id="8_hrj6k"]
+[ext_resource type="PackedScene" uid="uid://bw3w5fe3we3fr" path="res://world/obstacles/moving/ball.tscn" id="9_215am"]
+[ext_resource type="PackedScene" uid="uid://blckmgmv7u6gm" path="res://world/obstacles/moving/pony.tscn" id="10_l2ogg"]
+[ext_resource type="PackedScene" uid="uid://ds36qkmc3l3l5" path="res://world/obstacles/flying/alicorn.tscn" id="11_ps2u7"]
+[ext_resource type="PackedScene" uid="uid://v1jxbrjt2mjo" path="res://world/obstacles/flying/bird.tscn" id="12_nc0ma"]
+
+[node name="ObstacleController" type="Node2D"]
+script = ExtResource("1_pxedy")
+level_1_scenes = Array[PackedScene]([ExtResource("2_udw3k"), ExtResource("3_mxb3h"), ExtResource("4_q8p32"), ExtResource("5_gxjyn")])
+level_2_scenes = Array[PackedScene]([ExtResource("6_uj7i8"), ExtResource("7_0lfsn"), ExtResource("8_hrj6k"), ExtResource("2_udw3k"), ExtResource("3_mxb3h"), ExtResource("4_q8p32"), ExtResource("5_gxjyn")])
+level_3_scenes = Array[PackedScene]([ExtResource("9_215am"), ExtResource("10_l2ogg"), ExtResource("6_uj7i8"), ExtResource("7_0lfsn"), ExtResource("8_hrj6k"), ExtResource("2_udw3k"), ExtResource("3_mxb3h")])
+level_4_scenes = Array[PackedScene]([ExtResource("11_ps2u7"), ExtResource("12_nc0ma"), ExtResource("9_215am"), ExtResource("10_l2ogg"), ExtResource("6_uj7i8"), ExtResource("8_hrj6k"), ExtResource("2_udw3k"), ExtResource("3_mxb3h")])

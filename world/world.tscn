@@ -1,29 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=7 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
-[ext_resource type="PackedScene" uid="uid://naa705slroic" path="res://world/obstacles/large/spike.tscn" id="2_0ox0h"]
-[ext_resource type="PackedScene" uid="uid://dnew6esrw8cfb" path="res://world/obstacles/large/crate.tscn" id="3_ej6jp"]
-[ext_resource type="PackedScene" uid="uid://bw3w5fe3we3fr" path="res://world/obstacles/moving/ball.tscn" id="4_606ak"]
-[ext_resource type="PackedScene" uid="uid://krypjivuwmvi" path="res://world/obstacles/large/hurdle.tscn" id="5_i4xxu"]
 [ext_resource type="PackedScene" uid="uid://fkv4wox2t24a" path="res://world/background/background.tscn" id="5_spnxb"]
-[ext_resource type="PackedScene" uid="uid://c652qjlkbvg1l" path="res://world/obstacles/small/small_hurdle.tscn" id="6_snfe5"]
-[ext_resource type="PackedScene" uid="uid://7wf41357rrqb" path="res://world/obstacles/small/small_crate.tscn" id="7_54j2f"]
-[ext_resource type="PackedScene" uid="uid://dn1hpnhhby2pn" path="res://world/obstacles/small/log.tscn" id="8_pqgek"]
-[ext_resource type="PackedScene" uid="uid://bdopb5lj3hyqd" path="res://world/obstacles/small/camp_fire.tscn" id="9_3r4r7"]
-[ext_resource type="PackedScene" uid="uid://blckmgmv7u6gm" path="res://world/obstacles/moving/pony.tscn" id="10_xprbc"]
-[ext_resource type="PackedScene" uid="uid://v1jxbrjt2mjo" path="res://world/obstacles/flying/bird.tscn" id="11_ugsqr"]
-[ext_resource type="PackedScene" uid="uid://ds36qkmc3l3l5" path="res://world/obstacles/flying/alicorn.tscn" id="12_rxrwn"]
 [ext_resource type="PackedScene" uid="uid://uy4evqlp5n65" path="res://world/foreground/foreground.tscn" id="15_6omqg"]
+[ext_resource type="PackedScene" uid="uid://bm358xowfv2fr" path="res://world/obstacle_controller.tscn" id="17_srt50"]
 [ext_resource type="PackedScene" uid="uid://cdh73pubo4k7n" path="res://world/coin_controller.tscn" id="18_mv5fc"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_3wqkn")
-level_1_obstacle_scenes = Array[PackedScene]([ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
-level_2_obstacle_scenes = Array[PackedScene]([ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek"), ExtResource("7_54j2f"), ExtResource("6_snfe5")])
-level_3_obstacle_scenes = Array[PackedScene]([ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("5_i4xxu"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
-level_4_obstacle_scenes = Array[PackedScene]([ExtResource("11_ugsqr"), ExtResource("12_rxrwn"), ExtResource("4_606ak"), ExtResource("10_xprbc"), ExtResource("3_ej6jp"), ExtResource("2_0ox0h"), ExtResource("9_3r4r7"), ExtResource("8_pqgek")])
 
 [node name="Background" parent="." instance=ExtResource("5_spnxb")]
 
@@ -42,6 +28,8 @@ limit_top = 0
 wait_time = 1.5
 
 [node name="CoinController" parent="." instance=ExtResource("18_mv5fc")]
+
+[node name="ObstacleController" parent="." instance=ExtResource("17_srt50")]
 
 [connection signal="player_died" from="." to="PlayerSpeedIncreaseTimer" method="stop"]
 [connection signal="player_died" from="." to="ObstacleSpawnTimer" method="stop"]
