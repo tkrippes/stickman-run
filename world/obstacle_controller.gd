@@ -53,16 +53,12 @@ func set_obstacles_scenes(level: int) -> void:
 
 
 func start_spawning() -> void:
+	_reset_spawn_rate()
 	_spawn_timer.start()
 
 
 func stop_spawning() -> void:
 	_spawn_timer.stop()
-
-
-func reset_spawn_rate() -> void:
-	_base_spawn_rate = _initial_spawn_rate
-	_set_spawn_rate()
 
 
 func increase_spawn_rate() -> void:
@@ -83,6 +79,11 @@ func _create_obstacle() -> Obstacle:
 	var _error_code := obstacle.left_screen.connect(_on_obstacle_left_screen)
 
 	return obstacle
+
+
+func _reset_spawn_rate() -> void:
+	_base_spawn_rate = _initial_spawn_rate
+	_set_spawn_rate()
 
 
 func _set_spawn_rate() -> void:
