@@ -17,39 +17,25 @@ var _jump_sound: AudioStreamPlayer
 
 
 func _ready() -> void:
-	_run_speed = 0.0
 	_animation = $AnimationSprite
-
 	_jump_sound = $JumpSound
+	
+	_reset()
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += _get_gravity() * delta
 	else:
 		_jump_sound.stop()
 
-	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		_jump()
 
 	velocity.x = lerp(velocity.x, _run_speed, delta * acceleration)
 
-	if _run_speed > 0.0:
-		if is_on_floor():
-			_animation.animation = "run"
-		else:
-			_animation.animation = "jump"
-		_animation.play()
-	else:
-		_animation.stop()
-
-	var _collided := move_and_slide()
-	for index: int in range(get_slide_collision_count()):
-		var collider := get_slide_collision(index).get_collider()
-		if collider != null && (collider as Node).is_in_group("obstacles"):
-			_die()
+	_handle_animation()
+	_handle_collision()
 
 	position_updated.emit(position)
 
@@ -87,10 +73,35 @@ func _jump() -> void:
 
 func _die() -> void:
 	hide()
+	_reset()
 
+	hit.emit()
+
+
+func _reset() -> void:
 	_run_speed = 0.0
 	_animation.animation = "run"
 	_animation.stop()
 	_jump_sound.stop()
 
-	hit.emit()
+
+func _handle_animation() -> void:
+	if _run_speed > 0.0:
+		if is_on_floor():
+			_animation.animation = "run"
+		else:
+			_animation.animation = "jump"
+		
+		_animation.play()
+	else:
+		_animation.stop()
+
+
+func _handle_collision() -> void:
+	var _collided := move_and_slide()
+	for index: int in range(get_slide_collision_count()):
+		var collider := get_slide_collision(index).get_collider()
+		if collider != null && (collider as Node).is_in_group("obstacles"):
+			_die()
+			
+			return
