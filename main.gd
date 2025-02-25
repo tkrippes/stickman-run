@@ -22,6 +22,7 @@ signal game_ended
 var _game_state: GameState = GameState.GAME_STARTED
 var _level: Level          = Level.LEVEL_1
 var _score: int            = 0
+# TODO: move sounds / music to own class / node (SoundManager?)
 var _background_music: AudioStreamPlayer
 var _level_started_sound: AudioStreamPlayer
 var _survive_sound: AudioStreamPlayer
@@ -52,8 +53,7 @@ func _change_game_state() -> void:
 
 
 func _on_player_scored(points: int) -> void:
-	_score += points
-	score_updated.emit(_score)
+	_set_score(_score + points)
 
 	if _level == Level.LEVEL_1 and _score >= level_2_unlock_score:
 		_start_level(Level.LEVEL_2)
@@ -73,11 +73,6 @@ func _start_game() -> void:
 	_background_music.play()
 
 	game_started.emit()
-
-
-func _set_score(score: int) -> void:
-	_score = score
-	score_updated.emit(_score)
 
 
 func _start_level(level: Level) -> void:
@@ -110,3 +105,8 @@ func _end_game() -> void:
 	_game_over_sound.play()
 
 	game_ended.emit()
+
+
+func _set_score(score: int) -> void:
+	_score = score
+	score_updated.emit(_score)
