@@ -31,7 +31,7 @@ func _on_obstacle_left_screen() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	var obstacle := _create_obstacle()
-	
+
 	add_child(obstacle)
 
 

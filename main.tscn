@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://k6iu3f6gxjmv"]
+[gd_scene load_steps=5 format=3 uid="uid://k6iu3f6gxjmv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2wqjk"]
 [ext_resource type="PackedScene" uid="uid://buy076pd5xjtc" path="res://world/world.tscn" id="1_ps34b"]
 [ext_resource type="PackedScene" uid="uid://bicxxsvdda42l" path="res://gui/gui.tscn" id="2_v16o8"]
-[ext_resource type="AudioStream" uid="uid://csa7hre2mcyu5" path="res://sounds/game_over_sound.mp3" id="4_4nl2d"]
-[ext_resource type="AudioStream" uid="uid://234urs4qs6uj" path="res://sounds/background_music.mp3" id="5_3fnbo"]
-[ext_resource type="AudioStream" uid="uid://b8g2if7b0r50u" path="res://sounds/level_started_sound.mp3" id="5_fgl5a"]
-[ext_resource type="AudioStream" uid="uid://2t8r8v8conk7" path="res://sounds/survive_sound.mp3" id="7_lbk73"]
+[ext_resource type="PackedScene" uid="uid://3yp2qaf367ht" path="res://sound_controller.tscn" id="4_b2s0d"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2wqjk")
@@ -15,31 +12,19 @@ script = ExtResource("1_2wqjk")
 
 [node name="GUI" parent="." instance=ExtResource("2_v16o8")]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_3fnbo")
-volume_db = -5.0
-playback_type = 1
-parameters/looping = true
-
-[node name="LevelStartedSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_fgl5a")
-volume_db = -5.0
-
-[node name="SurviveSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_lbk73")
-volume_db = -5.0
-
-[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_4nl2d")
+[node name="SoundController" parent="." instance=ExtResource("4_b2s0d")]
 
 [connection signal="game_ended" from="." to="GUI" method="_on_game_ended"]
+[connection signal="game_ended" from="." to="SoundController" method="play_game_over_sound"]
 [connection signal="game_started" from="." to="World" method="_on_game_started"]
 [connection signal="game_started" from="." to="GUI" method="_on_game_started"]
+[connection signal="game_started" from="." to="SoundController" method="start_background_music"]
 [connection signal="level_started" from="." to="World" method="_on_level_started"]
 [connection signal="level_started" from="." to="GUI" method="_on_level_started"]
+[connection signal="level_started" from="." to="SoundController" method="play_level_started_sound"]
 [connection signal="score_updated" from="." to="GUI" method="_on_score_updated"]
 [connection signal="player_died" from="World" to="." method="_end_game"]
-[connection signal="player_maximum_speed_attained" from="World" to="." method="_on_player_maximum_speed_attained"]
 [connection signal="player_maximum_speed_attained" from="World" to="GUI" method="_on_player_maximum_speed_attained"]
+[connection signal="player_maximum_speed_attained" from="World" to="SoundController" method="play_survive_sound"]
 [connection signal="player_scored" from="World" to="." method="_on_player_scored"]
 [connection signal="player_speed_updated" from="World" to="GUI" method="_on_player_speed_updated"]

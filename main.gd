@@ -22,18 +22,11 @@ signal game_ended
 var _game_state: GameState = GameState.GAME_STARTED
 var _level: Level          = Level.LEVEL_1
 var _score: int            = 0
-# TODO: move sounds / music to own class / node (SoundManager?)
-var _background_music: AudioStreamPlayer
-var _level_started_sound: AudioStreamPlayer
-var _survive_sound: AudioStreamPlayer
-var _game_over_sound: AudioStreamPlayer
+var _sound_controller: SoundController
 
 
 func _ready() -> void:
-	_background_music = $BackgroundMusic
-	_level_started_sound = $LevelStartedSound
-	_survive_sound = $SurviveSound
-	_game_over_sound = $GameOverSound
+	_sound_controller = $SoundController
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_start_game()
@@ -63,21 +56,14 @@ func _on_player_scored(points: int) -> void:
 		_start_level(Level.LEVEL_4)
 
 
-func _on_player_maximum_speed_attained() -> void:
-	_survive_sound.play()
-
-
 func _start_game() -> void:
 	_game_state = GameState.GAME_STARTED
-	_game_over_sound.stop()
-	_background_music.play()
 
 	game_started.emit()
 
 
 func _start_level(level: Level) -> void:
 	_game_state = GameState.GAME_RUNNING
-	_level_started_sound.play()
 
 	match level:
 		Level.LEVEL_1:
@@ -100,9 +86,6 @@ func _start_level(level: Level) -> void:
 
 func _end_game() -> void:
 	_game_state = GameState.GAME_ENDED
-	_background_music.stop()
-	_survive_sound.stop()
-	_game_over_sound.play()
 
 	game_ended.emit()
 

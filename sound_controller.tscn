@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://3yp2qaf367ht"]
+
+[ext_resource type="Script" path="res://sound_controller.gd" id="1_bqobx"]
+[ext_resource type="AudioStream" uid="uid://234urs4qs6uj" path="res://sounds/background_music.mp3" id="2_uuopf"]
+[ext_resource type="AudioStream" uid="uid://b8g2if7b0r50u" path="res://sounds/level_started_sound.mp3" id="3_oj24u"]
+[ext_resource type="AudioStream" uid="uid://2t8r8v8conk7" path="res://sounds/survive_sound.mp3" id="4_5w4r0"]
+[ext_resource type="AudioStream" uid="uid://csa7hre2mcyu5" path="res://sounds/game_over_sound.mp3" id="5_16ke2"]
+
+[node name="SoundController" type="Node"]
+script = ExtResource("1_bqobx")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uuopf")
+volume_db = -5.0
+playback_type = 1
+parameters/looping = true
+
+[node name="LevelStartedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oj24u")
+volume_db = -5.0
+
+[node name="SurviveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5w4r0")
+volume_db = -5.0
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_16ke2")

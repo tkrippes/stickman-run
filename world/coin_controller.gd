@@ -23,7 +23,7 @@ func _on_coin_destroyed() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	var coin := _create_coin()
-	
+
 	add_child(coin)
 
 
