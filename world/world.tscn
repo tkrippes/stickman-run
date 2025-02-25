@@ -20,20 +20,20 @@ position = Vector2(24, 82)
 position = Vector2(72, -40)
 limit_top = 0
 
-[node name="Foreground" parent="." instance=ExtResource("15_6omqg")]
+[node name="SpeedIncreaseTimer" type="Timer" parent="Player"]
 
-[node name="PlayerSpeedIncreaseTimer" type="Timer" parent="."]
+[node name="Foreground" parent="." instance=ExtResource("15_6omqg")]
 
 [node name="ObstacleController" parent="." instance=ExtResource("17_srt50")]
 
 [node name="CoinController" parent="." instance=ExtResource("18_mv5fc")]
 
-[connection signal="player_died" from="." to="PlayerSpeedIncreaseTimer" method="stop"]
+[connection signal="player_died" from="." to="Player/SpeedIncreaseTimer" method="stop"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="maximum_run_speed_attained" from="Player" to="." method="_on_player_maximum_run_speed_attained"]
 [connection signal="position_updated" from="Player" to="Foreground" method="_on_player_position_updated"]
 [connection signal="position_updated" from="Player" to="ObstacleController" method="_on_player_position_updated"]
 [connection signal="position_updated" from="Player" to="CoinController" method="_on_player_position_updated"]
-[connection signal="timeout" from="PlayerSpeedIncreaseTimer" to="." method="_on_player_speed_increase_timer_timeout"]
-[connection signal="obstacle_destroyed" from="ObstacleController" to="." method="_on_obstacle_destroyed"]
-[connection signal="coin_collected" from="CoinController" to="." method="_on_coin_collected"]
+[connection signal="timeout" from="Player/SpeedIncreaseTimer" to="." method="_on_player_speed_increase_timer_timeout"]
+[connection signal="obstacle_destroyed" from="ObstacleController" to="." method="_emit_player_scored"]
+[connection signal="coin_collected" from="CoinController" to="." method="_emit_player_scored"]
