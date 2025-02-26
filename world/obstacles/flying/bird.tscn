@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bdvlitv6rjo0q" path="res://world/obstacles/obstacle.tscn" id="1_04sww"]
 [ext_resource type="Texture2D" uid="uid://cn84v6nnuvdgk" path="res://art/obstacles/flying/BirdFlying.png" id="2_x0s4x"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3362c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y7dx"]
 atlas = ExtResource("2_x0s4x")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5h25e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i17ga"]
 atlas = ExtResource("2_x0s4x")
 region = Rect2(16, 0, 16, 16)
 
@@ -15,10 +15,10 @@ region = Rect2(16, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3362c")
+"texture": SubResource("AtlasTexture_3y7dx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5h25e")
+"texture": SubResource("AtlasTexture_i17ga")
 }],
 "loop": true,
 "name": &"fly",
@@ -39,7 +39,6 @@ position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_dk1vk")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.324525
 
 [node name="Hitbox" parent="." index="2"]
 position = Vector2(0, -3)
