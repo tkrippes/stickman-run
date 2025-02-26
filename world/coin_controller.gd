@@ -5,10 +5,10 @@ signal coin_collected(points: int)
 @export var coin_scene: PackedScene
 @export var base_position: Vector2 = Vector2(192, 90)
 @export var maximum_height: int = 24
-@export var level_1_spawn_rate: float = 11
-@export var level_2_spawn_rate: float = 8
-@export var level_3_spawn_rate: float = 5
-@export var level_4_spawn_rate: float = 3
+@export var level_1_spawn_rate: float = 21
+@export var level_2_spawn_rate: float = 13
+@export var level_3_spawn_rate: float = 8
+@export var level_4_spawn_rate: float = 5
 @export var minimum_random_spawn_rate_multiplier: float = 0.8
 @export var maximum_random_spawn_rate_multiplier: float = 1.2
 @export var points: int = 3
