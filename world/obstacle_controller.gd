@@ -40,16 +40,12 @@ func _on_player_position_updated(player_position: Vector2) -> void:
 
 
 func set_obstacles_scenes(level: int) -> void:
-	if level == 1:
-		_scenes = level_1_scenes
-	elif level == 2:
-		_scenes = level_2_scenes
-	elif level == 3:
-		_scenes = level_3_scenes
-	elif level == 4:
-		_scenes = level_4_scenes
-	else:
-		push_warning("Unknown level '%d' started" % level)
+	match level:
+		1: _scenes = level_1_scenes
+		2: _scenes = level_2_scenes
+		3: _scenes = level_3_scenes
+		4: _scenes = level_4_scenes
+		_: push_warning("Cannot set obstacles scenes for unknown level '%d'" % level)
 
 
 func start_spawning() -> void:

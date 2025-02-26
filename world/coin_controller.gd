@@ -5,19 +5,21 @@ signal coin_collected(points: int)
 @export var coin_scene: PackedScene
 @export var base_position: Vector2 = Vector2(192, 90)
 @export var maximum_height: int = 24
+@export var level_1_spawn_rate: float = 11
+@export var level_2_spawn_rate: float = 8
+@export var level_3_spawn_rate: float = 5
+@export var level_4_spawn_rate: float = 3
 @export var minimum_random_spawn_rate_multiplier: float = 0.8
 @export var maximum_random_spawn_rate_multiplier: float = 1.2
 @export var points: int = 3
 
 var _player_position: Vector2
 var _spawn_timer: Timer
-var _base_spawn_rate: float
+var _base_spawn_rate: float = level_1_spawn_rate
 
 
 func _ready() -> void:
 	_spawn_timer = $SpawnTimer
-	_base_spawn_rate = _spawn_timer.wait_time
-	_set_spawn_rate()
 
 
 func _on_coin_collected() -> void:
@@ -48,6 +50,17 @@ func start_spawning() -> void:
 
 func stop_spawning() -> void:
 	_spawn_timer.stop()
+	
+	
+func set_spawn_rate(level: int) -> void:
+	match level:
+		1: _base_spawn_rate = level_1_spawn_rate
+		2: _base_spawn_rate = level_2_spawn_rate
+		3: _base_spawn_rate = level_3_spawn_rate
+		4: _base_spawn_rate = level_4_spawn_rate
+		_: push_warning("Cannot set spawn rate for unknown level '%d'" % level)
+	
+	_set_spawn_rate()
 
 
 func delete_coins() -> void:

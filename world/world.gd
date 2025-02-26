@@ -35,6 +35,7 @@ func _on_level_started(level: int) -> void:
 	_obstacle_controller.start_spawning()
 	
 	_coin_controller.delete_coins()
+	_coin_controller.set_spawn_rate(level)
 	_coin_controller.start_spawning()
 
 
