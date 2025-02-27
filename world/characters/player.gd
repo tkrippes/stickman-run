@@ -11,16 +11,9 @@ signal position_updated(position: Vector2)
 @export var jump_speed: float = -150.0
 @export var gravity_multiplier: float = 0.4
 
+@onready var _animation: AnimatedSprite2D = $AnimationSprite
+@onready var _jump_sound: AudioStreamPlayer = $JumpSound
 var _run_speed: float
-var _animation: AnimatedSprite2D
-var _jump_sound: AudioStreamPlayer
-
-
-func _ready() -> void:
-	_animation = $AnimationSprite
-	_jump_sound = $JumpSound
-
-	_reset()
 
 
 func _physics_process(delta: float) -> void:

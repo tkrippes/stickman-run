@@ -5,20 +5,10 @@ signal player_scored(points: int)
 signal player_speed_updated(speed: float)
 signal player_maximum_speed_attained
 
-var _player: Player
-var _player_speed_increase_timer: Timer
-var _coin_controller: CoinController
-var _obstacle_controller: ObstacleController
-
-
-func _ready() -> void:
-	_player = $Player
-	_player_speed_increase_timer = $Player/SpeedIncreaseTimer
-	_emit_player_speed_updated()
-
-	_coin_controller = $CoinController
-	_obstacle_controller = $ObstacleController
-
+@onready var _player: Player = $Player
+@onready var _player_speed_increase_timer: Timer = $Player/SpeedIncreaseTimer
+@onready var _coin_controller: CoinController = $CoinController
+@onready var _obstacle_controller: ObstacleController = $ObstacleController
 
 func _on_game_started() -> void:
 	_player.show()

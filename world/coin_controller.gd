@@ -14,13 +14,9 @@ signal coin_collected(points: int)
 @export var maximum_random_spawn_rate_multiplier: float = 1.2
 @export var points: int = 3
 
+@onready var _spawn_timer: Timer = $SpawnTimer
 var _player_position: Vector2
-var _spawn_timer: Timer
 var _base_spawn_rate: float = level_1_spawn_rate
-
-
-func _ready() -> void:
-	_spawn_timer = $SpawnTimer
 
 
 func _on_coin_collected() -> void:

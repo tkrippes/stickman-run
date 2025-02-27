@@ -22,12 +22,9 @@ signal game_ended
 var _game_state: GameState = GameState.GAME_STARTED
 var _level: Level          = Level.LEVEL_1
 var _score: int            = 0
-var _sound_controller: SoundController
 
 
 func _ready() -> void:
-	_sound_controller = $SoundController
-
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_start_game()
 

@@ -3,17 +3,10 @@ extends Node
 
 @export var level_started_pitch_per_level: float = 0.2
 
-var _background_music: AudioStreamPlayer
-var _level_started_sound: AudioStreamPlayer
-var _survive_sound: AudioStreamPlayer
-var _game_over_sound: AudioStreamPlayer
-
-
-func _ready() -> void:
-	_background_music = $BackgroundMusic
-	_level_started_sound = $LevelStartedSound
-	_survive_sound = $SurviveSound
-	_game_over_sound = $GameOverSound
+@onready var _background_music: AudioStreamPlayer = $BackgroundMusic
+@onready var _level_started_sound: AudioStreamPlayer = $LevelStartedSound
+@onready var _survive_sound: AudioStreamPlayer = $SurviveSound
+@onready var _game_over_sound: AudioStreamPlayer = $GameOverSound
 
 
 func start_background_music() -> void:

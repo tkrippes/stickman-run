@@ -12,7 +12,7 @@ signal obstacle_destroyed(points: int)
 @export var maximum_random_spawn_rate_multiplier: float = 1.2
 @export var points: int = 1
 
-var _spawn_timer: Timer
+@onready var _spawn_timer: Timer = $SpawnTimer
 var _initial_spawn_rate: float
 var _base_spawn_rate: float
 var _scenes: Array[PackedScene]
@@ -20,7 +20,6 @@ var _player_position: Vector2
 
 
 func _ready() -> void:
-	_spawn_timer = $SpawnTimer
 	_initial_spawn_rate = _spawn_timer.wait_time
 	_base_spawn_rate = _initial_spawn_rate
 
