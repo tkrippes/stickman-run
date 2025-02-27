@@ -21,6 +21,7 @@ script = ExtResource("1_2wqjk")
 [connection signal="game_started" from="." to="SoundController" method="start_background_music"]
 [connection signal="game_won" from="." to="World" method="_on_game_won"]
 [connection signal="game_won" from="." to="GUI" method="_on_game_won"]
+[connection signal="game_won" from="." to="SoundController" method="play_game_won_sound"]
 [connection signal="level_started" from="." to="World" method="_on_level_started"]
 [connection signal="level_started" from="." to="GUI" method="_on_level_started"]
 [connection signal="level_started" from="." to="SoundController" method="play_level_started_sound"]
