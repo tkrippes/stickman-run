@@ -28,6 +28,10 @@ limit_top = 0
 
 [node name="CoinController" parent="." instance=ExtResource("18_mv5fc")]
 
+[node name="SunLight" type="DirectionalLight2D" parent="."]
+rotation = 1.09956
+energy = 0.25
+
 [connection signal="player_died" from="." to="Player/SpeedIncreaseTimer" method="stop"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="maximum_run_speed_attained" from="Player" to="." method="_on_player_maximum_run_speed_attained"]
