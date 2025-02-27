@@ -7,9 +7,9 @@ signal obstacle_destroyed(points: int)
 @export var level_3_scenes: Array[PackedScene]
 @export var level_4_scenes: Array[PackedScene]
 @export var base_position: Vector2 = Vector2(192, 90)
-@export var spawn_rate_multiplier: float = 0.975
-@export var minimum_random_spawn_rate_multiplier: float = 0.8
-@export var maximum_random_spawn_rate_multiplier: float = 1.2
+@export var spawn_rate_multiplier: float = 0.98
+@export var minimum_random_spawn_rate_multiplier: float = 2.0 / 3.0 
+@export var maximum_random_spawn_rate_multiplier: float = 3.0 /2.0
 @export var points: int = 1
 
 @onready var _spawn_timer: Timer = $SpawnTimer
