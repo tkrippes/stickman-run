@@ -91,8 +91,9 @@ func _game_over() -> void:
 
 	game_over.emit()
 
-	
+
 func _game_won() -> void:
+	_set_score(game_won_score)
 	_game_state = GameState.GAME_WON
 
 	game_won.emit()

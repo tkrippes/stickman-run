@@ -9,7 +9,6 @@ script = ExtResource("1_xo4yk")
 coin_scene = ExtResource("2_2jm21")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
 
 [node name="CoinCollectedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_38tm0")
