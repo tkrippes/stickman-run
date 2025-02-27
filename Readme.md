@@ -10,14 +10,17 @@ obstacles in order to continue. The goal of the game is to score the most points
 obstacle you avoid and three points for each coin you collect.
 
 The game contains a level system where each new level has an increasingly more difficult obstacle set. The next level
-is unlocked by scoring a certain amount of points. The last level continues until the player dies.
+is unlocked by scoring a certain amount of points. The last level continues until the player dies (or does it? ;-)).
 
-The objects included in the levels are as follows:
+The obstacles included in the levels are as follows:
 
 - Level 1: only small obstacles
 - Level 2: small and large obstacles
 - Level 3: small, large and moving obstacles
 - Level 4: small, large, moving and flying obstacles
+
+Throughout the game, the player runs increasingly faster making it ever more difficult to avoid obstacles. At the
+last stage of level 4, the player reaches its maximum speed and the goal is to survive as long as possible.
 
 ## Controls
 
@@ -36,9 +39,11 @@ The objects included in the levels are as follows:
 - Jump: `Bottom action` (Sony: `Cross`, Xbox: `A`, Nintendo `B`)
 - Start game: `Start` (Sony: `Start`, Xbox: `Menu`, Nintendo `+`)
 
-### Hint
+### Hints
 
 The longer you press jump, the higher the stickman jumps.
+
+If you're really good, you might even be able to get to the secret ending. ;-)
 
 ## Credits
 
