@@ -3,7 +3,7 @@ extends CanvasLayer
 var _start_label: Label
 var _score_label: Label
 var _speed_label: Label
-var _game_over_label: Label
+var _game_ended_label: Label
 var _level_announcement_label: Label
 var _survive_announcement_label: Label
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 	_start_label = $Control/StartLabel
 	_score_label = $Control/ScoreLabel
 	_speed_label = $Control/SpeedLabel
-	_game_over_label = $Control/GameOverLabel
+	_game_ended_label = $Control/GameEndedLabel
 	_level_announcement_label = $Control/LevelAnnouncementLabel
 	_survive_announcement_label = $Control/SurviveAnnouncementLabel
 
@@ -21,7 +21,7 @@ func _on_game_started() -> void:
 	_start_label.show()
 	_score_label.hide()
 	_speed_label.hide()
-	_game_over_label.hide()
+	_game_ended_label.hide()
 	_level_announcement_label.hide()
 	_survive_announcement_label.hide()
 
@@ -30,7 +30,7 @@ func _on_level_started(level: int) -> void:
 	_start_label.hide()
 	_score_label.show()
 	_speed_label.show()
-	_game_over_label.hide()
+	_game_ended_label.hide()
 	
 	_show_level_announcement_label(level)
 
@@ -39,7 +39,18 @@ func _on_game_over() -> void:
 	_start_label.hide()
 	_score_label.show()
 	_speed_label.show()
-	_game_over_label.show()
+	_game_ended_label.text = "Game Over!"
+	_game_ended_label.show()
+	_level_announcement_label.hide()
+	_survive_announcement_label.hide()
+	
+	
+func _on_game_won() -> void:
+	_start_label.hide()
+	_score_label.show()
+	_speed_label.show()
+	_game_ended_label.text = "You Win!"
+	_game_ended_label.show()
 	_level_announcement_label.hide()
 	_survive_announcement_label.hide()
 

@@ -57,7 +57,7 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Speed: 0.0"
 
-[node name="GameOverLabel" type="Label" parent="Control"]
+[node name="GameEndedLabel" type="Label" parent="Control"]
 visible = false
 texture_filter = 1
 layout_mode = 1

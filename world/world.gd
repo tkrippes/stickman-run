@@ -27,6 +27,14 @@ func _on_level_started(level: int) -> void:
 	_coin_controller.delete_coins()
 	_coin_controller.set_spawn_rate(level)
 	_coin_controller.start_spawning()
+	
+	
+func _on_game_won() -> void:
+	_obstacle_controller.delete_obstacles()
+	_obstacle_controller.stop_spawning()
+	
+	_coin_controller.delete_coins()
+	_coin_controller.stop_spawning()
 
 
 func _on_player_hit() -> void:
