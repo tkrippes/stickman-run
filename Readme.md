@@ -57,6 +57,8 @@ The longer you press jump, the higher the stickman jumps.
   by [SubwaySandwitch420 (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
 - Game over sound: [Video Game Death Sound](https://pixabay.com/sound-effects/videogame-death-sound-43894/)
   by [Fupicat (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
+- Game won sound: [WinSquare](https://pixabay.com/sound-effects/winsquare-6993/)
+  by [Fupicat (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
 
 ### Fonts
 

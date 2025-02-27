@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b8g2if7b0r50u" path="res://sounds/level_started_sound.mp3" id="3_oj24u"]
 [ext_resource type="AudioStream" uid="uid://2t8r8v8conk7" path="res://sounds/survive_sound.mp3" id="4_5w4r0"]
 [ext_resource type="AudioStream" uid="uid://csa7hre2mcyu5" path="res://sounds/game_over_sound.mp3" id="5_16ke2"]
-[ext_resource type="AudioStream" uid="uid://tj8hlrkvyf8b" path="res://sounds/game_won_sound.mp3" id="6_4je3w"]
+[ext_resource type="AudioStream" uid="uid://cnxn6567rjrgb" path="res://sounds/game_won_sound.mp3" id="6_dgxc5"]
 
 [node name="SoundController" type="Node"]
 script = ExtResource("1_bqobx")
@@ -28,5 +28,5 @@ volume_db = -5.0
 stream = ExtResource("5_16ke2")
 
 [node name="GameWonSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_4je3w")
-volume_db = -5.0
+stream = ExtResource("6_dgxc5")
+volume_db = 5.0
