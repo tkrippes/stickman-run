@@ -3,7 +3,7 @@ extends Node
 enum GameState {
 	GAME_STARTED,
 	GAME_RUNNING,
-	GAME_ENDED
+	GAME_OVER
 }
 enum Level {
 	LEVEL_1,
@@ -14,7 +14,7 @@ enum Level {
 signal score_updated(score: int)
 signal game_started
 signal level_started(level: int)
-signal game_ended
+signal game_over
 @export var level_2_unlock_score: int = 25
 @export var level_3_unlock_score: int = 55
 @export var level_4_unlock_score: int = 90
@@ -38,7 +38,7 @@ func _change_game_state() -> void:
 	match _game_state:
 		GameState.GAME_STARTED:
 			_start_level(_level)
-		GameState.GAME_ENDED:
+		GameState.GAME_OVER:
 			_start_game()
 
 
@@ -81,10 +81,10 @@ func _start_level(level: Level) -> void:
 			level_started.emit(4)
 
 
-func _end_game() -> void:
-	_game_state = GameState.GAME_ENDED
+func _game_over() -> void:
+	_game_state = GameState.GAME_OVER
 
-	game_ended.emit()
+	game_over.emit()
 
 
 func _set_score(score: int) -> void:

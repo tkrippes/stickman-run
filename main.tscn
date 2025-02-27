@@ -14,8 +14,8 @@ script = ExtResource("1_2wqjk")
 
 [node name="SoundController" parent="." instance=ExtResource("4_b2s0d")]
 
-[connection signal="game_ended" from="." to="GUI" method="_on_game_ended"]
-[connection signal="game_ended" from="." to="SoundController" method="play_game_over_sound"]
+[connection signal="game_over" from="." to="GUI" method="_on_game_over"]
+[connection signal="game_over" from="." to="SoundController" method="play_game_over_sound"]
 [connection signal="game_started" from="." to="World" method="_on_game_started"]
 [connection signal="game_started" from="." to="GUI" method="_on_game_started"]
 [connection signal="game_started" from="." to="SoundController" method="start_background_music"]
@@ -23,7 +23,7 @@ script = ExtResource("1_2wqjk")
 [connection signal="level_started" from="." to="GUI" method="_on_level_started"]
 [connection signal="level_started" from="." to="SoundController" method="play_level_started_sound"]
 [connection signal="score_updated" from="." to="GUI" method="_on_score_updated"]
-[connection signal="player_died" from="World" to="." method="_end_game"]
+[connection signal="player_died" from="World" to="." method="_game_over"]
 [connection signal="player_maximum_speed_attained" from="World" to="GUI" method="_on_player_maximum_speed_attained"]
 [connection signal="player_maximum_speed_attained" from="World" to="SoundController" method="play_survive_sound"]
 [connection signal="player_scored" from="World" to="." method="_on_player_scored"]

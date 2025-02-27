@@ -35,7 +35,7 @@ func _on_level_started(level: int) -> void:
 	_show_level_announcement_label(level)
 
 
-func _on_game_ended() -> void:
+func _on_game_over() -> void:
 	_start_label.hide()
 	_score_label.show()
 	_speed_label.show()
