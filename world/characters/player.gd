@@ -110,10 +110,15 @@ func _handle_animation() -> void:
 			_animation.animation = "run"
 		else:
 			_animation.animation = "jump"
-		_animation.speed_scale = velocity.x / initial_run_speed
+
+		if _run_speed > 0.0:
+			_animation.speed_scale = maxf(1.0, velocity.x / initial_run_speed)
+		else:
+			_animation.speed_scale = velocity.x / initial_run_speed
 
 		_animation.play()
 	else:
+		_animation.animation = "run"
 		_animation.stop()
 
 
