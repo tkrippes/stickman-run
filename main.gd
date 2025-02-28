@@ -95,8 +95,13 @@ func _game_over() -> void:
 func _game_won() -> void:
 	_set_score(game_won_score)
 	_game_state = GameState.GAME_WON
+	($SecretEndTimer as Timer).start()
 
 	game_won.emit()
+	
+	
+func _secret_end() -> void:
+	print("You found the secret ending! Congratulations!")
 
 
 func _set_score(score: int) -> void:

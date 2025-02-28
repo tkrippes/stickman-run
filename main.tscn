@@ -14,6 +14,9 @@ script = ExtResource("1_2wqjk")
 
 [node name="SoundController" parent="." instance=ExtResource("4_b2s0d")]
 
+[node name="SecretEndTimer" type="Timer" parent="."]
+wait_time = 300.0
+
 [connection signal="game_over" from="." to="GUI" method="_on_game_over"]
 [connection signal="game_over" from="." to="SoundController" method="play_game_over_sound"]
 [connection signal="game_started" from="." to="World" method="_on_game_started"]
@@ -31,3 +34,4 @@ script = ExtResource("1_2wqjk")
 [connection signal="player_maximum_speed_attained" from="World" to="SoundController" method="play_survive_sound"]
 [connection signal="player_scored" from="World" to="." method="_on_player_scored"]
 [connection signal="player_speed_updated" from="World" to="GUI" method="_on_player_speed_updated"]
+[connection signal="timeout" from="SecretEndTimer" to="." method="_secret_end"]
