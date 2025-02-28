@@ -29,6 +29,7 @@ wait_time = 300.0
 [connection signal="level_started" from="." to="GUI" method="_on_level_started"]
 [connection signal="level_started" from="." to="SoundController" method="play_level_started_sound"]
 [connection signal="score_updated" from="." to="GUI" method="_on_score_updated"]
+[connection signal="secret_end" from="." to="SoundController" method="play_wilhelm_scream"]
 [connection signal="player_died" from="World" to="." method="_game_over"]
 [connection signal="player_maximum_speed_attained" from="World" to="GUI" method="_on_player_maximum_speed_attained"]
 [connection signal="player_maximum_speed_attained" from="World" to="SoundController" method="play_survive_sound"]

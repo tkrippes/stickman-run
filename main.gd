@@ -17,6 +17,7 @@ signal game_started
 signal level_started(level: int)
 signal game_over
 signal game_won
+signal secret_end
 @export var level_2_unlock_score: int = 25
 @export var level_3_unlock_score: int = 55
 @export var level_4_unlock_score: int = 90
@@ -101,7 +102,7 @@ func _game_won() -> void:
 	
 	
 func _secret_end() -> void:
-	print("You found the secret ending! Congratulations!")
+	secret_end.emit()
 
 
 func _set_score(score: int) -> void:
