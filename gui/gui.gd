@@ -62,6 +62,11 @@ func _on_secret_end() -> void:
 	_game_ended_label.hide()
 	_level_announcement_label.hide()
 	_survive_announcement_label.hide()
+	
+	
+func _on_player_fell() -> void:
+	_game_ended_label.text = "You Died!"
+	_game_ended_label.show()
 
 
 func _on_score_updated(score: int) -> void:

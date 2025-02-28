@@ -2,6 +2,8 @@ extends Node2D
 
 ## The signal emitted when the player dies.
 signal player_died
+## The signal emitted when the player falls.
+signal player_fell
 ## The signal emitted when the player scores points.
 signal player_scored(points: int)
 ## The signal emitted when the player's speed is updated.
@@ -55,6 +57,10 @@ func _on_player_hit() -> void:
 	_coin_controller.stop_spawning()
 	
 	player_died.emit()
+
+
+func _on_player_fell() -> void:
+	player_fell.emit()
 
 
 func _on_player_maximum_run_speed_attained() -> void:

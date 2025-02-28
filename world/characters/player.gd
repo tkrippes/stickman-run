@@ -3,12 +3,12 @@ extends CharacterBody2D
 
 ## The signal emitted when the player is hit by an obstacle.
 signal hit
+## The signal emiited whent he player falls from the platform.
+signal fell
 ## The signal emitted when the player reaches the maximum run speed.
 signal maximum_run_speed_attained
 ## The signal emitted when the player's position is updated (every physics process cycle).
 signal position_updated(position: Vector2)
-# TODO: add documentation
-signal fell
 ## The player's initial run speed.
 @export var initial_run_speed: float = 80.0
 ## The player's maximum run speed.
@@ -47,11 +47,12 @@ func _physics_process(delta: float) -> void:
 	
 func _on_screen_exited() -> void:
 	_wilhelm_scream_sound.play()
-	# TODO: connect fell signal
 	fell.emit()
-	_die()
+	# TODO: delay _die, even needed?
+	await get_tree().create_timer(1.0).timeout
+	# _die()
 	# TODO: check if this is right to do
-	queue_free()
+	# queue_free()
 
 
 func start_running() -> void:

@@ -10,5 +10,6 @@ func _on_player_position_updated(_position: Vector2) -> void:
 	
 func _on_stop(_player_position_x: int) -> void:
 	# TODO: add delay
+	await get_tree().create_timer(1.5).timeout
 	($Ground as Parallax2D).hide()
 	($Platform/Hitbox as CollisionShape2D).set_disabled(true)
