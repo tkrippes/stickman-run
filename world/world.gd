@@ -12,6 +12,11 @@ signal player_speed_updated(speed: float)
 signal player_maximum_speed_attained
 ## The signal emitted when the player stops running.
 signal player_stopped(player_position_x: int)
+## The scene of the secret item.
+@export var secret_item_scene: PackedScene
+## The base position of the secret item.
+@export var secret_item_base_position: Vector2 = Vector2(156, 90)
+
 @onready var _player: Player = $Player
 @onready var _player_speed_increase_timer: Timer = $Player/SpeedIncreaseTimer
 @onready var _coin_controller: CoinController = $CoinController
@@ -46,6 +51,10 @@ func _on_game_won() -> void:
 
 
 func _on_secret_end() -> void:
+	var secret_item: SecretItem = secret_item_scene.instantiate()
+	secret_item.position = Vector2(secret_item_base_position.x + _player.position.x, secret_item_base_position.y)
+	add_child(secret_item)
+
 	_player.stop_running()
 	player_stopped.emit(_player.position.x)
 

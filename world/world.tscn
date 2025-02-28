@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://buy076pd5xjtc"]
+[gd_scene load_steps=9 format=3 uid="uid://buy076pd5xjtc"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3wqkn"]
 [ext_resource type="PackedScene" uid="uid://bfrcxqbuyt7sg" path="res://world/characters/player.tscn" id="1_jyfub"]
+[ext_resource type="PackedScene" uid="uid://dvayh3lkmd6ib" path="res://world/items/secret_item.tscn" id="2_0cpkh"]
 [ext_resource type="Script" path="res://world/camera.gd" id="4_lc8ad"]
 [ext_resource type="PackedScene" uid="uid://fkv4wox2t24a" path="res://world/background/background.tscn" id="5_spnxb"]
 [ext_resource type="PackedScene" uid="uid://uy4evqlp5n65" path="res://world/foreground/foreground.tscn" id="15_6omqg"]
@@ -11,6 +12,7 @@
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_3wqkn")
+secret_item_scene = ExtResource("2_0cpkh")
 
 [node name="Background" parent="." instance=ExtResource("5_spnxb")]
 
