@@ -25,6 +25,7 @@ signal position_updated(position: Vector2)
 @onready var _animation: AnimatedSprite2D = $AnimationSprite
 @onready var _jump_sound: AudioStreamPlayer = $JumpSound
 @onready var _wilhelm_scream_sound: AudioStreamPlayer = $WilhelmScreamSound
+
 var _run_speed: float
 
 
@@ -47,16 +48,12 @@ func _physics_process(delta: float) -> void:
 	_handle_collision()
 
 	position_updated.emit(position)
-	
-	
+
+
 func _on_screen_exited() -> void:
-	_wilhelm_scream_sound.play()
-	fell.emit()
-	# TODO: delay _die, even needed?
-	await get_tree().create_timer(1.0).timeout
-	# _die()
-	# TODO: check if this is right to do
-	# queue_free()
+	if visible:
+		_wilhelm_scream_sound.play()
+		fell.emit()
 
 
 func start_running() -> void:
