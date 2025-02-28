@@ -39,10 +39,8 @@ func _physics_process(delta: float) -> void:
 		_jump()
 
 	velocity.x = lerp(velocity.x, _run_speed, delta * acceleration)
-	if velocity.x < 0.1:
+	if _run_speed > 0.0 and velocity.x < 0.1:
 		velocity.x = 0.0
-	# TODO: increase animation speed here instead of on speed increase
-	# TODO: increase by difference of last - current velocity
 
 	_handle_animation()
 	_handle_collision()
@@ -64,9 +62,7 @@ func start_running() -> void:
 func stop_running() -> void:
 	_run_speed = 0.0
 	# TODO: put in parameter
-	acceleration = 1
-	# TODO: adapt else where
-	_animation.speed_scale = 1.0
+	acceleration = 1.0
 
 
 func increase_speed() -> void:
@@ -109,11 +105,12 @@ func _reset() -> void:
 
 
 func _handle_animation() -> void:
-	if _run_speed > 0.0:
+	if velocity.x > 0.0:
 		if is_on_floor():
 			_animation.animation = "run"
 		else:
 			_animation.animation = "jump"
+		_animation.speed_scale = velocity.x / initial_run_speed
 
 		_animation.play()
 	else:
