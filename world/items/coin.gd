@@ -1,7 +1,9 @@
 class_name Coin
 extends Area2D
 
+## The signal emitted when the player hits the coin.
 signal player_hit
+## The signal emitted when an obstacle hits the coin.
 signal obstacle_hit
 
 

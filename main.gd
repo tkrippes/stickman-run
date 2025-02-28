@@ -12,15 +12,25 @@ enum Level {
 	LEVEL_3,
 	LEVEL_4
 }
+## The signal emitted when the player's score is updated.
 signal score_updated(score: int)
+## The signal emitted when the game started.
 signal game_started
+## The signal emitted when a new level started.
 signal level_started(level: int)
+## The signal emitted when the game is over (lost).
 signal game_over
+## The signal emitted when the game is over (won).
 signal game_won
+## The signal emitted when the secret end is reached.
 signal secret_end
+## The score required to unlock level 2.
 @export var level_2_unlock_score: int = 25
+## The score required to unlock level 3.
 @export var level_3_unlock_score: int = 55
+## The score required to unlock level 4.
 @export var level_4_unlock_score: int = 90
+## The score required to win the game.
 @export var game_won_score: int = 512
 
 var _game_state: GameState = GameState.GAME_STARTED

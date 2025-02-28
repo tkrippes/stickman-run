@@ -1,8 +1,12 @@
 extends Node2D
 
+## The signal emitted when the player dies.
 signal player_died
+## The signal emitted when the player scores points.
 signal player_scored(points: int)
+## The signal emitted when the player's speed is updated.
 signal player_speed_updated(speed: float)
+## The signal emitted when the player reaches the maximum run speed.
 signal player_maximum_speed_attained
 
 @onready var _player: Player = $Player
@@ -35,6 +39,10 @@ func _on_game_won() -> void:
 	
 	_coin_controller.delete_coins()
 	_coin_controller.stop_spawning()
+	
+	
+func _on_secret_end() -> void:
+	pass
 
 
 func _on_player_hit() -> void:

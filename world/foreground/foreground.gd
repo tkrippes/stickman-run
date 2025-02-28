@@ -1,5 +1,6 @@
 extends Node2D
 
+## The offset of the platform from the player
 @export var position_offset: float = - 24
 
 

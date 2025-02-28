@@ -1,17 +1,29 @@
 class_name CoinController
 extends Node2D
 
+## The signal emitted when a coin is collected.
 signal coin_collected(points: int)
+## The scene to instantiate coins from.
 @export var coin_scene: PackedScene
+## The base position of the coins relative to the player's horizontal position. The vertical position is always the same, no matter the vertical position of the player.
 @export var base_position: Vector2 = Vector2(192, 90)
+## The minimum height of the coins relative to the base position.
 @export var minimum_height: int = 8
+## The maximum height of the coins relative to the base position.
 @export var maximum_height: int = 32
+## The spawn rate (timer wait time) of coin for level 1.
 @export var level_1_spawn_rate: float = 21
+## The spawn rate (timer wait time) of coin for level 2.
 @export var level_2_spawn_rate: float = 13
+## The spawn rate (timer wait time) of coin for level 3.
 @export var level_3_spawn_rate: float = 8
+## The spawn rate (timer wait time) of coin for level 4.
 @export var level_4_spawn_rate: float = 5
+## The minimum random multiplier for the spawn rate. The spawn rate is always between the minimum and maximum random spawn rate multipliers multiplied by the base spawn rate.
 @export var minimum_random_spawn_rate_multiplier: float = 0.8
+## The maximum random multiplier for the spawn rate. The spawn rate is always between the minimum and maximum random spawn rate multipliers multiplied by the base spawn rate.
 @export var maximum_random_spawn_rate_multiplier: float = 1.2
+## The points given when a coin is collected.
 @export var points: int = 3
 
 @onready var _spawn_timer: Timer = $SpawnTimer

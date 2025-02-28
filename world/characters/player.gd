@@ -1,14 +1,23 @@
 class_name Player
 extends CharacterBody2D
 
+## The signal emitted when the player is hit by an obstacle.
 signal hit
+## The signal emitted when the player reaches the maximum run speed.
 signal maximum_run_speed_attained
+## The signal emitted when the player's position is updated (every physics process cycle).
 signal position_updated(position: Vector2)
+## The player's initial run speed.
 @export var initial_run_speed: float = 80.0
+## The player's maximum run speed.
 @export var maximum_run_speed: float = 180.0
+## The speed multiplier applied to the player's speed when increasing speed.
 @export var speed_multiplier: float = 1.02
+## The player's acceleration used to smooth out the player's speed.
 @export var acceleration: float = 5.0
+## The player's jump speed.
 @export var jump_speed: float = -150.0
+## The gravity multiplier applied when the player is jumping. This allows the player to jump higher when holding the jump button. 
 @export var gravity_multiplier: float = 0.4
 
 @onready var _animation: AnimatedSprite2D = $AnimationSprite

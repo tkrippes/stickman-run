@@ -1,15 +1,25 @@
 class_name ObstacleController
 extends Node2D
 
+## The signal emitted when an obstacle is destroyed.
 signal obstacle_destroyed(points: int)
+## The scenes used for level 1 obstacles.
 @export var level_1_scenes: Array[PackedScene]
+## The scenes used for level 2 obstacles.
 @export var level_2_scenes: Array[PackedScene]
+## The scenes used for level 3 obstacles.
 @export var level_3_scenes: Array[PackedScene]
+## The scenes used for level 4 obstacles.
 @export var level_4_scenes: Array[PackedScene]
+## The base position of the obstacles relative to the player's horizontal position. The vertical position is always the same, no matter the vertical position of the player.
 @export var base_position: Vector2 = Vector2(192, 90)
+## The rate at which the spawn rate (timer wait time) will get multiplied when the spawn rate increases.
 @export var spawn_rate_multiplier: float = 0.98
-@export var minimum_random_spawn_rate_multiplier: float = 2.0 / 3.0 
+## The minimum random multiplier for the spawn rate. The spawn rate is always between the minimum and maximum random spawn rate multipliers multiplied by the base spawn rate.
+@export var minimum_random_spawn_rate_multiplier: float = 2.0 / 3.0
+## The maximum random multiplier for the spawn rate. The spawn rate is always between the minimum and maximum random spawn rate multipliers multiplied by the base spawn rate.
 @export var maximum_random_spawn_rate_multiplier: float = 3.0 /2.0
+## The points given when an obstacle is destroyed.
 @export var points: int = 1
 
 @onready var _spawn_timer: Timer = $SpawnTimer
