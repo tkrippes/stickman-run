@@ -8,6 +8,8 @@ signal player_scored(points: int)
 signal player_speed_updated(speed: float)
 ## The signal emitted when the player reaches the maximum run speed.
 signal player_maximum_speed_attained
+# TODO: documentation
+signal stop(player_position_x: int)
 
 @onready var _player: Player = $Player
 @onready var _player_speed_increase_timer: Timer = $Player/SpeedIncreaseTimer
@@ -42,7 +44,7 @@ func _on_game_won() -> void:
 	
 	
 func _on_secret_end() -> void:
-	pass
+	stop.emit(_player.position.x)
 
 
 func _on_player_hit() -> void:
