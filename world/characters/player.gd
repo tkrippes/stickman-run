@@ -21,7 +21,7 @@ signal position_updated(position: Vector2)
 @export var secret_end_acceleration: float = 1.2
 ## The player's jump speed.
 @export var jump_speed: float = -150.0
-## The gravity multiplier applied when the player is jumping. This allows the player to jump higher when holding the jump button. 
+## The gravity multiplier applied when the player is jumping. This allows the player to jump higher when holding the jump button.
 @export var gravity_multiplier: float = 0.4
 
 @onready var _animation: AnimatedSprite2D = $AnimationSprite
