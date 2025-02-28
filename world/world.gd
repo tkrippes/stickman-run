@@ -46,6 +46,7 @@ func _on_game_won() -> void:
 	
 	
 func _on_secret_end() -> void:
+	_player.stop_running()
 	stop.emit(_player.position.x)
 
 
