@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfrcxqbuyt7sg"]
+[gd_scene load_steps=18 format=3 uid="uid://bfrcxqbuyt7sg"]
 
 [ext_resource type="Script" path="res://world/characters/player.gd" id="1_6ylh5"]
 [ext_resource type="Texture2D" uid="uid://cwh7uc2wl4lhb" path="res://art/characters/StickmanJumping.png" id="2_aw2ii"]
 [ext_resource type="Texture2D" uid="uid://b610g6vwjor8a" path="res://art/characters/StickmanRunning.png" id="3_ks1yx"]
 [ext_resource type="AudioStream" uid="uid://bt3ijaxsrsbev" path="res://sounds/jump_sound.mp3" id="4_soik2"]
+[ext_resource type="AudioStream" uid="uid://crumhqdhwcd6h" path="res://sounds/wilhelm_scream.mp3" id="5_lb8ht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r00ha"]
 atlas = ExtResource("2_aw2ii")
@@ -105,4 +106,8 @@ shape = SubResource("RectangleShape2D_f1pud")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_soik2")
+volume_db = 5.0
+
+[node name="WilhelmScreamSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lb8ht")
 volume_db = 5.0

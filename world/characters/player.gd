@@ -22,6 +22,7 @@ signal position_updated(position: Vector2)
 
 @onready var _animation: AnimatedSprite2D = $AnimationSprite
 @onready var _jump_sound: AudioStreamPlayer = $JumpSound
+@onready var _wilhelm_scream_sound: AudioStreamPlayer = $WilhelmScreamSound
 var _run_speed: float
 
 

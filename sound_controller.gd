@@ -8,7 +8,6 @@ extends Node
 @onready var _survive_sound: AudioStreamPlayer = $SurviveSound
 @onready var _game_over_sound: AudioStreamPlayer = $GameOverSound
 @onready var _game_won_sound: AudioStreamPlayer = $GameWonSound
-@onready var _wilhelm_scream: AudioStreamPlayer = $WilhelmScreamSound
 
 
 func start_background_music() -> void:
@@ -40,7 +39,3 @@ func play_game_won_sound() -> void:
 	_level_started_sound.stop()
 	_survive_sound.stop()
 	_game_won_sound.play()
-	
-	
-func play_wilhelm_scream() -> void:
-	_wilhelm_scream.play()
