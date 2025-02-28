@@ -111,3 +111,9 @@ volume_db = 5.0
 [node name="WilhelmScreamSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_lb8ht")
 volume_db = 5.0
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, -4.76837e-07)
+scale = Vector2(0.35, 0.8)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_screen_exited"]

@@ -37,6 +37,7 @@ energy = 0.25
 
 [connection signal="player_died" from="." to="Player/SpeedIncreaseTimer" method="stop"]
 [connection signal="stop" from="." to="Player/Camera" method="_on_stop"]
+[connection signal="stop" from="." to="Foreground" method="_on_stop"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="maximum_run_speed_attained" from="Player" to="." method="_on_player_maximum_run_speed_attained"]
 [connection signal="position_updated" from="Player" to="Foreground" method="_on_player_position_updated"]

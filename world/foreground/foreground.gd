@@ -6,3 +6,9 @@ extends Node2D
 
 func _on_player_position_updated(_position: Vector2) -> void:
 	($Platform as StaticBody2D).position.x = _position.x + position_offset
+
+	
+func _on_stop(_player_position_x: int) -> void:
+	# TODO: add delay
+	($Ground as Parallax2D).hide()
+	($Platform/Hitbox as CollisionShape2D).set_disabled(true)

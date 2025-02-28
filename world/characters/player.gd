@@ -7,6 +7,8 @@ signal hit
 signal maximum_run_speed_attained
 ## The signal emitted when the player's position is updated (every physics process cycle).
 signal position_updated(position: Vector2)
+# TODO: add documentation
+signal fell
 ## The player's initial run speed.
 @export var initial_run_speed: float = 80.0
 ## The player's maximum run speed.
@@ -41,6 +43,15 @@ func _physics_process(delta: float) -> void:
 	_handle_collision()
 
 	position_updated.emit(position)
+	
+	
+func _on_screen_exited() -> void:
+	_wilhelm_scream_sound.play()
+	# TODO: connect fell signal
+	fell.emit()
+	_die()
+	# TODO: check if this is right to do
+	queue_free()
 
 
 func start_running() -> void:
