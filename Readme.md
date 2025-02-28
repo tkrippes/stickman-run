@@ -64,7 +64,9 @@ If you're really good, you might even be able to get to the secret ending. ;-)
   by [Fupicat (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
 - Game won sound: [WinSquare](https://pixabay.com/sound-effects/winsquare-6993/)
   by [Fupicat (Freesound Community)](https://pixabay.com/users/freesound_community-46691455/)
-- Secret end sound: [Wilhelm Scream](https://bigsoundbank.com/wilhelm-scream-s0477.html)
+- Secret end sound 1: [Eh?](https://pixabay.com/sound-effects/eh-13143/)
+  by [PacoMoya](https://pixabay.com/users/pacomoya-24984668/)
+- Secret end sound 2: [Wilhelm Scream](https://bigsoundbank.com/wilhelm-scream-s0477.html)
   by [Sheb Wooley](https://en.wikipedia.org/wiki/Sheb_Wooley)
 
 ### Fonts

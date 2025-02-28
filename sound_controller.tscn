@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3yp2qaf367ht"]
+[gd_scene load_steps=8 format=3 uid="uid://3yp2qaf367ht"]
 
 [ext_resource type="Script" path="res://sound_controller.gd" id="1_bqobx"]
 [ext_resource type="AudioStream" uid="uid://234urs4qs6uj" path="res://sounds/background_music.mp3" id="2_uuopf"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://2t8r8v8conk7" path="res://sounds/survive_sound.mp3" id="4_5w4r0"]
 [ext_resource type="AudioStream" uid="uid://csa7hre2mcyu5" path="res://sounds/game_over_sound.mp3" id="5_16ke2"]
 [ext_resource type="AudioStream" uid="uid://cnxn6567rjrgb" path="res://sounds/game_won_sound.mp3" id="6_dgxc5"]
+[ext_resource type="AudioStream" uid="uid://rjohfm6hihyb" path="res://sounds/eh_sound.mp3" id="7_h05yr"]
 
 [node name="SoundController" type="Node"]
 script = ExtResource("1_bqobx")
@@ -30,3 +31,8 @@ stream = ExtResource("5_16ke2")
 [node name="GameWonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_dgxc5")
 volume_db = 5.0
+
+[node name="EhSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_h05yr")
+volume_db = 5.0
+pitch_scale = 0.8
