@@ -53,6 +53,15 @@ func _on_game_won() -> void:
 	_game_ended_label.show()
 	_level_announcement_label.hide()
 	_survive_announcement_label.hide()
+	
+	
+func _on_secret_end() -> void:
+	_start_label.hide()
+	_score_label.hide()
+	_speed_label.hide()
+	_game_ended_label.hide()
+	_level_announcement_label.hide()
+	_survive_announcement_label.hide()
 
 
 func _on_score_updated(score: int) -> void:
