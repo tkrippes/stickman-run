@@ -17,6 +17,8 @@ signal position_updated(position: Vector2)
 @export var speed_multiplier: float = 1.02
 ## The player's acceleration used to smooth out the player's speed.
 @export var acceleration: float = 5.0
+## The player's acceleration used to smooth out the player's speed for the secret ending.
+@export var secret_end_acceleration: float = 1.2
 ## The player's jump speed.
 @export var jump_speed: float = -150.0
 ## The gravity multiplier applied when the player is jumping. This allows the player to jump higher when holding the jump button. 
@@ -25,6 +27,7 @@ signal position_updated(position: Vector2)
 @onready var _animation: AnimatedSprite2D = $AnimationSprite
 @onready var _jump_sound: AudioStreamPlayer = $JumpSound
 @onready var _wilhelm_scream_sound: AudioStreamPlayer = $WilhelmScreamSound
+@onready var _acceleration: float = acceleration
 
 var _run_speed: float
 
@@ -38,8 +41,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		_jump()
 
-	velocity.x = lerp(velocity.x, _run_speed, delta * acceleration)
-	if _run_speed > 0.0 and velocity.x < 0.1:
+	velocity.x = lerp(velocity.x, _run_speed, delta * _acceleration)
+	if _run_speed == 0.0 and velocity.x < 1.0:
 		velocity.x = 0.0
 
 	_handle_animation()
@@ -61,8 +64,7 @@ func start_running() -> void:
 
 func stop_running() -> void:
 	_run_speed = 0.0
-	# TODO: put in parameter
-	acceleration = 1.0
+	_acceleration = secret_end_acceleration
 
 
 func increase_speed() -> void:
@@ -105,7 +107,7 @@ func _reset() -> void:
 
 
 func _handle_animation() -> void:
-	if velocity.x > 0.0:
+	if velocity.x > 1.0:
 		if is_on_floor():
 			_animation.animation = "run"
 		else:
