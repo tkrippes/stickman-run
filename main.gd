@@ -109,8 +109,8 @@ func _game_won() -> void:
 	($SecretEndTimer as Timer).start()
 
 	game_won.emit()
-	
-	
+
+
 func _secret_end() -> void:
 	secret_end.emit()
 

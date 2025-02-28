@@ -10,13 +10,13 @@ signal player_scored(points: int)
 signal player_speed_updated(speed: float)
 ## The signal emitted when the player reaches the maximum run speed.
 signal player_maximum_speed_attained
-# TODO: documentation
-signal stop(player_position_x: int)
-
+## The signal emitted when the player stops running.
+signal player_stopped(player_position_x: int)
 @onready var _player: Player = $Player
 @onready var _player_speed_increase_timer: Timer = $Player/SpeedIncreaseTimer
 @onready var _coin_controller: CoinController = $CoinController
 @onready var _obstacle_controller: ObstacleController = $ObstacleController
+
 
 func _on_game_started() -> void:
 	_player.show()
@@ -31,32 +31,32 @@ func _on_level_started(level: int) -> void:
 	_obstacle_controller.delete_obstacles()
 	_obstacle_controller.set_obstacles_scenes(level)
 	_obstacle_controller.start_spawning()
-	
+
 	_coin_controller.delete_coins()
 	_coin_controller.set_spawn_rate(level)
 	_coin_controller.start_spawning()
-	
-	
+
+
 func _on_game_won() -> void:
 	_obstacle_controller.delete_obstacles()
 	_obstacle_controller.stop_spawning()
-	
+
 	_coin_controller.delete_coins()
 	_coin_controller.stop_spawning()
-	
-	
+
+
 func _on_secret_end() -> void:
 	_player.stop_running()
-	stop.emit(_player.position.x)
+	player_stopped.emit(_player.position.x)
 
 
 func _on_player_hit() -> void:
 	_obstacle_controller.delete_obstacles()
 	_obstacle_controller.stop_spawning()
-	
+
 	_coin_controller.delete_coins()
 	_coin_controller.stop_spawning()
-	
+
 	player_died.emit()
 
 
@@ -72,7 +72,7 @@ func _on_player_maximum_run_speed_attained() -> void:
 func _on_player_speed_increase_timer_timeout() -> void:
 	_player.increase_speed()
 	_emit_player_speed_updated()
-	
+
 	_obstacle_controller.increase_spawn_rate()
 
 

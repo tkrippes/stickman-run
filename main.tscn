@@ -32,6 +32,7 @@ one_shot = true
 [connection signal="score_updated" from="." to="GUI" method="_on_score_updated"]
 [connection signal="secret_end" from="." to="World" method="_on_secret_end"]
 [connection signal="secret_end" from="." to="GUI" method="_on_secret_end"]
+[connection signal="secret_end" from="." to="SoundController" method="play_eh_sound"]
 [connection signal="player_died" from="World" to="." method="_game_over"]
 [connection signal="player_fell" from="World" to="GUI" method="_on_player_fell"]
 [connection signal="player_maximum_speed_attained" from="World" to="GUI" method="_on_player_maximum_speed_attained"]

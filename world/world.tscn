@@ -36,8 +36,8 @@ rotation = 1.09956
 energy = 0.25
 
 [connection signal="player_died" from="." to="Player/SpeedIncreaseTimer" method="stop"]
-[connection signal="stop" from="." to="Player/Camera" method="_on_stop"]
-[connection signal="stop" from="." to="Foreground" method="_on_stop"]
+[connection signal="player_stopped" from="." to="Player/Camera" method="_on_player_stopped"]
+[connection signal="player_stopped" from="." to="Foreground" method="_on_player_stopped"]
 [connection signal="fell" from="Player" to="." method="_on_player_fell"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="maximum_run_speed_attained" from="Player" to="." method="_on_player_maximum_run_speed_attained"]
